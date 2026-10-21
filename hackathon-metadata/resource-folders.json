@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01a08ff1-541e-77c8-907c-cd065cbd6b81",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Start here",
+    "description": null,
+    "color": "#6366f1",
+    "sort_order": 0,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-11T10:09:12.730664Z"
+  },
+  {
+    "id": "01a08ff1-5426-76b2-9c68-8f7796f57df9",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Videos",
+    "description": null,
+    "color": null,
+    "sort_order": 1,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-11T10:09:12.730664Z"
+  },
+  {
+    "id": "01a08ff1-5430-75fd-9c25-1145e8b7aed1",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Rules and Requirements",
+    "description": null,
+    "color": "#0ea5e9",
+    "sort_order": 2,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-11T10:09:12.730664Z"
+  },
+  {
+    "id": "01a0f143-6285-7fe6-8fbe-872b58ccb961",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "NVIDIA",
+    "description": null,
+    "color": "#64748b",
+    "sort_order": 3,
+    "created_at": "2026-09-30T07:41:59.745542Z",
+    "updated_at": "2026-09-30T07:41:59.745542Z"
+  },
+  {
+    "id": "01a0f143-62a4-747f-83df-5fc9f7622a60",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Zetaris",
+    "description": null,
+    "color": "#64748b",
+    "sort_order": 4,
+    "created_at": "2026-09-30T07:41:59.745542Z",
+    "updated_at": "2026-09-30T07:41:59.745542Z"
+  },
+  {
+    "id": "01a0f143-62d0-74c1-976b-230869c1cd07",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Cursor",
+    "description": null,
+    "color": "#64748b",
+    "sort_order": 5,
+    "created_at": "2026-09-30T07:41:59.745542Z",
+    "updated_at": "2026-09-30T07:41:59.745542Z"
+  },
+  {
+    "id": "01a08ff1-5437-774e-88cf-9e98866eab42",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Meterless",
+    "description": null,
+    "color": "#64748b",
+    "sort_order": 6,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-30T07:42:00.427567Z"
+  },
+  {
+    "id": "01a08ff1-543f-7afc-89e9-9ab2d62001ca",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Builder Resources",
+    "description": null,
+    "color": "#ef4444",
+    "sort_order": 7,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-30T07:42:00.458906Z"
+  },
+  {
+    "id": "01a08ff1-5448-7b2c-b1a4-8b94abeadcec",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Templates",
+    "description": null,
+    "color": "#10b981",
+    "sort_order": 8,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-30T07:42:00.495483Z"
+  },
+  {
+    "id": "01a08ff1-5450-7f7d-8926-1afc4b81fc5b",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Demo and Submission Resources",
+    "description": null,
+    "color": "#8b5cf6",
+    "sort_order": 9,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-30T07:42:00.513674Z"
+  },
+  {
+    "id": "01a08ff1-5459-7379-8594-662f12649302",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Judge and Mentor Resources",
+    "description": null,
+    "color": "#14b8a6",
+    "sort_order": 10,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-30T07:42:00.532500Z"
+  },
+  {
+    "id": "01a08ff1-5464-7fe5-b1bd-2a8c9138c670",
+    "hackathon_id": "019fd164-82b9-7382-a536-d9093c576ed2",
+    "name": "Community and Support",
+    "description": null,
+    "color": "#f59e0b",
+    "sort_order": 11,
+    "created_at": "2026-09-11T10:09:12.730664Z",
+    "updated_at": "2026-09-30T07:42:00.547580Z"
+  }
+]

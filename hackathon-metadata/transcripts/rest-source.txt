@@ -1,0 +1,381 @@
+0:01 [music]
+0:04 >> Hello. I'm here to help you onboard your
+0:07 first data source into a Zettabyte
+0:09 system.
+0:10 Before we do that, I'd like to give you
+0:12 a quick walk-through of the Zettabyte
+0:14 user experience.
+0:15 This is the home page. Quickly at a
+0:17 glance, you can get a view of your data
+0:19 sources,
+0:20 workbench facilities that help you
+0:22 manipulate your data, whether it's a
+0:23 pipeline, a query builder, or the SQL
+0:25 workspace where you can manually type in
+0:27 SQL, and then data products which are
+0:29 released from the Zettabyte platform to
+0:31 consumers like AI agents and BI tools,
+0:34 virtual data mart and unified semantic
+0:35 layers.
+0:36 In the spirit of batteries included,
+0:38 Zettabyte ships with the TPCH data that
+0:42 includes a number of tables like the
+0:44 customer table. Let's take a quick look
+0:46 where I can do a preview. And as with
+0:49 any data source, once it's been
+0:50 integrated and connected into the
+0:52 system, you can do a quick preview of
+0:53 the system,
+0:55 or you can actually do a SQL query and
+0:57 use it obviously in the pipeline. So,
+0:59 let me go back to the home page here.
+1:01 At this point, what we're going to do is
+1:03 we're going to add a REST API and
+1:06 transform it into a SQL table, and then
+1:08 perform a series of queries against that
+1:10 data so that we can see we can take a
+1:12 REST API and turn it into something
+1:14 that's usable via SQL again for AI
+1:17 agents, other applications you might
+1:19 build, and BI tools that might consume
+1:22 the Zettabyte system through REST and
+1:23 JDBC.
+1:25 So, I'm going to begin in my SQL
+1:26 workspace.
+1:28 And in my SQL workspace, you can see
+1:29 that we can type some plain here. So,
+1:31 I'm going to go ahead and get rid of
+1:32 that. I'm going to start a new query.
+1:34 I'm going to name this query, save it.
+1:37 We're going to call it
+1:38 uh
+1:39 company
+1:41 company uh DNS.
+1:44 And what this is going to contain is and
+1:46 this is going to be the create uh
+1:48 version. This is going to contain some
+1:50 scripts,
+1:51 uh SQL scripts in particular, that are
+1:53 going to attach the REST data source,
+1:55 flatten the JSON structure, and then
+1:58 we're going to be able to do some quick
+1:59 verification. So, it's going to add the
+2:01 source, which we'll look at, and then
+2:02 it's going to create a view that we'll
+2:04 basically operationally engage with.
+2:07 We'll go ahead and save that, so that'll
+2:08 be saved and made available. Before we
+2:10 get started on this path, I just want to
+2:12 show you what this REST API looks like.
+2:14 This REST API, basically company DNS, is
+2:18 uh an open platform that provides things
+2:21 like standard industry classification or
+2:23 industrial classification codes from the
+2:25 United States, the UK,
+2:27 uh the UN, basically the EU, and Japan.
+2:30 It also includes company data from
+2:32 Wikipedia and Edgar, and then it's
+2:34 something that merges both of these
+2:35 sources.
+2:36 I'm going to quickly go over to the
+2:37 Swagger UI here. And uh what you'll see
+2:41 is I've actually done a query. I'm going
+2:43 to make sure that you see this number of
+2:45 uh 1,005.
+2:46 Uh you can see this curl uh code that
+2:49 would be run on a command line to
+2:50 verify, you know, the same RESTful call.
+2:53 Let's just go ahead and uh shift over
+2:55 here. You see I've already done this
+2:57 before. Let me clear the screen. I'm
+2:59 going to run this curl command and pipe
+3:00 it to jq, so that way you know this the
+3:03 actual service is alive, and you're
+3:05 going to quickly see that um I'm getting
+3:07 the same number of rows, 1,005 records.
+3:10 And um see what the records look like.
+3:12 Basically, they they have a number,
+3:14 there's a description, division, so you
+3:15 can get a sense of how you might want to
+3:17 lay the columns out uh in some sort of a
+3:20 data repository. So, in order to uh
+3:23 engage here, let's let's actually change
+3:25 back. I need to uh go to my Zataris
+3:28 getting started repository. I have a uh
+3:31 a company DNS
+3:33 um
+3:34 uh create script and select script. Uh
+3:37 so, I'm just going to go ahead and uh
+3:38 copy the entire create uh SQL script
+3:42 here. I'm going to go back to my uh
+3:44 Zataris SQL
+3:47 um
+3:47 editor here. Uh select and paste, and uh
+3:51 save this again, so I have it for future
+3:53 use.
+3:54 And we're going to take a quick step
+3:55 through here and talk about what this
+3:56 does. First thing that I'm doing is
+3:58 creating a container,
+4:00 um and it the container has a
+4:02 description. Again, let me close this
+4:04 off. You can see I don't have any uh
+4:06 file source API, so I'm going to select
+4:08 the SQL statement, then I'm going to
+4:10 execute it, and I can either press the
+4:12 play button, or I can hit command and
+4:14 enter. So, if I go look, I'm going to
+4:16 see that I have a new container. There's
+4:17 nothing in it right now. The next thing
+4:20 I'm going to do is I'm going to attach,
+4:22 you know, so we we ran this query. We
+4:23 just saw in the terminal. We saw it in
+4:25 Swagger. We saw the service. Uh I will
+4:28 need to change this, so I'm going to
+4:30 say, uh just I I log in here. Um so,
+4:34 call this, you know, the Zataris admin.
+4:37 Then I want to change this to
+4:38 admin@zataris.com.
+4:41 Oops.
+4:45 Yep. Okay. So, that just needs to be set
+4:47 for hygiene, and some of the other APIs
+4:49 actually do require it. So, what this is
+4:51 going to do is it's going to have this
+4:53 uh get func get call specify the
+4:56 response type as JSON, and then we're
+4:58 going to specify the user agent, okay?
+5:01 So, we'll create this uh REST table
+5:03 here. Um
+5:05 and we'll take a look at that in the
+5:07 right-hand screen. So, we'll see, you
+5:09 know, now it exists.
+5:11 Uh if you go look, I've got code, data,
+5:13 dependencies, message, and you know,
+5:15 what's interesting is if I wanted to
+5:16 take a look at this, if if I did kind of
+5:18 a preview, uh this is not the data that
+5:20 we looked at before, right? The data
+5:22 that we looked at before uh was fairly
+5:26 um
+5:27 you know, rich and robust. So, it's
+5:29 taking a minute to run a preview. I
+5:30 guess it's doing sort of a a query.
+5:33 Um
+5:35 you can see what I I talked about,
+5:37 right? The it's it's not very flat.
+5:39 There's the dependencies, the message
+5:41 itself um
+5:43 is uh
+5:45 not quite what we're after, right? In
+5:46 fact, if I looked right here, I probably
+5:48 would see that I get this expanded data
+5:50 set, the exploded data. So, the the
+5:51 question is, how do we get this data in
+5:53 a structure we can use and query
+5:55 against? Okay? Uh for the purposes of
+5:57 speed, you can saw you can see that it
+5:59 took a minute to access
+6:02 the system, so it had to do a rest call
+6:03 fetching all 1,000 rows. What we're
+6:06 going to do is go back to our SQL
+6:07 workspace, and we have this cache
+6:08 function here. This cache function is
+6:10 basically going to put a copy of that
+6:12 entire rest call, the 1,005 rows, in
+6:14 memory. It will take a minute to
+6:16 execute,
+6:17 and this makes it just local to the
+6:19 system, so that way subsequent calls to
+6:21 it are much faster.
+6:23 Uh next step is going to create what we
+6:25 call a container in our schema store.
+6:28 So, this is preparing us to produce a
+6:30 view and flatten it. So, I'm going to
+6:32 come down here. I'll be able to see if I
+6:33 look at view, I now have a new
+6:36 container or folder called company DNS.
+6:39 Now, this is the the business end, if
+6:41 you will, of the the create operation.
+6:43 This is creating a schema store or view
+6:46 on which is we're going to call SIC
+6:47 codes table with the container company
+6:49 DNS as select. And so, it's performing a
+6:52 a select of
+6:54 the code, the description, the division,
+6:57 the division description, and so on,
+6:58 right? And then what's going to what
+7:00 it's going to do, so it's selecting from
+7:02 company DNS
+7:04 SIC codes raw. That's the actual table
+7:07 that we created, and it's going to
+7:08 explode. We're going to do a from JSON
+7:10 data.sics, and it's going to do this
+7:12 this map operation that basically takes
+7:15 the the the different elements and turns
+7:18 them basically into a table, okay? So,
+7:20 if I execute this,
+7:24 right? Came up very quickly, moved very
+7:26 fast. What I'm going to find is I have
+7:28 this SIC code table, okay? So, we stored
+7:31 the SQL here. What's interesting is if I
+7:33 go to a preview, come back pretty
+7:35 quickly. If you recall, let me come back
+7:37 over here to the terminal. We had all of
+7:39 these data here. Very interesting, like,
+7:41 you know, 9661. So, see if we have a
+7:43 1001 probably at the very top. Here,
+7:46 let's go take a look fairly quickly. See
+7:47 if I can get to 1001.
+7:49 Maybe we exhausted the bus the buffer.
+7:52 Uh so, 0111.
+7:55 Uh
+7:56 here we go. So, description wheat A like
+7:58 just go take a peek here. There it is.
+8:00 You can see it sort of aligned. So, I
+8:02 have, you know, the same thing here. So,
+8:04 what we've done is we've flattened that
+8:06 data uh in in the rest table to
+8:09 basically be able to take advantage of
+8:12 uh of Zytorus or enable someone to take
+8:14 advantage of this data as positioned
+8:16 through Zytorus.
+8:17 Well, you know, I want to do a little
+8:18 bit more just to explore this data set.
+8:20 So, I do have a series of selects. This
+8:22 is company DNS correct uh create. So,
+8:25 I'm going to create a new new query. I'm
+8:27 going to save it as well. We're going to
+8:29 call it um
+8:31 company Oops.
+8:36 company DNS under underscore selects,
+8:40 okay?
+8:41 And uh there's a companion set of uh SQL
+8:44 scripts here uh for selects. And this is
+8:47 really about uh taking and telling
+8:49 stories with your data, right? So, we're
+8:52 going to copy this here as well.
+8:55 Uh we're going to head back here to our
+8:57 SQL workbench. We're going to paste it.
+9:00 And then I've got a series of these
+9:01 queries here that begin to answer and go
+9:03 ahead and save it. Uh
+9:05 ask answer questions, right? So, I've
+9:07 got I want to look at the total SIC
+9:08 codes and how many distinct divisions
+9:10 and major groups or industries
+9:12 uh and what they roll up into. So, this
+9:14 is going to be a a select count and a
+9:16 series of kind of counts on the SIC
+9:18 codes table view that we just created.
+9:20 So, let's go ahead and run that. I'll
+9:21 see the results down here.
+9:24 You can see I've got 1005 rows. There
+9:26 are 10 divisions, 83 major groups, and
+9:28 416
+9:30 uh industry groups. Now, I want to look
+9:32 at the number of SIC codes per division
+9:34 ranked and you know, which division has
+9:36 the broadest coverage?
+9:38 Uh manufacturing, this is division D is
+9:40 expected, but let's find out if that's
+9:42 true. I might want to do this because
+9:44 I'm I'm trying to classify companies,
+9:46 right? Uh you can see how it shows up.
+9:48 We have manufacturing and then services
+9:50 and then it falls off fairly quickly. Uh
+9:52 the smallest number is construction, uh
+9:54 which is interesting. Then we're looking
+9:56 for the 10 most granular groups and
+9:58 which two-digit major groups contain the
+10:00 most four-digit SIC codes, okay?
+10:03 So, let's take a look at that.
+10:05 Query number three.
+10:07 Again, we're accessing this cached copy
+10:10 of Company GNS, so it's going to be
+10:11 fairly responsive. So, I can see the
+10:13 major groups. I can see the description
+10:15 of the groups, the division, and the SIC
+10:17 code count. Um Now, we're going to look
+10:20 at industry group diversity per
+10:22 division, which is which division spans
+10:24 the most distinct industry groups.
+10:26 Let's run that query.
+10:30 Give me a minute.
+10:32 Same thing. I can sort of look at
+10:34 division D, manufacturing, and it's got
+10:36 140 distinct groups. Now, something I
+10:39 want to call your attention to, you can
+10:41 look at how Zataris actually will
+10:43 execute, see this clear query plan here,
+10:46 execute a query. If I click on this
+10:48 plan, then what that's going to do is
+10:50 it's going to tell you the process it
+10:52 will undertake before it actually
+10:55 executes. And you can sort of see the
+10:58 uh the explode operation here to be able
+11:00 to talk to it. And then, um what we'll
+11:03 see is if we look a little further, um I
+11:05 believe we're going to find that uh
+11:08 we're using a cached copy someplace. Not
+11:11 going to be able to find it right at the
+11:12 top of my head, but you can kind of work
+11:13 your way through it and figure out where
+11:15 you can see the reference to a cache.
+11:17 But, you see this stepwise process to
+11:19 take it from the parse logical plan,
+11:21 analyzing the logical plan, and optimize
+11:23 logical plan, then the physical plan
+11:24 where it actually performs the
+11:25 execution. So, let's come back to our
+11:27 results. I'm going to go ahead and
+11:28 execute this. You press the uh play
+11:30 button up here. Remember, I've got a
+11:31 stop button that can go
+11:33 uh associated to that as well. Again,
+11:35 we're asking every SIC code whose
+11:37 description mentions computer, right?
+11:39 So, that's what this
+11:41 particular query is. I can see all of
+11:43 the codes associated to that in the
+11:44 division description.
+11:46 Right? Now, I'm going to do the same
+11:47 search
+11:49 uh but look for software. Okay?
+11:52 Probably a smaller number. There we go.
+11:54 Smaller number, three it looks like uh
+11:57 software. And then um we're going to
+12:00 look for one representative SIC code per
+12:02 division.
+12:03 Uh alphabetically first description in
+12:05 each division.
+12:09 And we can see what results.
+12:12 A, B, C, D, and E division A, etc. I can
+12:14 sort of get the representative results
+12:17 of that. And then we're going to do a
+12:19 little bit of a data quality check uh on
+12:21 self-consistency. We're confirming every
+12:23 SIC code rolls up under the same major
+12:25 group and agrees on that major group's
+12:26 description.
+12:36 And we expect to zero rows back cuz
+12:39 we're looking for consistency or
+12:40 inconsistency. Right? So, we got what we
+12:43 we anticipated. Again, you can sort of
+12:45 see the tables from this exploded view
+12:48 uh or the table over here in this view.
+12:49 You can see the columns associated to
+12:51 that. Again, just a reminder, we had a
+12:54 container and then I had a raw table
+12:56 here, which is the actual rest
+12:58 connection. I ran these create uh
+13:00 functions to basically create um the
+13:05 container, the raw access, cache, and
+13:08 then create the seamless raw view. And
+13:10 then I ran a series of uh SQL scripts or
+13:13 SQL statements to basically uh answer
+13:16 questions that I might have about the
+13:18 data itself.
+13:20 That's all.
+13:22 Thank you very much.
+13:26 >> [music]
+13:27 >> Oh.

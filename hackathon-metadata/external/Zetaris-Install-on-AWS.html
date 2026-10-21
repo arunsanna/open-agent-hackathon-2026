@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zetaris onboarding: get access, connect, verify your first dataset, build a project and prepare a reproducible demo.">
+  <title>Managed AWS cluster · Zetaris getting started</title>
+  <script src="../../assets/theme.js"></script>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="../../index.html"><span class="brand-images"><img class="brand-logo logo-light" src="../../assets/brand/zetaris-indigo.svg" alt="Zetaris" width="747" height="207"><img class="brand-logo logo-dark" src="../../assets/brand/zetaris-reversed.svg" alt="Zetaris" width="747" height="207"></span><span class="brand-label">Getting started</span></a><div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.7 8.7 0 0 1 10.8 3.5 8.7 8.7 0 1 0 20.5 13.2Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="github-link" href="https://github.com/zetaris/getting-started">View repository <span aria-hidden="true">&nearr;</span></a></div></header>
+  <div class="shell">
+    <aside class="sidebar"><nav class="desktop-nav" aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="../guides/first-dataset.html">Connect PokéAPI</a><a href="../guides/project-paths.html">Choose your project</a><a href="../guides/demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="../guides/recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="../guides/create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="../guides/troubleshooting.html">Troubleshooting</a><a href="../guides/zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="../guides/zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="choose-install.html">Choose an install</a><a href="updated_zetaris_installation_guide.html">Install locally</a><a href="aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="managed-aws-cluster-guide.html" aria-current="page">Managed AWS cluster</a></div></nav><details class="mobile-nav"><summary>Browse the guide</summary><nav aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="../guides/first-dataset.html">Connect PokéAPI</a><a href="../guides/project-paths.html">Choose your project</a><a href="../guides/demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="../guides/recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="../guides/create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="../guides/troubleshooting.html">Troubleshooting</a><a href="../guides/zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="../guides/zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="choose-install.html">Choose an install</a><a href="updated_zetaris_installation_guide.html">Install locally</a><a href="aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="managed-aws-cluster-guide.html" aria-current="page">Managed AWS cluster</a></div></nav></details></aside>
+    <main id="main" tabindex="-1"><div class="document-meta"><span>Getting started / Managed AWS cluster</span><a href="https://github.com/zetaris/getting-started/blob/main/docs/install/managed-aws-cluster-guide.md">Read source &nearr;</a></div>
+      
+      <article><h1 id="managed-aws-cluster">Managed AWS cluster</h1>
+<p>Create a Zetaris compute cluster in your AWS account, sign in to its Gateway and run a query.</p>
+<p>For Docker Compose on your own computer, see <a href="updated_zetaris_installation_guide.html">Install locally</a>. Not sure which route to take? See <a href="choose-install.html">Choose an install</a>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<ul>
+<li>Sign in to Zetaris Cloud Gateway and the AWS account that will own the resources. A <strong>new AWS account on the Free Tier</strong> is the best choice: set one up with the <a href="aws-free-tier-checklist.html">AWS Free Tier checklist</a> and the cluster draws on your free credits. An existing account also works, but AWS bills it normally. See <a href="#costs-and-the-aws-free-tier">Costs and the AWS Free Tier</a>.</li>
+<li>In the AWS Billing and Cost Management console, check which plan the account is on and what credit balance it has.</li>
+<li>Use an AWS identity with permission to create and delete the supplied CloudFormation stack and its resources. Review the IAM permissions requested by the stack with your AWS administrator if needed.</li>
+<li>Review the AWS cost notice under <strong>Compute &gt; Credentials</strong>. It is the authority for the estimate for your account, and depends on its stated region, date and assumptions.</li>
+</ul>
+<h2 id="costs-and-the-aws-free-tier">Costs and the AWS Free Tier</h2>
+<p>The Zetaris developer/free edition is scoped to the size available on each platform, and Zetaris does not charge for storage. The cost of this guide is the AWS resources it creates, and AWS bills those to your AWS account, separately from Zetaris. What that means depends on the account:</p>
+<ul>
+<li><strong>A new account on the AWS Free plan.</strong> AWS does not charge you while you are on the Free plan. The resources draw on your credits instead: $100 at sign-up plus up to $100 from five activities (see the <a href="aws-free-tier-checklist.html">checklist</a>). The Mini cluster in this guide runs on a Free plan account. In Zetaris testing, a Mini cluster running non-stop for about a week used roughly $80 of the credits, so a five-day event fits comfortably within $200. Your usage depends on the region and how long you leave it running, so check the balance as you go.</li>
+<li><strong>The Free plan has an end date.</strong> It ends after six months or when the credits are used, whichever comes first. AWS then closes the account, keeps its content for 90 days, and lets you upgrade to a Paid plan in that time. Plan to delete your cluster and its stack well before then.</li>
+<li><strong>An existing or standard account.</strong> The free credits do not apply. AWS account setup creates networking, a storage bucket and access roles, and billable resources can incur charges from setup completion until you delete them, even when no compute cluster is running. Suspending a cluster does not remove the account setup or retained storage.</li>
+</ul>
+<h2 id="1-add-and-verify-your-aws-account">1. Add and verify your AWS account</h2>
+<ol>
+<li><p>In Zetaris Cloud Gateway, open <strong>Compute &gt; Credentials</strong>. The page is titled <strong>AWS Accounts</strong>.</p>
+</li>
+<li><p>Click <strong>Add AWS Account</strong>, select <strong>Quickstart</strong>, enter a friendly name for the account and click <strong>Continue</strong>.</p>
+</li>
+<li><p>Choose <strong>US West (N. California), <code>us-west-1</code></strong>, the recommended region for this guide. Review the displayed AWS cost information, then click <strong>Launch Stack</strong>.</p>
+</li>
+<li><p>The AWS Console opens in a new tab on <strong>Quick create stack</strong>, with the template and parameters filled in. Check that you are signed in to the intended AWS account and that the region and stack details match the setup.</p>
+</li>
+<li><p>Leave optional tags, IAM service role and other settings at their defaults. Review <strong>Capabilities</strong>. Tick the acknowledgement that CloudFormation may create IAM resources with customised names, then click <strong>Create stack</strong>.
+Zetaris may show &quot;Your stack is being created&quot; before you submit the AWS form.</p>
+</li>
+<li><p>Follow the stack&#39;s progress in CloudFormation. Wait for the stack to reach <code>CREATE_COMPLETE</code>.</p>
+</li>
+<li><p>Return to the Zetaris setup tab. <strong>Launch Stack</strong> automatically advances it to <strong>Waiting for AWS</strong>, then the callback opens <strong>Verify AWS Account</strong>. Wait for <code>CREATE_COMPLETE</code> before clicking <strong>Verify</strong>. If you remain on the region page, use <strong>I&#39;ve already launched the stack</strong> to continue.</p>
+</li>
+<li><p>After verification succeeds, click <strong>Done</strong> to save the configuration.</p>
+</li>
+<li><p>Confirm that the account appears under <strong>Compute &gt; Credentials &gt; Active</strong> with status <strong>Verified</strong>. It is now available for cluster creation.</p>
+</li>
+</ol>
+<p>Keep the stack name and region with your session notes. You will need the corresponding stack during teardown. If creation or verification fails, inspect the CloudFormation events and the Zetaris verification message before continuing.</p>
+<h2 id="2-create-your-compute-cluster">2. Create your compute cluster</h2>
+<ol>
+<li>Open <strong>Compute &gt; Clusters</strong> and click <strong>Create Cluster</strong>.</li>
+<li>In <strong>AWS Account</strong>, select the verified Quickstart account you just added.</li>
+<li>Enter a <strong>Cluster Name</strong>. Keep this name for the deletion confirmation later.</li>
+<li>Choose <strong>Mini</strong> for the <strong>Spark cluster size</strong>. This trial configuration has two nodes and four vCPUs in total.</li>
+<li>Review <strong>Networking</strong>. For a Quickstart account, the form reads the VPC and subnets from the CloudFormation stack outputs, so you do not need to select them manually.</li>
+<li>Under <strong>Lightning Access</strong>, enter the required <strong>Lightning Admin Email</strong>.</li>
+<li>Review the configuration and cost information shown for your account and selected size, then click <strong>Create Compute Cluster</strong>.</li>
+<li>Open the cluster&#39;s <strong>Lifecycle</strong> tab and wait for all seven provisioning stages to succeed. Continue when the cluster is <strong>Active</strong>.</li>
+</ol>
+<p>Allow approximately <strong>30 minutes</strong> for provisioning. Keep the Lifecycle page open to follow progress. If a stage fails, use its displayed error and the cluster&#39;s events to resolve the failure before connecting.</p>
+<h2 id="3-connect-to-the-gateway-and-run-a-query">3. Connect to the Gateway and run a query</h2>
+<ol>
+<li>Open <strong>Compute &gt; Clusters</strong>, select your cluster and open <strong>Overview</strong>.</li>
+<li>Under <strong>Access</strong>, open the <strong>Sign-in URL</strong>. This opens the Gateway for this cluster.</li>
+<li>Under <strong>Organisations</strong> on the cluster Overview, find your organisation&#39;s administrator email and password. Use <strong>Copy password</strong> to copy the masked password. In the Gateway login, enter the administrator email in <strong>USERNAME</strong> and paste the password into <strong>PASSWORD</strong>, then click <strong>Sign In</strong>. Keep them private and out of source files, prompts and recordings you share publicly.</li>
+<li>In the Gateway, open <strong>Workbench &gt; SQL Workspace &gt; New Query</strong>. Find the <code>NY_TAXI</code> sample source under <strong>File Source &amp; API</strong> in the data explorer. Enter this query, then click <strong>Execute</strong>:</li>
+</ol>
+<pre><code class="language-sql">SELECT * FROM NY_TAXI.taxi_zones LIMIT 5;
+</code></pre>
+<ol start="5">
+<li>Confirm that the result contains <strong>five rows</strong>. If <code>NY_TAXI</code> is absent, check the sample sources supplied with your deployment before continuing.</li>
+</ol>
+<p>The <strong>Access</strong> section also supplies the cluster hostname and <strong>JDBC endpoint</strong>. If you connect a client or coding assistant, copy the endpoint from your own cluster and follow <a href="../connections/client-setup.html">Client setup</a>. Use the cluster&#39;s organisation credentials rather than the credentials from a local Docker installation.</p>
+<p>Check the cluster&#39;s <strong>Schedule</strong> if you need it to remain available during your session. A scheduled suspension or the <strong>Suspend</strong> action pauses compute availability; it does not complete AWS cleanup.</p>
+<h2 id="4-delete-the-compute-cluster">4. Delete the compute cluster</h2>
+<ol>
+<li>In Zetaris Cloud Gateway, open <strong>Compute &gt; Clusters</strong> and select your cluster.</li>
+<li>Click <strong>Delete</strong>. In <strong>Delete compute?</strong>, read the warning and type the exact cluster name shown in the dialog, then click <strong>Delete</strong> to confirm.</li>
+<li>Follow <strong>Lifecycle &gt; Termination Steps</strong> while the status is <strong>Terminating</strong>. The displayed stages are <strong>Draining nodes</strong>, <strong>Deleting cluster</strong> and <strong>Releasing resources</strong>.</li>
+<li>Allow approximately <strong>15 minutes</strong> for termination. Wait until all three stages succeed and the cluster status is <strong>Deleted</strong>. Return to <strong>Compute &gt; Clusters</strong> and confirm that this cluster is no longer in the active list.</li>
+</ol>
+<p>The deleted cluster detail page remains available for billing reconciliation, with lifecycle, events and configuration history preserved.</p>
+<p>Cluster deletion terminates its EKS cluster and associated IAM roles. The confirmation dialog explicitly says that EFS and S3 are preserved. Keep any data you need before proceeding with the AWS account cleanup below.</p>
+<h2 id="5-delete-the-cloudformation-stack-and-mark-the-credential-deleted">5. Delete the CloudFormation stack and mark the credential deleted</h2>
+<p>Do this after the compute cluster has finished terminating. If other active clusters use the same AWS credential configuration, finish their teardown before removing that shared setup.</p>
+<ol>
+<li>Open <strong>Compute &gt; Credentials</strong> and find the AWS account used by the cluster. Click its delete icon.</li>
+<li>The confirmation dialog displays the <strong>Stack name</strong> and <strong>Region</strong>. Click <strong>Open in AWS CloudFormation</strong> to open that exact stack in a new tab.</li>
+<li>In AWS, check the account, region and stack name against the Zetaris dialog. Click <strong>Delete stack</strong>.</li>
+<li>Read the AWS deletion warning. Leave optional <strong>Express mode</strong> disabled, enter the stack name when prompted and confirm <strong>Delete stack</strong>. AWS deletes stack resources according to their deletion policies.</li>
+<li>Wait for the stack status to reach <code>DELETE_COMPLETE</code>. If it reaches <code>DELETE_FAILED</code>, inspect the stack&#39;s <strong>Events</strong> and resolve the reported resource issue before continuing.</li>
+<li>Return to the Zetaris credential deletion dialog and click <strong>Mark Deleted</strong>.</li>
+<li>Confirm that the credential no longer appears under <strong>Active</strong>. Use the <strong>Deleted</strong> tab to review deleted configurations.</li>
+</ol>
+<p>Zetaris cannot delete this CloudFormation stack for you. You must use your own AWS identity. <strong>Mark Deleted</strong> records the credential&#39;s deletion in Zetaris; it does not delete AWS resources.</p>
+<h2 id="6-retained-storage-and-charges">6. Retained storage and charges</h2>
+<p>The required teardown is complete when the cluster is <strong>Deleted</strong>, the CloudFormation stack has reached <code>DELETE_COMPLETE</code>, and the credential appears under <strong>Deleted</strong> in Zetaris.</p>
+<p>EFS and S3 storage can remain after this teardown. Deleting retained storage is optional and permanently removes any data it contains. AWS may continue charging for retained storage and other billable resources. On a Free Tier account, retained storage keeps drawing on your credits until you delete it. If the credits run out, or the Free plan reaches six months, AWS closes the account and deletes its content after 90 days unless you upgrade, so copy anything you need before then.</p>
+<p>To review your retained storage, record the <strong>EFS ID</strong> from the cluster <strong>Overview</strong>. Find the workspace bucket&#39;s physical ID under <strong>CloudFormation &gt; Resources &gt; WorkspaceS3Bucket</strong>. Review each resource in AWS before deciding whether to keep it.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>Lifecycle summary still says &quot;started&quot;.</strong> The summary can retain this wording after completion. Check the individual stages and final cluster status: all seven provisioning stages must succeed with <strong>Active</strong>, or all three termination stages must succeed with <strong>Deleted</strong>.</li>
+<li><strong>S3 Bucket is blank in Overview.</strong> Use <strong>CloudFormation &gt; Resources &gt; WorkspaceS3Bucket</strong> to find the bucket. A <code>DELETE_SKIPPED</code> status means CloudFormation retained it. The cluster&#39;s EFS file system is separate from the Quickstart stack and must be reviewed separately.</li>
+</ul>
+<p>Use the current AWS account notice and your AWS billing information for this workflow.</p>
+</article>
+      <footer>Built from the repository documentation. Use your own Zetaris instance, installed locally or deployed through AWS.</footer>
+    </main>
+    <aside class="outline" aria-label="On this page"><p>On this page</p><a class="depth-2" href="#before-you-start">Before you start</a><a class="depth-2" href="#costs-and-the-aws-free-tier">Costs and the AWS Free Tier</a><a class="depth-2" href="#1-add-and-verify-your-aws-account">1. Add and verify your AWS account</a><a class="depth-2" href="#2-create-your-compute-cluster">2. Create your compute cluster</a><a class="depth-2" href="#3-connect-to-the-gateway-and-run-a-query">3. Connect to the Gateway and run a query</a><a class="depth-2" href="#4-delete-the-compute-cluster">4. Delete the compute cluster</a><a class="depth-2" href="#5-delete-the-cloudformation-stack-and-mark-the-credential-deleted">5. Delete the CloudFormation stack and mark the credential deleted</a><a class="depth-2" href="#6-retained-storage-and-charges">6. Retained storage and charges</a><a class="depth-2" href="#troubleshooting">Troubleshooting</a></aside>
+  </div>
+</body>
+</html>

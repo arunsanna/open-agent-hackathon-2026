@@ -1,0 +1,350 @@
+0:01 [music]
+0:04 Hi, I'm here to show you how to quickly
+0:06 use a cloud code or similar coding
+0:08 harness to work with a Zatara system to
+0:11 first on board a couple of different
+0:14 data sources, build a unified semantic
+0:16 layer, and then provide a visual
+0:18 analysis of the system. To start with,
+0:20 let me show you that I have a blank Zara
+0:22 system. After a normal install either
+0:25 locally or in a mini version that would
+0:27 run in the Amazon free tier. This is the
+0:29 kind of system that you'll see up and
+0:31 running. The only thing that's available
+0:33 is the existing uh database asset that
+0:36 we have loaded in the system which is
+0:37 this TPCH data. You're going to find
+0:40 that I have nothing else on the system.
+0:42 Nothing in the SQL workspace. Nothing in
+0:43 the query builder or a pipeline. No
+0:46 unified semantic layers or virtual
+0:47 marts. We've walked through in other
+0:50 such videos kind of a little bit about
+0:51 the Zatara system. So, I'm going to skip
+0:53 that for this purpose. Now, I'm going to
+0:55 head over to Claude Claude Code. You can
+0:58 see I have a completely blank session.
+1:00 What I'm going to do is I have a series
+1:02 of prompts that have been pulled out
+1:03 from uh the GitHub repository. So, let
+1:06 me go show you where those are. Uh so,
+1:08 if I go take a look, I'm sorry, um at
+1:11 the GitHub repository, I've got these
+1:15 connection guides, right? And I've got
+1:16 one specific for Clawude Code. I also
+1:19 have a corresponding agents.md
+1:22 uh which is going to be a good guide for
+1:24 cloud code to look at. So I'm going to
+1:26 go to this cloud code connection here. I
+1:28 want to take pick up this JDBC starter
+1:30 prompt. So let me copy that directly and
+1:33 I'm going to head back over to cloud
+1:35 code. Uh paste that starter prompt in
+1:38 just clean it up a little bit. And this
+1:41 is going to use uh helper scripts. uh
+1:44 this is going to use uh some other
+1:46 guides like you know agent MD uh in the
+1:49 actual repository and of course this
+1:51 cloud code instance I should say in
+1:52 advance is uh is basically designed
+1:56 particularly uh to to uh attach to this
+1:59 getting started repository so I have a
+2:01 local copy of it checked out okay so I'm
+2:03 going to use the direct goal here which
+2:05 is to advocate activate the USL uh or
+2:10 I'm sorry onboard these data assets from
+2:12 company DNS and ED Edgar and then uh
+2:15 create and activate the USL on the top.
+2:17 We want to issue a dry run to make sure
+2:20 everything's good before we get started.
+2:22 Uh and we're just going to go ahead and
+2:24 uh let the prompt go by itself. It's
+2:27 going to take a minute for it to run,
+2:29 maybe two or 3 minutes or so. Uh it's
+2:31 basically going to look and let's just
+2:33 uh open this up. It's going to find, you
+2:35 know, that things failed. Uh and it will
+2:38 need basically the full path of the JDBC
+2:41 jar. So I'm going to go ahead and give
+2:42 them that. And that way you can kind of
+2:44 proceed. And it's going to ask for a few
+2:46 different permissions. So let me let me
+2:47 go over here. You can see I've got the
+2:49 full path uh on my local system. I'm
+2:52 going to go ahead and provide that. It's
+2:54 asking for two things. So I'm going to
+2:56 give it those two things. Uh path is
+3:00 here. That's where the JDBC driver is.
+3:02 And the Zarus getting started repository
+3:04 does not ship with the JDBC driver. Uh
+3:06 but if you install locally as I've done
+3:09 here, when you do the installation,
+3:11 you'll actually find that the JDBC
+3:13 driver is included. Uh so as a result,
+3:15 you will need to point it to that
+3:16 directory. It'll take care of things uh
+3:18 under the cover. And uh I got to give it
+3:21 uh permission uh to uh get going with uh
+3:26 actually executing and creating uh the v
+3:28 the the Vimv and uh using uh JDP uh API,
+3:33 right? uh you can see some of the things
+3:35 that it's it's already checked. Uh but
+3:38 with those things in in mind, it's going
+3:40 to go ahead and continue along the
+3:42 journey.
+3:43 So, here we go. So, it's creating the
+3:45 VNV. Let's just kind of take a look at
+3:47 what it's doing. Um you can see it says
+3:50 there's a path with the one jar in it.
+3:52 Now, it's saying that pre-flight has
+3:53 passed and it's going to do a dry run of
+3:56 the onboarding. So, that means it's
+3:57 going to try and attach to the Zatara
+3:59 system uh by running uh the create
+4:02 scripts and list statements. Okay. So
+4:04 then it's going to tell you um here's
+4:07 what I'm going to do, right? I'm going
+4:09 to uh do all these creates. Uh it's
+4:12 going to create some additional views
+4:14 for several company profiles. Uh and
+4:17 it's going to ask it to run it over
+4:19 JDBC. I'm going to say yes. Uh run this
+4:22 over JDBC. Right.
+4:26 So it'll take a bit for that to run.
+4:30 We'll just wait here for that. we can
+4:31 kind of watch its process,
+4:34 right? So, here we go. So, it's running
+4:36 a Python or running the onboarding
+4:39 um picking up the the onboarding script.
+4:43 Run the USL um looking at the JDBC
+4:47 channel and kind of uh cutting and
+4:49 tailing the output.
+4:55 So, we just have to wait for it to
+4:57 execute. It will take a little while.
+5:00 All right. So, we can see all the steps
+5:03 it took. All 44 statements ran uh
+5:06 without error. Now, it's going to verify
+5:08 row counts and perform a data quality
+5:10 check. Uh little bit of a preview, it is
+5:14 going to find an error with one of the
+5:16 companies. And for background uh if you
+5:18 wanted to look at this USL uh a little
+5:21 bit of a a business uh setup that I
+5:24 missed is if you if you think about the
+5:26 Edgar data set. The Edgar data set
+5:29 includes
+5:30 information about um you know public
+5:32 listed companies in the United States as
+5:33 governed by Securities and Exchange
+5:35 Commission. That data includes a
+5:39 standard industrial classification code
+5:41 number and description. But if you look
+5:43 a little further into those industrial
+5:45 classification codes, what you're going
+5:47 to find is actually a fairly rich
+5:48 hierarchy. So in another one of these
+5:51 videos, I showed how it was possible to
+5:53 onboard through company DNS the sik data
+5:56 set. So our mission here is to basically
+5:58 expand the complete hierarchy for these
+6:01 companies. So you know maybe you have a
+6:03 better idea of where the companies sit
+6:06 and can do interesting things like maybe
+6:08 connect to graph processing or you know
+6:10 look at the ontology. Um it gives you an
+6:13 ability to kind of look at more detail
+6:16 uh when it comes to how these these
+6:17 different industries or companies relate
+6:19 to specific industries.
+6:23 So running it's running the the
+6:24 verification queries at this stage. We
+6:26 can kind of take a look at that
+6:30 on select verification script running
+6:32 USL verification script
+6:35 ran verification queries. Uh it's
+6:37 running the verification queries and
+6:38 data quality check now. So again, this
+6:40 is where we're going to find that IBM
+6:42 probably there's a a bit of an error uh
+6:45 when it comes back and we'll catch that.
+6:47 I'll do something fun here at the end to
+6:49 kind of surface that analysis in a way
+6:51 that a human being can can consume. Um
+6:54 and then we'll head back after this uh
+6:56 finishes to take a look at the Zatarus
+6:58 user experience and see and verify the
+7:01 setup occurred. Right. Uh found like I
+7:04 said in found this invalid record IBM uh
+7:08 this is a central indexing key was what
+7:10 that's called uh in the SEC's world uh
+7:14 at Edgar and then you got the standard
+7:15 industrial classification code of 3570.
+7:18 So it says it couldn't find it had one
+7:20 invalid record after it ran the data
+7:22 quality rule. So, um, what we're going
+7:25 to do is we're going to run and I have a
+7:26 a prompt actually that I'm going to pick
+7:29 up from a text edit here that I think is
+7:32 quite interesting. Um, so we're going to
+7:34 do a little bit of a visualization
+7:36 prompt here.
+7:38 You pick that up because I think it's
+7:40 it's quite interesting. And what it does
+7:41 is it it gives you an understanding of
+7:44 the data itself. Kind of that that nice
+7:46 presentation. Uh, so, you know, I'm
+7:48 going to I'm going to ask it. You can
+7:50 kind of just have a little fun here. I'm
+7:51 going to say uh browse my website here,
+7:55 the Zatarus website,
+7:58 and uh and be inspired by the brand,
+8:01 right? That's here. So then uh just a
+8:04 couple things for for Claude to kind of
+8:06 uh know, you know, what it's doing. Uh
+8:08 we want to make sure that I've got um
+8:11 the visualization's not messy with, you
+8:13 know, bad things happening. Uh you can
+8:16 see here we need to run uh kind of a an
+8:20 analysis of the USL
+8:22 uh and the included tables and then
+8:25 we're asking for a data topology or to
+8:28 show where the data's come from which is
+8:29 obviously from a couple of REST sources
+8:31 and an erd for the USL. That'll be
+8:33 important later as we kind of do
+8:34 verification for what's built in
+8:36 Zitarus. So we're going to let this run.
+8:38 and it's going to create um probably
+8:40 something like a sample web page uh or
+8:43 you know a visualization within claw
+8:45 that uh reveals kind of what it's up to.
+8:47 Uh does a pretty good job at this. Let's
+8:49 just wait again.
+8:52 We can expand this and kind of see what
+8:54 commands it's running.
+8:56 It's gathering the stats from the USL
+8:58 and the source endpoint. So it's, you
+9:00 know, talking to the Zatara system. It's
+9:02 like creating a little on demand mini BI
+9:05 uh tool, if you will.
+9:10 Just a little bit longer here.
+9:15 All right, we can see it's actually
+9:16 creating or rendering now for us.
+9:20 Just another couple minutes or less.
+9:23 All right, so it created the
+9:25 visualization. Here we go.
+9:28 Let's go ahead and expand this out
+9:33 and change the how it looks to match the
+9:35 Zitarus website.
+9:43 Okay.
+9:52 All right. So fully fleshing things out,
+9:55 verifying because I asked it to look at
+9:57 the quality.
+10:02 It created an erd here for us
+10:06 and it's looking at the web page itself.
+10:11 Right? So that's why it's doing a cross
+10:13 verification in its local web browser.
+10:16 Right? It says it saved it in docs.
+10:21 Looks like it's done. So, I'm going to
+10:23 close the embedded web browser here.
+10:25 We're going to take a look at this
+10:26 visualization. Expand it out. We can see
+10:28 our 105 rows that uh come from the the
+10:32 sick codes in uh the actual sit code
+10:34 table that it created. There's seven
+10:36 companies uh that were created in Edgar.
+10:38 I can see I've got 10 divisions, 83
+10:40 major groups, 416 industry groups.
+10:43 Six out of seven companies pass the
+10:45 foreign key rule.
+10:48 I can get a sense of uh the company
+10:51 tables and the sick code tables. That's
+10:53 what this describes. You can see where
+10:55 sick codes fit and also where the
+10:58 companies uh some of the companies that
+11:00 uh we're looking at where are they
+11:02 associated right? So manufacturing,
+11:04 retail, trade and services.
+11:07 And then we see our error message. So we
+11:10 have a foreign key is invalid. I've got
+11:12 some you know wording that uh is off a
+11:15 little bit. So we see we're missing this
+11:17 row 3570. So data quality primary key
+11:21 passes. Uh it basically describes uh no
+11:24 invalid records reported for either one
+11:26 foreign key failure and there's some
+11:28 wording differences. Okay. And what's
+11:30 also interesting is see there's a second
+11:32 tab of topology erd. I can see where the
+11:35 data's come from. Right? I can see I've
+11:37 got two different restful APIs and their
+11:40 location. Uh we're using HTTPS to build
+11:45 uh these sort of tables, company DNS. Uh
+11:48 I've got a table in SEC data. I've got
+11:50 another table. This is read by this
+11:53 activation query. Uh and then we're
+11:55 producing these two tables and I've got
+11:57 a foreign key that connects. If I want
+12:00 to look at that as an erd,
+12:03 uh this is how that would look, right? I
+12:05 have this first table with a primary key
+12:07 being sick code. There's one
+12:08 relationship over here. There's a
+12:10 foreign key with the sick code. Then a
+12:12 primary key um is sort of a sik. So um
+12:16 there's other things that aren't read by
+12:18 the USL and uh sick code has its own
+12:21 copy of the sick card. Just just some
+12:23 additional things associated with that.
+12:24 I want to stay here for a second. Then
+12:27 we're going to go take a look at the
+12:28 Zatara system. Right? If you recall, so
+12:31 I will need to refresh this browser. Uh
+12:34 if you recall, we didn't have any we had
+12:36 we have 16 queries we produced. We have
+12:39 now three data sources, two file source
+12:41 APIs, 23 tables across them, and one
+12:44 unified semantic layer. So if I go take
+12:46 a look at the workbench, I will see
+12:48 evidence of um nothing being done, I
+12:53 guess. Actually, no. So the queries were
+12:55 run independently
+12:58 uh of of the system. So they're not
+12:59 going to show up here right now. Uh but
+13:02 we will go take a look at this unified
+13:04 semantic layer. So let's drill into
+13:05 that. I have this USL demo. I have the
+13:08 sick Edgar USL that I've constructed.
+13:11 And you can see if I were to to put uh
+13:15 kind of Edgar uh side by side. Let me go
+13:19 ahead and see if I can do that. I'm
+13:21 sorry. Claude code side by side here.
+13:24 Let me see if I can shrink this too. Uh
+13:27 make this a little smaller and maybe uh
+13:31 make this a little smaller. We'll see
+13:33 that we have a similar kind of uh setup
+13:37 here. Right. That's not what I wanted to
+13:38 do. I wanted to actually make this
+13:41 smaller. Yeah. So, you can see I've got
+13:43 uh company and sick code. Company's got
+13:45 c Anthony name sik uh sik description
+13:49 edgar. And then uh if I, you know, come
+13:52 over here, I'll be able to do a
+13:53 comparison between the two. So it's just
+13:55 a verification that uh claude code does
+13:57 the right thing and aligns and produces
+14:00 some interesting analysis on my business
+14:03 problem. Of course my business problem
+14:04 was being able to show the full uh
+14:06 hierarchy of these data and then uh I
+14:09 want to do kind of an analysis of uh
+14:13 where companies actually sit in this
+14:16 hierarchy. So this is the the answer to
+14:18 my key question from a hierarchy
+14:20 perspective. uh and then I can I can see
+14:23 sort of the structure of the the the
+14:25 data where it comes from a little bit
+14:27 like lineage if you will and then also
+14:30 the erd itself. Thank you very much.
+14:35 [music]

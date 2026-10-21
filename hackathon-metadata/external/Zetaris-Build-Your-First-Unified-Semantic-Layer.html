@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zetaris onboarding: get access, connect, verify your first dataset, build a project and prepare a reproducible demo.">
+  <title>USL cookbook · Zetaris getting started</title>
+  <script src="../../assets/theme.js"></script>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="../../index.html"><span class="brand-images"><img class="brand-logo logo-light" src="../../assets/brand/zetaris-indigo.svg" alt="Zetaris" width="747" height="207"><img class="brand-logo logo-dark" src="../../assets/brand/zetaris-reversed.svg" alt="Zetaris" width="747" height="207"></span><span class="brand-label">Getting started</span></a><div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.7 8.7 0 0 1 10.8 3.5 8.7 8.7 0 1 0 20.5 13.2Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="github-link" href="https://github.com/zetaris/getting-started">View repository <span aria-hidden="true">&nearr;</span></a></div></header>
+  <div class="shell">
+    <aside class="sidebar"><nav class="desktop-nav" aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../../docs/connections/README.html">Connect to Zetaris</a><a href="../../docs/connections/lightning-recipe-reference.html">Run your first SQL</a><a href="../../docs/guides/first-dataset.html">Connect PokéAPI</a><a href="../../docs/guides/project-paths.html">Choose your project</a><a href="../../docs/guides/demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="../../docs/guides/recipe-readiness.html">Choose a cookbook</a><a href="../rest_apis/HOWTO.html">REST cookbook</a><a href="../rest_apis/rest-api-sources.html">REST source catalog</a><a href="../parquet_csv/HOWTO.html">File cookbook</a><a href="../parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="HOWTO.html" aria-current="page">USL cookbook</a><a href="usl-sources.html">USL model catalog</a><a href="../../docs/guides/create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../../docs/connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../../docs/connections/cursor-connection.html">Cursor connection</a><a href="../../docs/connections/codex-connection.html">Codex connection</a><a href="../../docs/connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="../../docs/guides/troubleshooting.html">Troubleshooting</a><a href="../../docs/guides/zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="../../docs/guides/zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="../../docs/install/choose-install.html">Choose an install</a><a href="../../docs/install/updated_zetaris_installation_guide.html">Install locally</a><a href="../../docs/install/aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="../../docs/install/managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav><details class="mobile-nav"><summary>Browse the guide</summary><nav aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../../docs/connections/README.html">Connect to Zetaris</a><a href="../../docs/connections/lightning-recipe-reference.html">Run your first SQL</a><a href="../../docs/guides/first-dataset.html">Connect PokéAPI</a><a href="../../docs/guides/project-paths.html">Choose your project</a><a href="../../docs/guides/demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="../../docs/guides/recipe-readiness.html">Choose a cookbook</a><a href="../rest_apis/HOWTO.html">REST cookbook</a><a href="../rest_apis/rest-api-sources.html">REST source catalog</a><a href="../parquet_csv/HOWTO.html">File cookbook</a><a href="../parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="HOWTO.html" aria-current="page">USL cookbook</a><a href="usl-sources.html">USL model catalog</a><a href="../../docs/guides/create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../../docs/connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../../docs/connections/cursor-connection.html">Cursor connection</a><a href="../../docs/connections/codex-connection.html">Codex connection</a><a href="../../docs/connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="../../docs/guides/troubleshooting.html">Troubleshooting</a><a href="../../docs/guides/zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="../../docs/guides/zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="../../docs/install/choose-install.html">Choose an install</a><a href="../../docs/install/updated_zetaris_installation_guide.html">Install locally</a><a href="../../docs/install/aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="../../docs/install/managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav></details></aside>
+    <main id="main" tabindex="-1"><div class="document-meta"><span>Getting started / USL cookbook</span><a href="https://github.com/zetaris/getting-started/blob/main/open_data/usl/HOWTO.md">Read source &nearr;</a></div>
+      
+      <article><h1 id="howto-onboard-these-usl-models-into-zetaris">HOWTO: onboard these USL models into Zetaris</h1>
+<p>On your own local or AWS instance, use your chosen namespace and model names consistently. Send one complete command at a time and keep each USL compile payload intact. The separate <a href="../../docs/guides/create-edgar-pudl-noaa-usl.html">EDGAR/PUDL/NOAA walkthrough</a> depends on PUDL, which is currently known to fail.</p>
+<p>These scripts rebuild data products already available through REST/SchemaStore and compare that path with USL. They are not replacements for the existing products.</p>
+<p><strong>File naming:</strong> each model has a numbered <code>_create.sql</code> for namespace, compile, activation, DQ, and optional materialization/teardown, plus a matching <code>_select.sql</code> for verification. Run them in that order.</p>
+<hr>
+<h2 id="0-fast-start-sic_usl-end-to-end-in-about-5-minutes">0. Fast start: <code>sic_usl</code> end to end in about 5 minutes</h2>
+<p>This walkthrough runs the simpler <code>sic_usl</code> model from <code>sql/01_sic_usl_create.sql</code> and its matching select file.</p>
+<p><strong>Prerequisite:</strong> <code>open_data/rest_apis/sql/rate_limited/12_company_dns_create.sql</code> Steps 0-2 (through <code>CACHE TABLE company_dns.sic_codes_raw;</code>) must already have been run on this instance — this model activates directly from that raw V3 REST table. That script is rate limited, so run its steps one at a time, with 15 seconds or more before each step that calls the endpoint (see its header).</p>
+<ol>
+<li>Open the Zetaris <strong>SQL Editor</strong> and create the parent metastore, then the package namespace (the parent is required on a clean instance; without it, the second statement fails with <code>parent namespace : metastore is not existing</code>):<pre><code class="language-sql">CREATE NAMESPACE IF NOT EXISTS lightning.metastore;
+CREATE NAMESPACE IF NOT EXISTS lightning.metastore.usl_demo;
+</code></pre>
+</li>
+<li>Compile the table definition. It has no data until activation:<pre><code class="language-sql">COMPILE USL IF NOT EXISTS sic_usl DEPLOY NAMESPACE lightning.metastore.usl_demo DDL
+CREATE TABLE sic_code (
+    sic_code varchar(4) NOT NULL PRIMARY KEY,
+    description varchar(200),
+    division varchar(1),
+    division_desc varchar(200),
+    major_group varchar(2),
+    major_group_desc varchar(200),
+    industry_group varchar(3),
+    industry_group_desc varchar(200)
+);
+</code></pre>
+</li>
+<li>Activate it against the raw REST table (the same flattening query <code>sql/12_company_dns_create.sql</code> uses for its V3 SchemaStore view):<pre><code class="language-sql">ACTIVATE USL TABLE lightning.metastore.usl_demo.sic_usl.sic_code AS
+SELECT
+    sic_code,
+    sic_val.description AS description,
+    sic_val.division AS division,
+    sic_val.division_desc AS division_desc,
+    sic_val.major_group AS major_group,
+    sic_val.major_group_desc AS major_group_desc,
+    sic_val.industry_group AS industry_group,
+    sic_val.industry_group_desc AS industry_group_desc
+FROM company_dns.sic_codes_raw
+LATERAL VIEW explode(
+    from_json(to_json(data.sics), &#39;map&lt;string, struct&lt;description:string, division:string, division_desc:string, major_group:string, major_group_desc:string, industry_group:string, industry_group_desc:string&gt;&gt;&#39;)
+) AS sic_code, sic_val;
+</code></pre>
+</li>
+<li>Verify it worked:<pre><code class="language-sql">SELECT COUNT(*) FROM lightning.metastore.usl_demo.sic_usl.sic_code;   -- expect 1005
+</code></pre>
+</li>
+<li>Try a real query — every SIC code in the &quot;Manufacturing&quot; division, for example:<pre><code class="language-sql">SELECT sic_code, description, major_group_desc
+FROM lightning.metastore.usl_demo.sic_usl.sic_code
+WHERE division_desc LIKE &#39;%Manufacturing%&#39;
+ORDER BY sic_code;
+</code></pre>
+</li>
+</ol>
+<p><code>sql/01_sic_usl_select.sql</code> has seven more queries, a self-consistency check, and DQ inspection. The remaining sections cover prerequisites, both models, and their verification status.</p>
+<hr>
+<h2 id="1-prerequisites">1. Prerequisites</h2>
+<p>Both models reuse raw REST tables from the <code>rest_apis</code> package. Register them in this order if they are missing:</p>
+<ol>
+<li><code>open_data/rest_apis/sql/rate_limited/12_company_dns_create.sql</code> — Steps 0-2 only (through <code>CACHE TABLE company_dns.sic_codes_raw;</code>); it also creates the V4 tables and views, which these models do not use. This package&#39;s <code>01_sic_usl_create.sql</code> activates directly from <code>company_dns.sic_codes_raw</code>.</li>
+<li><code>open_data/rest_apis/sql/rate_limited/11_edgar_company_profiles_create.sql</code> — Step 0 and the seven <code>CREATE LIGHTNING REST TABLE ..._submissions_raw</code> statements (the <code>CREATE SCHEMASTORE VIEW</code> statements in that script are <strong>not</strong> needed here — this package&#39;s <code>sic_edgar_usl</code> activates directly from the raw <code>*_submissions_raw</code> tables, not from <code>sql/11</code>&#39;s own profile views).</li>
+</ol>
+<p>USL&#39;s <code>ACTIVATE ... AS SELECT</code> can flatten and join the same raw sources used by SchemaStore views.</p>
+<p><strong>Instance requirements:</strong> <code>lightning.metastore</code> must exist before creating a child namespace. Without it, REST returned <code>parent namespace : metastore is not existing</code>. Both create scripts now open with <code>CREATE NAMESPACE IF NOT EXISTS lightning.metastore;</code> before <code>lightning.metastore.usl_demo</code>, so a clean instance no longer needs a separate init step. Send the multi-table <code>sic_edgar_usl</code> compile as one statement; semicolon-splitting clients break it. JDBC, REST, or the Unified Semantic Layer → New USL screen can send it intact.</p>
+<h2 id="2-models-in-this-package">2. Models in this package</h2>
+<p>See <a href="usl-sources.html"><code>usl-sources.md</code></a> for the catalog and verification status:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Script</th>
+<th>USL</th>
+<th>What it exercises</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/zetaris/getting-started/blob/main/open_data/usl/sql/01_sic_usl_create.sql"><code>sql/01_sic_usl_create.sql</code></a> / <a href="https://github.com/zetaris/getting-started/blob/main/open_data/usl/sql/01_sic_usl_select.sql"><code>_select.sql</code></a></td>
+<td><code>sic_usl</code>, one <code>sic_code</code> table</td>
+<td>Baseline compile, activate, DQ, and deferred materialization; reuses the REST table&#39;s flattening query. Its self-consistency check is a plain query.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zetaris/getting-started/blob/main/open_data/usl/sql/02_sic_edgar_usl_create.sql"><code>sql/02_sic_edgar_usl_create.sql</code></a> / <a href="https://github.com/zetaris/getting-started/blob/main/open_data/usl/sql/02_sic_edgar_usl_select.sql"><code>_select.sql</code></a></td>
+<td><code>sic_edgar_usl</code>, <code>company</code> and <code>sic_code</code> with an FK</td>
+<td>Adds a DQ-generating foreign key and activates a union across seven raw REST tables. Its description check is a plain query.</td>
+</tr>
+</tbody></table>
+</div><p><strong><code>company_dns</code> V3 is deprecated.</strong> These models still activate from the V3 raw table (<code>company_dns.sic_codes_raw</code>), which works while the production host&#39;s <code>/V3.0</code> path answers (it did on 2026-10-19). When it goes away, activate from V4 data instead: <code>rate_limited/12_company_dns_create.sql</code> also builds <code>sic_codes_v4_raw</code> and a view with the V3 column names, but activating from either has not been tried.</p>
+<p><strong>What was verified.</strong> Both scripts were run unchanged, exactly as they are in this repo, on an instance built from <code>open_data/rest_apis/sql/rate_limited/12_company_dns_create.sql</code> (V3 and V4 tables and all four views present), and their <code>_select.sql</code> queries were run against the resulting USLs. They activate from the V3 raw table (<code>company_dns.sic_codes_raw</code>, which that script keeps under the same name) and do not read the V4 views, so nothing here has been verified about a USL over V4 data or over a schemastore view; whether <code>ACTIVATE USL TABLE</code> can read a schemastore view remains untested.</p>
+<p>Run them in that order — <code>sic_usl</code> is the lower-risk smoke test for the USL lifecycle itself; <code>sic_edgar_usl</code> adds relationships on top of a lifecycle already confirmed working.</p>
+<h2 id="3-the-question-sic_edgar_usl-exists-to-answer">3. The question <code>sic_edgar_usl</code> exists to answer</h2>
+<p>Query 8 in <code>open_data/rest_apis/sql/rate_limited/11_edgar_company_profiles_select.sql</code> checks description agreement:</p>
+<pre><code class="language-sql">SELECT entity_name, sic_code, sic_description_edgar, sic_description_reference
+FROM edgar.all_companies_profile_table
+WHERE sic_description_edgar &lt;&gt; sic_description_reference;
+</code></pre>
+<p>The FK-generated DQ rule checks that each SIC code exists; it does not compare descriptions. Two attempts to register description equality as <code>REGISTER DQ</code> failed, so the model checks it with a plain join. That join drops IBM and returns five wording differences; the FK rule flags IBM as missing from the SIC reference. The checks catch different issues. See the <a href="../../docs/guides/zetaris-lightning-sql-companion.html#86-register-dq-confirmed-limitations-live-tested">SQL companion</a>, <a href="usl-sources.html"><code>usl-sources.md</code></a>, and archived build plan section 4, step V6.</p>
+<h2 id="4-known-open-items-in-this-package">4. Known open items in this package</h2>
+<p>See the <a href="../../docs/guides/zetaris-lightning-sql-companion.html#85-known-open-items-in-this-repos-usl-package-specifically">SQL companion&#39;s open USL items</a>, including untested cross-USL foreign keys, the SQL materialization gap for <code>Valid Records Only</code>, and the <code>cik</code> format sidestep. <code>REGISTER DQ</code> limits are in <a href="../../docs/guides/zetaris-lightning-sql-companion.html#86-register-dq-confirmed-limitations-live-tested">section 8.6</a>.</p>
+<h2 id="5-teardown">5. Teardown</h2>
+<p>Both scripts include commented <code>REMOVE USL</code> and <code>DROP NAMESPACE ... CASCADE</code> teardown statements from the USL User Guide. The package&#39;s archived build plan still lists live teardown confirmation as open (step V10).</p>
+<h2 id="6-everything-else">6. Everything else</h2>
+<p>For the REST/SchemaStore/VDM versions, see the linked scripts and <a href="https://github.com/zetaris/getting-started/blob/main/docs/plans/archive/edgar-sic-enrichment-plan.md"><code>edgar-sic-enrichment-plan.md</code></a>. General USL guidance is in <a href="../../docs/guides/zetaris-lightning-sql-companion.html#8-the-unified-semantic-layer-usl-a-scriptable-alternativesuccessor-to-vdm">SQL companion section 8</a>. Verification history is in the <a href="https://github.com/zetaris/getting-started/blob/main/docs/plans/archive/usl-build-plan.md">archived build plan</a>.</p>
+</article>
+      <footer>Built from the repository documentation. Use your own Zetaris instance, installed locally or deployed through AWS.</footer>
+    </main>
+    <aside class="outline" aria-label="On this page"><p>On this page</p><a class="depth-2" href="#0-fast-start-sic_usl-end-to-end-in-about-5-minutes">0. Fast start: <code>sic_usl</code> end to end in about 5 minutes</a><a class="depth-2" href="#1-prerequisites">1. Prerequisites</a><a class="depth-2" href="#2-models-in-this-package">2. Models in this package</a><a class="depth-2" href="#3-the-question-sic_edgar_usl-exists-to-answer">3. The question <code>sic_edgar_usl</code> exists to answer</a><a class="depth-2" href="#4-known-open-items-in-this-package">4. Known open items in this package</a><a class="depth-2" href="#5-teardown">5. Teardown</a><a class="depth-2" href="#6-everything-else">6. Everything else</a></aside>
+  </div>
+</body>
+</html>

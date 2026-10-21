@@ -1,0 +1,208 @@
+0:01 [music]
+0:04 >> All right, I'm here to give you a quick
+0:06 walk-through of the Zettabyte getting
+0:08 started GitHub repository.
+0:10 This repository is designed to help you
+0:13 install, onboard your first data asset,
+0:16 and then create a unified semantic layer
+0:19 using various types of clients. This is
+0:21 a quick view of the readme document. We
+0:23 have a start here document to basically
+0:25 begin interacting with the system. This
+0:27 will help you basically confirm access,
+0:29 connect connect execute a query, verify
+0:32 a small data set, and then as you're
+0:34 building with Zettabyte, choose your
+0:35 project. There'll be a series of create
+0:38 and select pairs in the sample data that
+0:40 we provided for REST and for parquet.
+0:43 And there's some other goodness in here
+0:45 with respect to troubleshooting and
+0:47 recipe readiness as well as kind of an
+0:49 organizer checklist.
+0:51 From a documentation perspective, we
+0:52 have a series of folders that are useful
+0:55 for you to kind of take a look at. For
+0:57 the installation guide, whether you're
+0:58 doing a local installation on your
+1:00 physical systems or a cloud-based
+1:02 installation that might be running in
+1:04 the AWS free tier, we've got
+1:06 documentation that shows you how to do
+1:09 connections to things like SQL editors
+1:11 and coding assistants such as Cursor,
+1:13 Codex, and Cloud Code.
+1:15 Our full command reference is available
+1:17 for you to consume and also for agent
+1:19 coding agents to consume. In the spirit
+1:21 of providing a batteries included
+1:23 approach to this system, we have a few
+1:25 open data data assets, two categories in
+1:27 particular, REST APIs and parquet CSV,
+1:31 and then an illustration of how to do a
+1:33 simple and moderately complicated
+1:36 unified semantic layer that would
+1:37 aggregate several different data
+1:39 sources. We have a series of scripts
+1:41 that are available to help you see how
+1:44 you can use TypeScript and Python to
+1:46 basically interact with the Zettabyte
+1:48 system,
+1:49 and perform various functions ranging
+1:51 from a SQL query, but also download data
+1:54 and or
+1:56 uh of help you warm at warm up some uh
+1:58 other systems that are associated to uh
+2:01 to the this footprint in this data set.
+2:03 Uh there's a manifest file that's here
+2:05 mostly for coding agents to understand
+2:07 our programmatic systems to understand
+2:09 the status of all of the data sources.
+2:11 We have a series of guides like project
+2:13 pass for puddle and uh kind of a little
+2:15 bit more complicated unified semantic
+2:17 layer. Uh
+2:19 in addition to the command reference, we
+2:21 have a companion guide that basically
+2:23 covers tricks, tips, limitations, and
+2:25 other things that were
+2:27 uncovered during the generous uh the
+2:28 generation of this repository. And then
+2:31 for us to keep track of our progress
+2:34 over time, we have sort of what I would
+2:35 call a road map where there's futures in
+2:37 a series of data sources uh that we plan
+2:40 over time or or we consider to work on
+2:42 with the community to be able to attach
+2:44 to as a Tar system. The repository
+2:46 layout includes open data, again,
+2:48 scripts, examples, and various
+2:50 documentation.
+2:51 Uh as as things improve, you'll see us
+2:54 move and create and and update the
+2:56 structure. Client scripts are available
+2:59 including pre-flight checks run SQL. Uh
+3:02 there are other variants that come along
+3:03 for the ride that are in TypeScript and
+3:05 Deno. If you'd like to make a
+3:07 contribution, please check out
+3:08 contributing.md.
+3:10 I am going to give us a little bit of a
+3:11 view
+3:13 of one of our open data assets, which is
+3:15 basically uh let's take a look at the
+3:17 REST APIs. The structure includes a
+3:20 directory for SQL. We have three uh
+3:22 subfolders for REST APIs that are rate
+3:25 limited, perhaps you need to supply
+3:26 something like a user agent to overcome
+3:29 or have a more relaxed rate limit, those
+3:31 that are not rate limited, and those
+3:32 that are known to fail. We leave these
+3:34 here so you know which data assets we've
+3:36 checked on that don't work. At this
+3:38 current stage, we're going to do some
+3:40 additional
+3:41 uh activity in the background to
+3:43 understand and uncover what's happening
+3:44 with them, so stay tuned as we make
+3:46 improvements.
+3:47 There's uh a how-to guide. In this
+3:49 how-to guide, we have a fast start using
+3:51 a service called Company DNS that we'll
+3:53 give you a demo on in a a second uh
+3:56 companion uh guide to this short video.
+3:58 So, in about 5 minutes you basically
+4:00 will have a data source that's a rest
+4:02 data source registered. Uh you'll have
+4:05 the uh rest API section of it flattened
+4:08 to be transformed into a SQL table.
+4:10 You'll be able to run a verification and
+4:12 then try a real query to learn a little
+4:14 bit about the data itself. Uh other data
+4:18 assets that are available with a table
+4:20 that kind of quickly gives you a view of
+4:22 uh where they live, uh their domain or
+4:25 category, what license, uh whether
+4:27 there's a rate limit, whether they've
+4:28 been verified, and what the status is
+4:31 um are available for you to take a look
+4:32 at. There's additional detail for each
+4:35 one of these that you might be able to
+4:36 quickly review.
+4:38 Additionally, as I mentioned, we have
+4:40 other data assets that are in a similar
+4:42 structure. So, parquet and CSV, there's
+4:44 a directory for known-to-fail and a
+4:45 series
+4:46 uh of other data assets. Also, a quick
+4:49 how-to that shows you
+4:50 uh kind of the steps necessary to get up
+4:53 and running with a CSV or parquet file.
+4:56 In In the spirit of trying to help you
+4:58 get quickly moving with the unified
+5:00 semantic layer, we also have a couple
+5:02 semantic layers, one that includes uh
+5:05 Edgar and uh SIC information. Uh this is
+5:08 here, so if I I click into you see I've
+5:10 got a select file and a create file. If
+5:12 I look at this uh create file, basically
+5:14 it's fully annotated um with a series of
+5:17 uh DDL steps to help you create the
+5:19 appropriate tables.
+5:21 As with the other directories, you're
+5:23 going to find a how-to that will tell
+5:24 you how to onboard things, quick start
+5:27 with uh the SIC USL so you can be up and
+5:30 running uh quite fast.
+5:32 There's a series of scripts that are
+5:33 available. Uh in here is a how-to that
+5:35 kind of steps you through uh configuring
+5:37 an environment variable or setting up
+5:39 the environment variables in your shell,
+5:41 a so dot env file or, you know,
+5:43 something uh in the shell. You can look
+5:45 for your organization ID, uh
+5:47 verification of SQL function, uh you'll
+5:50 see a series of Python scripts uh that
+5:53 can be run for pre-flight and running
+5:55 SQL commands,
+5:56 uh and then kind of some uh onboarding
+5:58 of data sources. So, you'll be able to
+5:59 see
+6:00 uh running here uh from a Python
+6:02 perspective. There's teardown and kind
+6:04 of start over uh type operations that
+6:06 you'll you'll see are available. And
+6:08 then uh there's stuff to help you check
+6:10 as a Taras connection. Many of these are
+6:12 available in uh Dino uh as uh Dino
+6:15 TypeScript as well as um
+6:18 in uh Python for you to take advantage
+6:20 of.
+6:22 Finally, we've got a series of guides.
+6:24 Uh there's uh you know, a how-to here
+6:28 that quickly shows you the different
+6:30 kinds of uh connection guides that we
+6:33 have, whether it's as simple as a SQL
+6:34 editor, cursor, and Codex over JDBC,
+6:38 uh as well as Cloud Code. So, there's a
+6:40 discrete guide for each one of these. Uh
+6:42 there's deeper guides if we wanted to
+6:44 look at um you know, creating an Edgar
+6:46 Puddle uh type of uh USL. So, you'll see
+6:49 a series of markdowns here.
+6:52 And probably one of the the more
+6:53 important things uh that we have is if
+6:56 you're using a coding agent, we have the
+6:58 ability to start with um this agents.md
+7:01 file. So, cursor, Cloud Code, Codex, and
+7:03 GitHub uh Copilot can take advantage of
+7:06 this to get up and running fairly
+7:07 quickly. It'll take you through the
+7:09 process of uh getting a Zataris uh
+7:11 offering up and running very quickly.
+7:15 So, that's it for the Zataris getting
+7:16 started uh GitHub repository. Happy
+7:19 coding.
+7:23 >> [music]

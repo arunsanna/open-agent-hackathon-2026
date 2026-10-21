@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zetaris onboarding: get access, connect, verify your first dataset, build a project and prepare a reproducible demo.">
+  <title>Troubleshooting · Zetaris getting started</title>
+  <script src="../../assets/theme.js"></script>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="../../index.html"><span class="brand-images"><img class="brand-logo logo-light" src="../../assets/brand/zetaris-indigo.svg" alt="Zetaris" width="747" height="207"><img class="brand-logo logo-dark" src="../../assets/brand/zetaris-reversed.svg" alt="Zetaris" width="747" height="207"></span><span class="brand-label">Getting started</span></a><div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.7 8.7 0 0 1 10.8 3.5 8.7 8.7 0 1 0 20.5 13.2Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="github-link" href="https://github.com/zetaris/getting-started">View repository <span aria-hidden="true">&nearr;</span></a></div></header>
+  <div class="shell">
+    <aside class="sidebar"><nav class="desktop-nav" aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="first-dataset.html">Connect PokéAPI</a><a href="project-paths.html">Choose your project</a><a href="demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="troubleshooting.html" aria-current="page">Troubleshooting</a><a href="zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="../install/choose-install.html">Choose an install</a><a href="../install/updated_zetaris_installation_guide.html">Install locally</a><a href="../install/aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="../install/managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav><details class="mobile-nav"><summary>Browse the guide</summary><nav aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="first-dataset.html">Connect PokéAPI</a><a href="project-paths.html">Choose your project</a><a href="demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="troubleshooting.html" aria-current="page">Troubleshooting</a><a href="zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="../install/choose-install.html">Choose an install</a><a href="../install/updated_zetaris_installation_guide.html">Install locally</a><a href="../install/aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="../install/managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav></details></aside>
+    <main id="main" tabindex="-1"><div class="document-meta"><span>Getting started / Troubleshooting</span><a href="https://github.com/zetaris/getting-started/blob/main/docs/guides/troubleshooting.md">Read source &nearr;</a></div>
+      
+      <article><h1 id="troubleshooting">Troubleshooting</h1>
+<p>Find your error below. For SQL limitations, see the <a href="zetaris-lightning-sql-companion.html">SQL companion</a>.</p>
+<h2 id="what-went-wrong">What went wrong?</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to try</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Missing URL, account or driver</td>
+<td>For a local install, use the <a href="https://cloud.enterprise.zetaris.com/dashboard/download">Run locally page</a>. For an existing instance, use the supplied connection details. SQL Editor needs no JDBC; see <a href="../connections/README.html">connection options</a>.</td>
+</tr>
+<tr>
+<td>Local install won&#39;t start</td>
+<td>Run <code>preflight.sh</code> from the platform bundle and follow the <a href="../install/updated_zetaris_installation_guide.html">install guide</a>. Check registry access, memory, disk and configuration.</td>
+</tr>
+<tr>
+<td>Login fails or HTTP 401</td>
+<td>Check the URL and credentials. Changing the platform&#39;s <code>.env</code> after setup does not reset an account.</td>
+</tr>
+<tr>
+<td>REST preflight says <code>Operation not permitted</code> for localhost</td>
+<td>The command environment may have blocked local network access before Zetaris returned an HTTP response. In Codex, retry the read-only command with the requested network or elevated execution permission if offered. Do not change the API URL or key based on this error. If permission is unavailable, run the command in a terminal that can reach the instance.</td>
+</tr>
+<tr>
+<td>Permission error or HTTP 403</td>
+<td>Check your organisation, team names and account permissions. Use your own account.</td>
+</tr>
+<tr>
+<td>Missing or invalid org ID</td>
+<td>Follow <a href="../../scripts/HOWTO.html#find-your-organization-id">HTTP setup</a> and use your numeric ID. SQL Editor does not need this setting.</td>
+</tr>
+<tr>
+<td>HTTP 404 or an HTML response</td>
+<td>Use the UI URL that supports the helper&#39;s proxy routes. The raw API port does not.</td>
+</tr>
+<tr>
+<td>JDBC won&#39;t connect</td>
+<td>Check the driver JAR, class, Java and endpoint. On a remote agent, <code>localhost</code> is that machine.</td>
+</tr>
+<tr>
+<td>Object already exists</td>
+<td>Check its owner and definition. Reuse a match; otherwise choose a different project name.</td>
+</tr>
+<tr>
+<td>Table created but no rows returned</td>
+<td>Check the source path, response, schema and Zetaris access. Start with a small <code>SELECT</code>.</td>
+</tr>
+<tr>
+<td>HTTP 429</td>
+<td>Wait as the source instructs. For <code>company_dns</code>, first check you sent a User-Agent of the form <code>app_name user@domain.tld</code>: without it the limit is very strict. Cache the raw table, wait 60 seconds and retry that one statement; without an identifying User-Agent also space endpoint calls by at least 15 seconds. Avoid retry loops; one statement can trigger several requests.</td>
+</tr>
+<tr>
+<td>HTTP 502</td>
+<td>Check the source error and retry once if appropriate. <code>company_dns</code> has moved hosts and no longer uses the removed warm-up helper. On rate-limited sources, wait before another attempt. Report repeated failures.</td>
+</tr>
+<tr>
+<td>PUDL registration fails</td>
+<td>PUDL has a <a href="https://github.com/zetaris/getting-started/blob/main/open_data/parquet_csv/sql/known_to_fail/ISSUE-03-pudl.md">known issue</a>. Use the PokéAPI starter.</td>
+</tr>
+<tr>
+<td>A downloaded file won&#39;t query</td>
+<td>Put it in storage Zetaris can reach. A file on your laptop may be out of reach.</td>
+</tr>
+<tr>
+<td>Chart won&#39;t read the result</td>
+<td>Check the query response shape and look for an error before comparing it with the example.</td>
+</tr>
+</tbody></table>
+</div><h2 id="reruns-and-object-names">Reruns and object names</h2>
+<p>Use consistent object names on your own local or AWS instance. Check existing objects before reusing a name.</p>
+<ol>
+<li>Replace all database, container, namespace, model and reference names consistently.</li>
+<li>Check existing objects before creating them. See the <a href="../connections/lightning-recipe-reference.html">recipe reference</a>.</li>
+<li>Reuse existing sources only when their definitions match your recipe.</li>
+<li>Run one complete statement at a time. If one fails, fix it and continue; earlier statements may have created objects.</li>
+<li>Cache, change or remove only objects you own and are allowed to change.</li>
+</ol>
+<p><code>run_sql.py --skip-exists</code> skips duplicate errors. It does not check that an existing object matches your recipe. <code>CREATE SCHEMASTORE CONTAINER</code> has no <code>IF NOT EXISTS</code>; check before creating another container. See the <a href="zetaris-lightning-sql-companion.html#5-operational-limitations-confirmed-live-not-documentation-guesses">SQL companion</a> for the tested cleanup scope.</p>
+<h2 id="cleanup">Cleanup</h2>
+<p>Remove only objects you own and have permission to remove. For your local install, follow the installation guide&#39;s shutdown steps. For AWS, follow the <a href="../install/managed-aws-cluster-guide.html">managed cluster teardown steps</a>.</p>
+<p>On 12 October 2026, Zetaris 2.4.3.1 let <code>DROP LIGHTNING DATABASE TABLE</code> remove <code>reason</code> (public S3 filestore) and <code>ability</code> (PokéAPI REST); <code>DROP LIGHTNING DATABASE</code> then removed their test database. This covers only these fixtures. The check deleted an empty SchemaStore container through the documented API after <code>viewCount=0</code>; no SQL container-drop form was tested. Use Data Explorer&#39;s <strong>File Source &amp; API</strong> panel for other registrations. See the <a href="zetaris-lightning-sql-companion.html">SQL companion</a> for full scope.</p>
+<p>Only drop a namespace if you may remove everything it contains.</p>
+<h2 id="record-the-error">Record the error</h2>
+<p>Report the tool, failed step, time, error and last step that worked. State whether login, SQL and source queries worked. Remove passwords, tokens, Authorization headers and unrelated customer data.</p>
+</article>
+      <footer>Built from the repository documentation. Use your own Zetaris instance, installed locally or deployed through AWS.</footer>
+    </main>
+    <aside class="outline" aria-label="On this page"><p>On this page</p><a class="depth-2" href="#what-went-wrong">What went wrong?</a><a class="depth-2" href="#reruns-and-object-names">Reruns and object names</a><a class="depth-2" href="#cleanup">Cleanup</a><a class="depth-2" href="#record-the-error">Record the error</a></aside>
+  </div>
+</body>
+</html>

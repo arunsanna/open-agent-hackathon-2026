@@ -1,0 +1,2046 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zetaris onboarding: get access, connect, verify your first dataset, build a project and prepare a reproducible demo.">
+  <title>Lightning SQL commands · Zetaris getting started</title>
+  <script src="../../assets/theme.js"></script>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="../../index.html"><span class="brand-images"><img class="brand-logo logo-light" src="../../assets/brand/zetaris-indigo.svg" alt="Zetaris" width="747" height="207"><img class="brand-logo logo-dark" src="../../assets/brand/zetaris-reversed.svg" alt="Zetaris" width="747" height="207"></span><span class="brand-label">Getting started</span></a><div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.7 8.7 0 0 1 10.8 3.5 8.7 8.7 0 1 0 20.5 13.2Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="github-link" href="https://github.com/zetaris/getting-started">View repository <span aria-hidden="true">&nearr;</span></a></div></header>
+  <div class="shell">
+    <aside class="sidebar"><nav class="desktop-nav" aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="first-dataset.html">Connect PokéAPI</a><a href="project-paths.html">Choose your project</a><a href="demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="troubleshooting.html">Troubleshooting</a><a href="zetaris-lightning-sql-commands.html" aria-current="page">Lightning SQL commands</a><a href="zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="../install/choose-install.html">Choose an install</a><a href="../install/updated_zetaris_installation_guide.html">Install locally</a><a href="../install/aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="../install/managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav><details class="mobile-nav"><summary>Browse the guide</summary><nav aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="first-dataset.html">Connect PokéAPI</a><a href="project-paths.html">Choose your project</a><a href="demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="troubleshooting.html">Troubleshooting</a><a href="zetaris-lightning-sql-commands.html" aria-current="page">Lightning SQL commands</a><a href="zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="../install/choose-install.html">Choose an install</a><a href="../install/updated_zetaris_installation_guide.html">Install locally</a><a href="../install/aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="../install/managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav></details></aside>
+    <main id="main" tabindex="-1"><div class="document-meta"><span>Getting started / Lightning SQL commands</span><a href="https://github.com/zetaris/getting-started/blob/main/docs/guides/zetaris-lightning-sql-commands.md">Read source &nearr;</a></div>
+      
+      <article><h1 id="lightning-command-reference">Lightning Command Reference</h1>
+<h2 id="start-with-the-supplied-samples">Start with the supplied samples</h2>
+<p>Start with <a href="../connections/lightning-recipe-reference.html">your first SQL commands</a>, using the supplied <code>NY_TAXI</code> and <code>TPCDS_DB</code> samples.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Commands to learn</th>
+<th>Prerequisites</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Check execution</td>
+<td><code>SELECT 1</code>, <code>SHOW SERVER VERSION</code></td>
+<td>Login and query permission</td>
+</tr>
+<tr>
+<td>Discover sources</td>
+<td><code>SHOW LIGHTNING DATABASES</code>, <code>SHOW DATASOURCES</code></td>
+<td>Login; results are limited to your access</td>
+</tr>
+<tr>
+<td>Inspect sample tables</td>
+<td><code>SHOW LIGHTNING TABLES</code>, <code>DESCRIBE DATASOURCE TABLE</code></td>
+<td>Access to the supplied NY Taxi or TPCDS tables</td>
+</tr>
+<tr>
+<td>Read sample data</td>
+<td><code>SELECT ... LIMIT 5</code></td>
+<td>Query permission on an existing table</td>
+</tr>
+<tr>
+<td>Create views and connect more data</td>
+<td>SchemaStore, file, REST and datasource commands</td>
+<td>Creation permission, your own object names and the source-specific setup below</td>
+</tr>
+<tr>
+<td>Build models and pipelines</td>
+<td>USL, DQ, pipeline and data-mart commands</td>
+<td>Accessible source data and the required namespaces or containers</td>
+</tr>
+<tr>
+<td>Manage storage, access and cleanup</td>
+<td>Export, cache, grant, revoke and drop commands</td>
+<td>Writable storage or management permission, with a confirmed scope</td>
+</tr>
+</tbody></table>
+</div><p>Empty discovery lists are valid. Use <code>SHOW DATASOURCES</code> for external database connections and <code>SHOW LIGHTNING DATABASES</code> for file/REST sources.</p>
+<p>Read each group&#39;s prerequisites and each command&#39;s privileges. The sections group commands by topic, not execution order.</p>
+<h2 id="contents">Contents</h2>
+<p><a href="#start-with-the-supplied-samples">Start with the supplied samples</a></p>
+<ol>
+<li><a href="#1-introduction">Introduction</a></li>
+<li><a href="#2-conventions">Conventions</a></li>
+<li><a href="#3-general-rules">General Rules</a></li>
+<li><a href="#4-data-sources">Data Sources</a></li>
+<li><a href="#5-file-sources">File Sources</a></li>
+<li><a href="#6-rest-sources-and-authentication">REST Sources and Authentication</a></li>
+<li><a href="#7-streaming">Streaming</a></li>
+<li><a href="#8-data-lakes">Data Lakes</a></li>
+<li><a href="#9-external-catalogs">External Catalogs</a></li>
+<li><a href="#10-hive-metastore">Hive Metastore</a></li>
+<li><a href="#11-aws-glue-metastore">AWS Glue Metastore</a></li>
+<li><a href="#12-schema-store-views">Schema Store Views</a></li>
+<li><a href="#13-unified-semantic-layer">Unified Semantic Layer</a></li>
+<li><a href="#14-data-quality">Data Quality</a></li>
+<li><a href="#15-export-and-materialization">Export and Materialization</a></li>
+<li><a href="#16-data-pipelines">Data Pipelines</a></li>
+<li><a href="#17-virtual-data-marts">Virtual Data Marts</a></li>
+<li><a href="#18-query-plans">Query Plans</a></li>
+<li><a href="#19-caching">Caching</a></li>
+<li><a href="#20-users-and-roles">Users and Roles</a></li>
+<li><a href="#21-access-control">Access Control</a></li>
+<li><a href="#22-data-warehouses">Data Warehouses</a></li>
+<li><a href="#23-server-information">Server Information</a></li>
+</ol>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Lightning commands connect sources, build models, check data quality and manage access.</p>
+<p>Use the platform UI or run these commands in SQL Workspace alongside ordinary SQL queries.</p>
+<p>This reference contains 144 Lightning commands.</p>
+<h2 id="2-conventions">2. Conventions</h2>
+<h3 id="21-syntax-notation">2.1 Syntax notation</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>KEYWORD</code></td>
+<td>A keyword, entered as shown. Keywords are not case-sensitive.</td>
+</tr>
+<tr>
+<td><code>&lt;name&gt;</code></td>
+<td>A value supplied by the user.</td>
+</tr>
+<tr>
+<td><code>&#39;&lt;text&gt;&#39;</code></td>
+<td>A value supplied as a quoted string. Single or double quotes may be used.</td>
+</tr>
+<tr>
+<td><code>[ … ]</code></td>
+<td>An optional element.</td>
+</tr>
+<tr>
+<td><code>{ A | B }</code></td>
+<td>Choose one alternative.</td>
+</tr>
+<tr>
+<td><code>…</code></td>
+<td>The preceding element may be repeated.</td>
+</tr>
+<tr>
+<td><code>(key &#39;value&#39;, …)</code></td>
+<td>An option list of key and quoted value pairs, separated by commas.</td>
+</tr>
+</tbody></table>
+</div><h3 id="22-entry-format">2.2 Entry format</h3>
+<p>Each entry gives syntax, a description, privileges, any limitations or notes, and an example.</p>
+<h3 id="23-example-objects">2.3 Example objects</h3>
+<p>Examples use the objects below. Create the required objects and replace names with your team names. Hosts, credentials and incomplete JSON are placeholders. The starter guide uses already-registered <code>NY_TAXI</code> and <code>TPCDS_DB</code> samples.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>crm_pg</code></td>
+<td>A PostgreSQL datasource with the tables <code>customers</code> and <code>orders</code></td>
+</tr>
+<tr>
+<td><code>sales_files</code></td>
+<td>A file source containing the table <code>transactions</code></td>
+</tr>
+<tr>
+<td><code>weather_api</code></td>
+<td>A REST source containing the table <code>daily_weather</code>; <code>weather_oauth</code> is its saved token request</td>
+</tr>
+<tr>
+<td><code>clickstream</code></td>
+<td>A Kafka streaming source</td>
+</tr>
+<tr>
+<td><code>analysis</code></td>
+<td>A schema store container</td>
+</tr>
+<tr>
+<td><code>lightning.metastore.datathon</code></td>
+<td>The namespace of the USL <code>retail</code></td>
+</tr>
+<tr>
+<td><code>etl</code></td>
+<td>A pipeline container</td>
+</tr>
+<tr>
+<td><code>sales_mart</code></td>
+<td>A virtual data mart</td>
+</tr>
+<tr>
+<td><code>alice@example.com</code>, <code>analyst</code></td>
+<td>A user and a role</td>
+</tr>
+</tbody></table>
+</div><h2 id="3-general-rules">3. General Rules</h2>
+<ol>
+<li><strong>One statement per execution.</strong> The SQL Workspace splits editor text on semicolons. Submit each command separately.</li>
+<li><strong>Qualified table names.</strong> Commands that operate on a table require the form <code>&lt;source&gt;.&lt;table&gt;</code>.</li>
+<li><strong>Identifiers and values.</strong> Object names are written without quotes; names containing special characters are enclosed in backquotes. Text values are enclosed in single or double quotes.</li>
+<li><strong>Privileges.</strong> Commands marked <em>Administrators only</em> are refused for other users. Other commands require the permission stated in the entry, and return only the objects assigned to the user.</li>
+<li><strong>Standard SQL.</strong> Registered tables are queried with standard Spark SQL, for example <code>SELECT … FROM crm_pg.customers</code>, and may be joined across sources.</li>
+</ol>
+<h2 id="4-data-sources">4. Data Sources</h2>
+<p>A datasource is a registered connection to an external database. Registering a datasource stores the connection only; its tables become available after they are imported.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Creating or inspecting an unregistered datasource needs a reachable database, driver and source credentials. Import, preview and metadata changes need a registered datasource. The client JDBC connection to Zetaris is separate. <code>SHOW DATASOURCES</code> needs no registration.</p>
+<h3 id="41-create-datasource">4.1 CREATE DATASOURCE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE DATASOURCE &lt;name&gt; [DESCRIBE BY &#39;&lt;desc&gt;&#39;] OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Registers an external source (JDBC, Cassandra, MongoDB or DynamoDB, detected from the options) after testing the connection.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE DATASOURCE crm_pg DESCRIBE BY &quot;PostgreSQL&quot; OPTIONS (
+  jdbcdriver &quot;org.postgresql.Driver&quot;,
+  jdbcurl &quot;jdbc:postgresql://crm-db.example.com:5432/crm&quot;,
+  username &quot;datathon&quot;,
+  password &quot;changeme&quot;,
+  fetchsize &quot;1000&quot;
+)
+</code></pre>
+<h3 id="42-register-datasource-table">4.2 REGISTER DATASOURCE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER DATASOURCE TABLE &#39;&lt;table&gt;&#39; FROM &lt;datasource&gt;
+</code></pre>
+<p>Imports one source table&#39;s metadata into a datasource.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER DATASOURCE TABLE &quot;customers&quot; FROM crm_pg
+</code></pre>
+<h3 id="43-register-datasource-tables">4.3 REGISTER DATASOURCE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER DATASOURCE TABLES [(&#39;&lt;table&gt;&#39;, …)] FROM &lt;datasource&gt;
+</code></pre>
+<p>Imports the listed source tables, or every table when no list is given.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER DATASOURCE TABLES FROM crm_pg
+</code></pre>
+<h3 id="44-create-datasource-view">4.4 CREATE DATASOURCE VIEW</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE DATASOURCE VIEW &lt;view&gt; FROM &lt;datasource&gt; AS &lt;SELECT query …&gt;
+</code></pre>
+<p>Creates or replaces a datasource view from native SQL that runs on the source.</p>
+<p><strong>Privileges:</strong> Administrators or Query Builder Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE DATASOURCE VIEW au_customers FROM crm_pg AS SELECT * FROM customers WHERE country = &#39;AU&#39;
+</code></pre>
+<h3 id="45-show-datasources">4.5 SHOW DATASOURCES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATASOURCES
+</code></pre>
+<p>Lists accessible datasources: name, description and id.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATASOURCES
+</code></pre>
+<h3 id="46-show-datasource-tables">4.6 SHOW DATASOURCE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATASOURCE TABLES [&lt;datasource&gt;]
+SHOW DATASOURCE TABLES &lt;datasource&gt; WITH STATISTICS
+</code></pre>
+<p>Lists a datasource&#39;s tables and views; WITH STATISTICS adds row counts, size and tags.</p>
+<p><strong>Privileges:</strong> Depends on the form: any user; Data Catalog Read, Data Catalog Write.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>WITH STATISTICS requires a datasource name.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>WITH STATISTICS adds row counts, size and tags.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATASOURCE TABLES crm_pg
+</code></pre>
+<h3 id="47-preview-datasource-sql">4.7 PREVIEW DATASOURCE SQL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">PREVIEW DATASOURCE SQL &lt;datasource&gt; AS &lt;SELECT query …&gt;
+</code></pre>
+<p>Runs native SQL on a datasource and returns up to 10 rows.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">PREVIEW DATASOURCE SQL crm_pg AS SELECT id, full_name FROM customers WHERE country = &#39;AU&#39;
+</code></pre>
+<h3 id="48-list-database-tables">4.8 LIST DATABASE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST DATABASE TABLES OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Connects with inline options and lists an unregistered source&#39;s tables, columns, types and keys.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Only JDBC sources are supported.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST DATABASE TABLES OPTIONS (
+  jdbcdriver &quot;org.postgresql.Driver&quot;,
+  jdbcurl &quot;jdbc:postgresql://crm-db.example.com:5432/crm&quot;,
+  username &quot;datathon&quot;,
+  password &quot;changeme&quot;
+)
+</code></pre>
+<h3 id="49-describe-datasource-table">4.9 DESCRIBE DATASOURCE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DESCRIBE DATASOURCE TABLE &lt;datasource&gt;.&lt;table&gt;
+</code></pre>
+<p>Describes a table&#39;s columns with type, comment, description and tags (datasource, file, REST, Hive or Glue).</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>The table must be qualified with its datasource name.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DESCRIBE DATASOURCE TABLE crm_pg.customers
+</code></pre>
+<h3 id="410-refresh-datasource-tables">4.10 REFRESH DATASOURCE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REFRESH DATASOURCE TABLES FROM &lt;datasource&gt;
+</code></pre>
+<p>Re-imports metadata for a datasource&#39;s registered tables.</p>
+<p><strong>Privileges:</strong> Administrators or Data Catalog Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REFRESH DATASOURCE TABLES FROM crm_pg
+</code></pre>
+<h3 id="411-uncache-datasource">4.11 UNCACHE DATASOURCE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UNCACHE DATASOURCE &lt;name&gt;
+</code></pre>
+<p>Clears a datasource&#39;s cached table metadata and statistics, then reloads Presto catalogs.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UNCACHE DATASOURCE crm_pg
+</code></pre>
+<h3 id="412-update-datasource-schema">4.12 UPDATE DATASOURCE SCHEMA</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE DATASOURCE SCHEMA [&lt;datasource&gt;]
+</code></pre>
+<p>Re-imports table metadata for one datasource, or for every datasource you can access.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE DATASOURCE SCHEMA crm_pg
+</code></pre>
+<h3 id="413-drop-datasource-view">4.13 DROP DATASOURCE VIEW</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP DATASOURCE VIEW &lt;view&gt; FROM &lt;datasource&gt;
+</code></pre>
+<p>Deletes a datasource view.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP DATASOURCE VIEW au_customers FROM crm_pg
+</code></pre>
+<h3 id="414-drop-datasource">4.14 DROP DATASOURCE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP DATASOURCE &lt;name&gt;
+</code></pre>
+<p>Deregisters a datasource with its tables, cache, search-index entries and privileges.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP DATASOURCE crm_pg
+</code></pre>
+<h2 id="5-file-sources">5. File Sources</h2>
+<p>A file source is a Lightning database whose tables are defined over files in S3, Azure Blob Storage, Google Cloud Storage, HDFS or platform storage.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Query the supplied samples with source access. New file tables need creation permission, a readable path and any storage credentials; persistent tables also need a Lightning database. Update, uncache and drop need an existing object.</p>
+<h3 id="51-create-filestore-session-table">5.1 CREATE FILESTORE SESSION TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE FILESTORE SESSION TABLE &lt;table&gt; FORMAT &lt;format&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Defines a temporary file-backed table, readable as <code>session.&lt;table&gt;</code> until restart or DROP TABLE.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Session tables are visible within the organisation until they are dropped.</li>
+<li>Read the table as <code>session.&lt;table&gt;</code> and remove it with <code>DROP TABLE session.&lt;table&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE FILESTORE SESSION TABLE tx_preview FORMAT CSV OPTIONS (
+  path &quot;s3a://datathon-bucket/sales/transactions.csv&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;,
+  header &quot;true&quot;,
+  delimiter &quot;,&quot;
+)
+SELECT * FROM session.tx_preview LIMIT 20
+</code></pre>
+<h3 id="52-create-lightning-database">5.2 CREATE LIGHTNING DATABASE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE LIGHTNING DATABASE &lt;name&gt; [DESCRIBE BY &#39;&lt;desc&gt;&#39;] [OPTIONS (key &#39;value&#39;, …)]
+</code></pre>
+<p>Creates a Lightning database, the container for file-store and REST tables.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The name must be unique within the organisation.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE LIGHTNING DATABASE sales_files DESCRIBE BY &quot;Sales files&quot;
+</code></pre>
+<h3 id="53-create-lightning-filestore-table">5.3 CREATE LIGHTNING FILESTORE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE LIGHTNING FILESTORE TABLE &lt;table&gt; FROM &lt;database&gt; FORMAT &lt;format&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Registers a file table (CSV, Parquet, JSON, Delta, PDF, images and more) with the schema inferred from the path.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Option <code>sourceTable</code> also writes that table&#39;s data to the path.</li>
+<li>Query the table as <code>&lt;database&gt;.&lt;table&gt;</code>. Supported formats: CSV, JSON, PARQUET, ORC, DELTA, XML, AVRO, PDF, IMAGE, VIDEO, AUDIO, DOC, TEXT, MARKDOWN, RTF.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE LIGHTNING FILESTORE TABLE transactions FROM sales_files FORMAT CSV OPTIONS (
+  path &quot;s3a://datathon-bucket/sales/transactions.csv&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;,
+  header &quot;true&quot;,
+  delimiter &quot;,&quot;
+)
+SELECT * FROM sales_files.transactions LIMIT 20
+</code></pre>
+<h3 id="54-show-lightning-databases">5.4 SHOW LIGHTNING DATABASES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW LIGHTNING DATABASES
+</code></pre>
+<p>Lists accessible Lightning databases: name, description and id.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW LIGHTNING DATABASES
+</code></pre>
+<h3 id="55-show-lightning-tables">5.5 SHOW LIGHTNING TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW LIGHTNING TABLES &lt;database&gt;
+</code></pre>
+<p>Lists a Lightning database&#39;s tables with type, path or endpoint, format and id.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Only a single database name is accepted.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW LIGHTNING TABLES sales_files
+</code></pre>
+<h3 id="56-list-hdfs-files">5.6 LIST HDFS FILES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST HDFS FILES &#39;&lt;dir&gt;&#39; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Lists files and folders under an HDFS, S3, Azure or local path, using the credentials you pass.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST HDFS FILES &quot;s3a://datathon-bucket/sales/&quot; OPTIONS (
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;,
+  isS3BucketPublic &quot;false&quot;
+)
+</code></pre>
+<h3 id="57-uncache-lightning-filestore-table">5.7 UNCACHE LIGHTNING FILESTORE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UNCACHE LIGHTNING FILESTORE TABLE &lt;table&gt; FROM &lt;database&gt;
+</code></pre>
+<p>Clears a file-store table&#39;s cached metadata and dependent caches, then reloads Presto catalogs.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UNCACHE LIGHTNING FILESTORE TABLE transactions FROM sales_files
+</code></pre>
+<h3 id="58-update-lightning-filestore-table">5.8 UPDATE LIGHTNING FILESTORE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE LIGHTNING FILESTORE TABLE &lt;table&gt; FROM &lt;database&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Updates a file-store table&#39;s stored options; changing the path is rejected. Include the original <code>path</code> in OPTIONS even when updating other settings. On Zetaris 2.4.3.1, an update without it returned <code>Path is not provided</code> in the 12 October 2026 live check.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE LIGHTNING FILESTORE TABLE transactions FROM sales_files OPTIONS (
+  path &quot;s3a://datathon-bucket/sales/transactions.csv&quot;,
+  header &quot;true&quot;,
+  delimiter &quot;;&quot;
+)
+</code></pre>
+<h3 id="59-drop-lightning-database-table">5.9 DROP LIGHTNING DATABASE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP LIGHTNING DATABASE TABLE &lt;database&gt;.&lt;table&gt;
+</code></pre>
+<p>Removes a file-store or REST table from a Lightning database.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>The table must be qualified with its database name.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP LIGHTNING DATABASE TABLE sales_files.transactions
+</code></pre>
+<h3 id="510-drop-lightning-database">5.10 DROP LIGHTNING DATABASE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP LIGHTNING DATABASE &lt;database&gt;
+</code></pre>
+<p>Deletes a Lightning database with its tables and privileges.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP LIGHTNING DATABASE sales_files
+</code></pre>
+<h2 id="6-rest-sources-and-authentication">6. REST Sources and Authentication</h2>
+<p>A REST table exposes the JSON response of an HTTP endpoint as a table. Saved token requests (auth definitions) supply access tokens to REST tables.</p>
+<p><strong>Prerequisites</strong></p>
+<p>REST requests need an endpoint reachable from Zetaris and any required authentication. Persistent tables need a Lightning database and creation permission. Saved AUTH operations need a definition; token requests need the token endpoint and credentials. <code>LIST AUTH</code> may be empty.</p>
+<h3 id="61-create-rest-session-table">6.1 CREATE REST SESSION TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE REST SESSION TABLE &lt;table&gt; REQUEST (key &#39;value&#39;, …) HEADER (key &#39;value&#39;, …) BODY (key &#39;value&#39;, …) [AUTH BY &lt;auth&gt;[, …]]
+</code></pre>
+<p>Calls a REST endpoint and holds the result as temporary table <code>session.&lt;table&gt;</code>.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Session tables are visible within the organisation until they are dropped.</li>
+<li>Read the table as <code>session.&lt;table&gt;</code> and remove it with <code>DROP TABLE session.&lt;table&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE REST SESSION TABLE weather_preview REQUEST (
+  endpoint &quot;https://api.example.com/v1/weather/daily&quot;,
+  method &quot;GET&quot;,
+  http_encoding &quot;URLENCODED&quot;,
+  response_type &quot;JSON&quot;,
+  insecure_ssl &quot;false&quot;
+) HEADER () BODY () AUTH BY weather_oauth
+SELECT * FROM session.weather_preview
+</code></pre>
+<h3 id="62-create-lightning-rest-table">6.2 CREATE LIGHTNING REST TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE LIGHTNING REST TABLE &lt;table&gt; FROM &lt;database&gt; REQUEST (key &#39;value&#39;, …) HEADER (key &#39;value&#39;, …) BODY (key &#39;value&#39;, …) [AUTH BY &lt;auth&gt;[, …]]
+</code></pre>
+<p>Registers a REST table by calling its endpoint and inferring the JSON schema. AUTH BY is optional.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Query the table as <code>&lt;database&gt;.&lt;table&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE LIGHTNING REST TABLE daily_weather FROM weather_api REQUEST (
+  endpoint &quot;https://api.example.com/v1/weather/daily&quot;,
+  method &quot;GET&quot;,
+  http_encoding &quot;URLENCODED&quot;,
+  response_type &quot;JSON&quot;,
+  insecure_ssl &quot;false&quot;
+) HEADER () BODY () AUTH BY weather_oauth
+</code></pre>
+<h3 id="63-upsert-auth">6.3 UPSERT AUTH</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPSERT AUTH &lt;auth&gt; REQUEST (key &#39;value&#39;, …) HEADER (key &#39;value&#39;, …) BODY (key &#39;value&#39;, …)
+</code></pre>
+<p>Creates or updates a named token-request definition: endpoint, method, headers and body.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPSERT AUTH weather_oauth REQUEST (
+  endpoint &quot;https://auth.example.com/oauth/token&quot;,
+  method &quot;POST&quot;,
+  http_encoding &quot;URLENCODED&quot;,
+  insecure_ssl &quot;false&quot;
+) HEADER () BODY (
+  grant_type &quot;client_credentials&quot;,
+  client_id &quot;datathon-app&quot;,
+  client_secret &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="64-test-auth-request">6.4 TEST AUTH REQUEST</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TEST AUTH REQUEST (key &#39;value&#39;, …) HEADER (key &#39;value&#39;, …) BODY (key &#39;value&#39;, …)
+</code></pre>
+<p>Runs an ad-hoc token request and returns the response fields.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">TEST AUTH REQUEST (
+  endpoint &quot;https://auth.example.com/oauth/token&quot;,
+  method &quot;POST&quot;,
+  http_encoding &quot;URLENCODED&quot;,
+  insecure_ssl &quot;false&quot;
+) HEADER () BODY (
+  grant_type &quot;client_credentials&quot;,
+  client_id &quot;datathon-app&quot;,
+  client_secret &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="65-test-auth">6.5 TEST AUTH</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TEST AUTH &lt;auth&gt;
+</code></pre>
+<p>Runs a saved token-request definition and returns the response fields.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">TEST AUTH weather_oauth
+</code></pre>
+<h3 id="66-test-rest-request">6.6 TEST REST REQUEST</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TEST REST REQUEST (key &#39;value&#39;, …) HEADER (key &#39;value&#39;, …) BODY (key &#39;value&#39;, …) [AUTH BY &lt;auth&gt;[, …]]
+</code></pre>
+<p>Runs a REST request, optionally authorised by saved AUTH definitions, and returns the rows.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">TEST REST REQUEST (
+  endpoint &quot;https://api.example.com/v1/weather/daily&quot;,
+  method &quot;GET&quot;,
+  http_encoding &quot;URLENCODED&quot;,
+  response_type &quot;JSON&quot;,
+  insecure_ssl &quot;false&quot;
+) HEADER () BODY () AUTH BY weather_oauth
+</code></pre>
+<h3 id="67-show-auth">6.7 SHOW AUTH</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW AUTH &lt;auth&gt;
+</code></pre>
+<p>Shows a saved token-request definition, including its header and body values.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW AUTH weather_oauth
+</code></pre>
+<h3 id="68-list-auth">6.8 LIST AUTH</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST AUTH
+</code></pre>
+<p>Lists saved token-request definitions: name, endpoint, method, encoding, content type.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST AUTH
+</code></pre>
+<h3 id="69-drop-auth">6.9 DROP AUTH</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP AUTH &lt;auth&gt;
+</code></pre>
+<p>Deletes a saved token-request definition.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP AUTH weather_oauth
+</code></pre>
+<h2 id="7-streaming">7. Streaming</h2>
+<p>Streaming sources read JSON messages from a Kafka topic. Aggregation tables run a continuous query over a streaming source and write the result to storage.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Registering a stream needs Kafka broker/topic access, a sample JSON message and creation permission. An aggregation also needs writable output storage. Aggregation listing/removal needs its registered source.</p>
+<h3 id="71-register-streaming-datasource">7.1 REGISTER STREAMING DATASOURCE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER STREAMING DATASOURCE &lt;name&gt;
+INPUT_SOURCE KAFKA
+INPUT_FORMAT JSON
+INPUT_OPTIONS (key &#39;value&#39;, …)
+INPUT_SAMPLE &lt;sample message&gt;
+</code></pre>
+<p>Registers a Kafka topic as a streaming source; the schema comes from INPUT_SAMPLE.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Only Kafka input sources and JSON messages are supported.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The Kafka broker must be reachable from the Lightning platform. A broker addressed as <code>localhost</code> on a participant&#39;s computer is not reachable.</li>
+<li>The schema is derived from INPUT_SAMPLE; supply one representative message.</li>
+<li>Requires an external service: Kafka.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER STREAMING DATASOURCE clickstream
+INPUT_SOURCE KAFKA
+INPUT_FORMAT JSON
+INPUT_OPTIONS(
+  inferSchema &quot;false&quot;,
+  kafka.bootstrap.servers &quot;kafka.example.com:9092&quot;,
+  kafka.topic &quot;clicks&quot;,
+  security.protocol &quot;PLAINTEXT&quot;
+)
+INPUT_SAMPLE
+{&quot;user_id&quot;: 42, &quot;page&quot;: &quot;/pricing&quot;, &quot;ts&quot;: 1727222400}
+</code></pre>
+<h3 id="72-register-streaming-aggregation">7.2 REGISTER STREAMING AGGREGATION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER STREAMING AGGREGATION &lt;table&gt; FROM &lt;source&gt;
+OUTPUT_MODE {APPEND | COMPLETE | UPDATE}
+OUTPUT_FORMAT {PARQUET | ORC | CSV | JDBC}
+OUTPUT_OPTIONS (key &#39;value&#39;, …)
+AS &lt;SELECT query&gt;
+</code></pre>
+<p>Starts a streaming query over a source and writes the result to Parquet, ORC, CSV or JDBC.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Supported output formats are PARQUET, ORC, CSV and JDBC.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: Kafka.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER STREAMING AGGREGATION pricing_clicks FROM clickstream
+OUTPUT_MODE APPEND
+OUTPUT_FORMAT PARQUET
+OUTPUT_OPTIONS(path &quot;s3a://datathon-bucket/streams/pricing_clicks&quot;)
+AS SELECT user_id, page, from_unixtime(ts) AS clicked_at FROM clickstream WHERE page LIKE &#39;/pricing%&#39;
+</code></pre>
+<h3 id="73-show-streaming-datasource">7.3 SHOW STREAMING DATASOURCE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW STREAMING DATASOURCE
+</code></pre>
+<p>Lists the streaming sources you can see: name, input, format, schema.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW STREAMING DATASOURCE
+</code></pre>
+<h3 id="74-show-streaming-aggregation-tables">7.4 SHOW STREAMING AGGREGATION TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW STREAMING AGGREGATION TABLES &lt;source&gt;
+</code></pre>
+<p>Lists a streaming source&#39;s aggregation tables: output mode, format, schema, query.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW STREAMING AGGREGATION TABLES clickstream
+</code></pre>
+<h3 id="75-drop-streaming-datasource">7.5 DROP STREAMING DATASOURCE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP STREAMING DATASOURCE &lt;source&gt;
+</code></pre>
+<p>Stops and deletes a streaming source, and revokes its privileges.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP STREAMING DATASOURCE clickstream
+</code></pre>
+<h3 id="76-drop-streaming-aggregation-table">7.6 DROP STREAMING AGGREGATION TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP STREAMING AGGREGATION TABLE &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Stops and deletes aggregation table <code>&lt;source&gt;.&lt;table&gt;</code>.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP STREAMING AGGREGATION TABLE clickstream.pricing_clicks
+</code></pre>
+<h2 id="8-data-lakes">8. Data Lakes</h2>
+<p>A data lake is an Iceberg lakehouse registered on object or file storage.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Creation needs accessible Iceberg storage, connection settings and creation permission. Table listing needs a registered lake. <code>RELOAD DATALAKE</code> affects all engine catalogs; confirm that scope first.</p>
+<h3 id="81-create-datalake">8.1 CREATE DATALAKE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE DATALAKE &lt;name&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Registers an Iceberg data lake on S3, Azure, GCS, HDFS or local storage after checking the path.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE DATALAKE datathon_lake OPTIONS (
+  storageType &quot;S3&quot;,
+  storagePath &quot;s3a://datathon-bucket/lake/&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="82-show-datalakes">8.2 SHOW DATALAKES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATALAKES
+</code></pre>
+<p>Lists accessible data lakes.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATALAKES
+</code></pre>
+<h3 id="83-show-datalake-tables">8.3 SHOW DATALAKE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATALAKE TABLES &lt;database&gt;
+</code></pre>
+<p>Lists a data lake&#39;s Iceberg tables.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Reads the lake storage directly; the command can take several minutes on a large lake.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATALAKE TABLES datathon_lake
+</code></pre>
+<h3 id="84-reload-datalake">8.4 RELOAD DATALAKE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">RELOAD DATALAKE
+</code></pre>
+<p>Tells every Presto engine to reload its catalogs and drops cached Spark catalogs.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: Presto.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">RELOAD DATALAKE
+</code></pre>
+<h2 id="9-external-catalogs">9. External Catalogs</h2>
+<p>External catalogs connect a Unity Catalog server under a local alias.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Registration needs Unity Catalog server access, authentication, an existing catalog and creation permission. Namespace/table commands need an accessible registered catalog. <code>SHOW UNITY CATALOG</code> needs no registration.</p>
+<h3 id="91-register-unity-catalog">9.1 REGISTER UNITY CATALOG</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER UNITY CATALOG &lt;alias&gt; NAME &lt;catalog&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Registers a Unity Catalog under an alias after checking the catalog exists on the server.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The option <code>unityCatalogUri</code> is required.</li>
+<li>Requires an external service: Unity Catalog server.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER UNITY CATALOG uc_demo NAME main OPTIONS (
+  useCatalogTemporaryCredentials &quot;true&quot;,
+  unityCatalogUri &quot;https://uc.example.com&quot;,
+  unityCatalogToken &quot;dapi-example-token&quot;
+)
+</code></pre>
+<h3 id="92-show-unity-catalog">9.2 SHOW UNITY CATALOG</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW UNITY CATALOG
+</code></pre>
+<p>Lists registered Unity Catalogs: alias, name, masked options, schema count.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW UNITY CATALOG
+</code></pre>
+<h3 id="93-show-uc-namespaces">9.3 SHOW UC NAMESPACES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW UC NAMESPACES IN &lt;alias&gt;[.&lt;namespace&gt; …]
+</code></pre>
+<p>Lists a Unity Catalog&#39;s schemas with child counts, filtered to what you can access.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: Unity Catalog server.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW UC NAMESPACES IN uc_demo
+</code></pre>
+<h3 id="94-show-uc-tables">9.4 SHOW UC TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW UC TABLES IN &lt;alias&gt;.&lt;namespace&gt;[.&lt;namespace&gt; …]
+</code></pre>
+<p>Lists the tables in a Unity Catalog schema.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Users other than administrators require an assignment on the schema.</li>
+<li>Requires an external service: Unity Catalog server.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW UC TABLES IN uc_demo.default
+</code></pre>
+<h3 id="95-uncache-unity-catalog">9.5 UNCACHE UNITY CATALOG</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UNCACHE UNITY CATALOG &lt;name&gt;
+</code></pre>
+<p>Evicts a Unity Catalog connection from the driver cache so it reloads.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UNCACHE UNITY CATALOG uc_demo
+</code></pre>
+<h3 id="96-drop-unity-catalog">9.6 DROP UNITY CATALOG</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP UNITY CATALOG &lt;alias&gt;
+</code></pre>
+<p>Removes a Unity Catalog registration and unloads it.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP UNITY CATALOG uc_demo
+</code></pre>
+<h2 id="10-hive-metastore">10. Hive Metastore</h2>
+<p>A Hive metastore registration synchronises database and table metadata from an existing Hive metastore database.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Registration/remote listing needs Hive metastore access, its JDBC driver and credentials. Named listing/removal needs a registered metastore or synced database. <code>LIST HIVE METASTORES</code> may be empty.</p>
+<h3 id="101-register-hive-metastore">10.1 REGISTER HIVE METASTORE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER HIVE METASTORE &lt;name&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Registers a Hive metastore (JDBC to its database) and syncs the listed databases.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: Hive metastore.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER HIVE METASTORE hive_prod OPTIONS (
+  hive_meta_jdbc_url &quot;jdbc:mysql://hive-db.example.com:3306/metastore&quot;,
+  hive_meta_user_name &quot;hive&quot;,
+  hive_meta_password &quot;changeme&quot;,
+  hive_meta_jdbc_driver &quot;com.mysql.cj.jdbc.Driver&quot;,
+  databases &quot;sales&quot;
+)
+</code></pre>
+<h3 id="102-list-hive-metastores">10.2 LIST HIVE METASTORES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORES
+</code></pre>
+<p>Lists accessible Hive metastores.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORES
+</code></pre>
+<h3 id="103-list-hive-metastore-tables-remote">10.3 LIST HIVE METASTORE TABLES REMOTE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORE TABLES REMOTE OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Lists live tables for the databases named in OPTIONS, over an inline connection.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The <code>databases</code> key is case-sensitive.</li>
+<li>Requires an external service: Hive metastore.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORE TABLES REMOTE OPTIONS (
+  hive_meta_jdbc_url &quot;jdbc:mysql://hive-db.example.com:3306/metastore&quot;,
+  hive_meta_user_name &quot;hive&quot;,
+  hive_meta_password &quot;changeme&quot;,
+  hive_meta_jdbc_driver &quot;com.mysql.cj.jdbc.Driver&quot;,
+  databases &quot;sales&quot;
+)
+</code></pre>
+<h3 id="104-list-hive-metastore-databases">10.4 LIST HIVE METASTORE DATABASES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORE DATABASES &lt;metastore&gt;
+</code></pre>
+<p>Lists the synced databases of a Hive metastore.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORE DATABASES hive_prod
+</code></pre>
+<h3 id="105-show-hive-metastore-databases">10.5 SHOW HIVE METASTORE DATABASES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW HIVE METASTORE DATABASES OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Lists live Hive databases from inline connection options.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: Hive metastore.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW HIVE METASTORE DATABASES OPTIONS (
+  hive_meta_jdbc_url &quot;jdbc:mysql://hive-db.example.com:3306/metastore&quot;,
+  hive_meta_user_name &quot;hive&quot;,
+  hive_meta_password &quot;changeme&quot;,
+  hive_meta_jdbc_driver &quot;com.mysql.cj.jdbc.Driver&quot;
+)
+</code></pre>
+<h3 id="106-list-hive-metastore-tables">10.6 LIST HIVE METASTORE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST HIVE METASTORE TABLES &lt;source&gt;.&lt;table&gt; [OPTIONS (key &#39;value&#39;, …)]
+</code></pre>
+<p>Lists synced tables of <code>&lt;metastore&gt;.&lt;db&gt;</code>; with OPTIONS it lists live tables instead.</p>
+<p><strong>Privileges:</strong> Depends on the form: any user; admins only.</p>
+<p><strong>Example</strong></p>
+<p>For a registered metastore:</p>
+<pre><code class="language-sql">LIST HIVE METASTORE TABLES hive_prod.sales
+</code></pre>
+<p>For a remote connection with inline options:</p>
+<pre><code class="language-sql">LIST HIVE METASTORE TABLES REMOTE OPTIONS (
+  hive_meta_jdbc_url &quot;jdbc:mysql://hive-db.example.com:3306/metastore&quot;,
+  hive_meta_user_name &quot;hive&quot;,
+  hive_meta_password &quot;changeme&quot;,
+  hive_meta_jdbc_driver &quot;com.mysql.cj.jdbc.Driver&quot;,
+  databases &quot;sales&quot;
+)
+</code></pre>
+<h3 id="107-drop-hive-metastore">10.7 DROP HIVE METASTORE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP HIVE METASTORE &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Deletes a registered Hive metastore (<code>&lt;metastore&gt;</code>) or one synced database (<code>&lt;metastore&gt;.&lt;db&gt;</code>).</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP HIVE METASTORE hive_prod
+</code></pre>
+<h2 id="11-aws-glue-metastore">11. AWS Glue Metastore</h2>
+<p>An AWS Glue metastore registration synchronises database and table metadata from AWS Glue.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Registration/remote listing needs a region, Glue catalog/database and authorised AWS authentication. Named listing/removal needs a registered metastore or synced database. <code>LIST AWS GLUE METASTORES</code> may be empty.</p>
+<h3 id="111-register-aws-glue-metastore">11.1 REGISTER AWS GLUE METASTORE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER AWS GLUE METASTORE &lt;name&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Registers an AWS Glue catalog (region, databases, optional keys and prefix) and syncs its metadata.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: AWS Glue.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER AWS GLUE METASTORE glue_prod OPTIONS (
+  region &quot;ap-southeast-2&quot;,
+  databases &quot;analytics&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="112-list-aws-glue-metastores">11.2 LIST AWS GLUE METASTORES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORES
+</code></pre>
+<p>Lists accessible Glue metastores.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORES
+</code></pre>
+<h3 id="113-list-aws-glue-metastore-databases-remote">11.3 LIST AWS GLUE METASTORE DATABASES REMOTE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE DATABASES REMOTE OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Lists live Glue databases from inline options.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Requires an external service: AWS Glue.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE DATABASES REMOTE OPTIONS (
+  name &quot;glue_prod&quot;,
+  region &quot;ap-southeast-2&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="114-list-aws-glue-metastore-databases">11.4 LIST AWS GLUE METASTORE DATABASES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE DATABASES {OPTIONS (key &#39;value&#39;, …) | &lt;metastore&gt;}
+</code></pre>
+<p>With a name, lists synced databases; with OPTIONS, lists live ones.</p>
+<p><strong>Privileges:</strong> Depends on the form: admins only; any user.</p>
+<p><strong>Example</strong></p>
+<p>For a registered metastore:</p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE DATABASES glue_prod
+</code></pre>
+<p>For a remote connection with inline options:</p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE DATABASES REMOTE OPTIONS (
+  name &quot;glue_prod&quot;,
+  region &quot;ap-southeast-2&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="115-list-aws-glue-metastore-tables-remote">11.5 LIST AWS GLUE METASTORE TABLES REMOTE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE TABLES REMOTE OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Lists live tables for the databases in OPTIONS <code>original_names</code>, over an inline connection.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li><code>original_names</code> is read case-sensitively.</li>
+<li>Requires an external service: AWS Glue.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE TABLES REMOTE OPTIONS (
+  name &quot;glue_prod&quot;,
+  region &quot;ap-southeast-2&quot;,
+  original_names &quot;analytics&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="116-list-aws-glue-metastore-tables">11.6 LIST AWS GLUE METASTORE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE TABLES &lt;source&gt;.&lt;table&gt; [OPTIONS (key &#39;value&#39;, …)]
+</code></pre>
+<p>Lists synced tables of <code>&lt;metastore&gt;.&lt;db&gt;</code>; with OPTIONS it lists live tables instead.</p>
+<p><strong>Privileges:</strong> Depends on the form: any user; admins only.</p>
+<p><strong>Example</strong></p>
+<p>For a registered metastore:</p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE TABLES glue_prod.analytics
+</code></pre>
+<p>For a remote connection with inline options:</p>
+<pre><code class="language-sql">LIST AWS GLUE METASTORE TABLES REMOTE OPTIONS (
+  name &quot;glue_prod&quot;,
+  region &quot;ap-southeast-2&quot;,
+  original_names &quot;analytics&quot;,
+  awsAccessKeyId &quot;AKIAEXAMPLE&quot;,
+  awsSecretAccessKey &quot;example-secret&quot;
+)
+</code></pre>
+<h3 id="117-drop-aws-glue-metastore">11.7 DROP AWS GLUE METASTORE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP AWS GLUE METASTORE &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Deletes a registered Glue metastore (<code>&lt;metastore&gt;</code>) or one synced database (<code>&lt;metastore&gt;.&lt;db&gt;</code>).</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP AWS GLUE METASTORE glue_prod
+</code></pre>
+<h2 id="12-schema-store-views">12. Schema Store Views</h2>
+<p>A schema store view is a stored Spark SQL view held in a container. Query Builder views are stored the same way.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Views need an accessible source, an existing container and creation permission. First <a href="#122-create-schemastore-container">create your own container</a>. Preview can use <code>SELECT 1</code> without a container. Rename/removal needs an existing view.</p>
+<h3 id="121-create-or-replace-schemastore-view">12.1 CREATE [OR REPLACE] SCHEMASTORE VIEW</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE [OR REPLACE] SCHEMASTORE VIEW &lt;view&gt; WITH CONTAINER &lt;container&gt; AS &lt;SELECT query …&gt;
+</code></pre>
+<p>Creates a Spark SQL view in a container; OR REPLACE overwrites an existing view.</p>
+<p><strong>Privileges:</strong> Administrators or Query Builder Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Query a view as <code>&lt;container&gt;.&lt;view&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE SCHEMASTORE VIEW reasons WITH CONTAINER analysis AS
+SELECT r_reason_sk, r_reason_desc FROM TPCDS_DB.reason
+</code></pre>
+<h3 id="122-create-schemastore-container">12.2 CREATE SCHEMASTORE CONTAINER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE SCHEMASTORE CONTAINER &lt;name&gt;
+</code></pre>
+<p>Creates a schema-store view container, the folder Query Builder views live in.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE SCHEMASTORE CONTAINER analysis
+</code></pre>
+<h3 id="123-preview-schemastore-sql">12.3 PREVIEW SCHEMASTORE SQL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">PREVIEW SCHEMASTORE SQL AS &lt;SELECT query …&gt;
+</code></pre>
+<p>Runs a Spark SQL query and returns up to 10 rows.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Begin the statement with <code>PREVIEW SCHEMASTORE SQL AS</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">PREVIEW SCHEMASTORE SQL AS SELECT country, COUNT(*) AS customers FROM crm_pg.customers GROUP BY country
+</code></pre>
+<h3 id="124-show-datasource-views">12.4 SHOW DATASOURCE VIEWS</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATASOURCE VIEWS
+</code></pre>
+<p>Lists accessible schema-store views: name, generator and cached table.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATASOURCE VIEWS
+</code></pre>
+<h3 id="125-update-schemastore-view">12.5 UPDATE SCHEMASTORE VIEW</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE SCHEMASTORE VIEW &lt;source&gt;.&lt;table&gt; SET NAME &lt;new_name&gt;
+</code></pre>
+<p>Renames a schema-store view and updates its grants and data-mart references.</p>
+<p><strong>Privileges:</strong> Administrators or Query Builder Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Pipelines that refer to the view by its previous name must be updated separately.</li>
+<li>Needs <code>&lt;container&gt;.&lt;view&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE SCHEMASTORE VIEW analysis.top_customers SET NAME best_customers
+</code></pre>
+<h3 id="126-drop-schemastore-view">12.6 DROP SCHEMASTORE VIEW</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP SCHEMASTORE VIEW &lt;view&gt; FROM &lt;container&gt;
+</code></pre>
+<p>Deletes a schema-store view unless a data mart uses it, and revokes its privileges.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP SCHEMASTORE VIEW best_customers FROM analysis
+</code></pre>
+<h2 id="13-unified-semantic-layer">13. Unified Semantic Layer</h2>
+<p>A Unified Semantic Layer (USL) is a semantic model of tables, keys and relationships. Each table is compiled from DDL, deployed to a namespace under <code>lightning.metastore</code>, and activated with a query over source data. An activated table is queried as <code>lightning.metastore.&lt;namespace&gt;.&lt;usl&gt;.&lt;table&gt;</code>.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Deployment needs creation permission and a namespace under <code>lightning.metastore</code>. Activation needs an accessible SELECT matching the table schema. Load/update needs an existing USL. Compile without DEPLOY returns a model without saving it.</p>
+<h3 id="131-compile-usl">13.1 COMPILE USL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">COMPILE USL &lt;usl&gt; [DEPLOY] NAMESPACE &lt;namespace&gt; DDL
+&lt;CREATE TABLE statement&gt;;
+[&lt;CREATE TABLE statement&gt;; …]
+</code></pre>
+<p>Compiles USL table DDL into a semantic model; with DEPLOY it saves the model under the namespace.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Columns must use scalar data types. ARRAY, MAP and STRUCT types are not supported.</li>
+<li>Each CREATE TABLE statement must begin on a new line.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Separate CREATE TABLE definitions with <code>;</code>. SQL Workspace splits editor text at those separators. For multiple tables, use Unified Semantic Layer → New USL, or send the whole COMPILE statement over JDBC/HTTP with a runner that keeps it intact. Do not send each definition separately.</li>
+<li>Without DEPLOY, the command returns the model definition as JSON and stores nothing.</li>
+<li>The namespace must exist; create it with <code>CREATE NAMESPACE IF NOT EXISTS lightning.metastore.&lt;name&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">COMPILE USL retail DEPLOY NAMESPACE lightning.metastore.datathon DDL
+CREATE TABLE customer (
+  id int NOT NULL PRIMARY KEY,
+  full_name varchar(200),
+  email varchar(200),
+  country varchar(50)
+);
+CREATE TABLE orders (
+  id int NOT NULL PRIMARY KEY,
+  customer_id int FOREIGN KEY REFERENCES customer(id),
+  amount decimal(10,2),
+  status varchar(20)
+)
+</code></pre>
+<h3 id="132-load-usl">13.2 LOAD USL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LOAD USL &lt;usl&gt; NAMESPACE &lt;namespace&gt;
+</code></pre>
+<p>Returns a USL as JSON: tables, ordered columns, keys and materialization info.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LOAD USL retail NAMESPACE lightning.metastore.datathon
+</code></pre>
+<h3 id="133-show-namespaces-or-tables">13.3 SHOW NAMESPACES OR TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW NAMESPACES OR TABLES IN &lt;namespace&gt;
+</code></pre>
+<p>Lists the namespaces, USLs and tables (with activation flag) under a namespace, filtered by access.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Use this command in place of <code>SHOW NAMESPACES</code> and <code>SHOW TABLES</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW NAMESPACES OR TABLES IN lightning.metastore
+</code></pre>
+<h3 id="134-activate-usl-table">13.4 ACTIVATE USL TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ACTIVATE USL TABLE &lt;namespace.usl.table&gt; AS &lt;SELECT query …&gt;
+</code></pre>
+<p>Binds a USL table to a SELECT query after checking the query matches the declared schema.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Any ANSI SQL or Spark built-in function can shape the columns; a query column may not be downcast to the declared type.</li>
+<li>The query must return the declared columns with compatible types. A column declared NOT NULL requires a non-null expression, for example <code>COALESCE(id, 0)</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ACTIVATE USL TABLE lightning.metastore.datathon.retail.customer AS
+SELECT COALESCE(id, 0) AS id, full_name, email, country
+FROM crm_pg.customers
+</code></pre>
+<h3 id="135-update-usl--as-replace-model">13.5 UPDATE USL … AS (replace model)</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE USL &lt;usl&gt; NAMESPACE &lt;namespace&gt; AS &lt;USL JSON …&gt;
+</code></pre>
+<p>Replaces a whole USL from its JSON form.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Start from the JSON returned by LOAD USL. The command replaces the entire model.</li>
+<li>Re-run <code>ACTIVATE USL TABLE</code> after replacement before querying the table. On Zetaris 2.4.3.1, the 12 October 2026 live check accepted JSON containing <code>activateQuery</code> but the next SELECT returned <code>table(...) is not activated</code>. Reactivation restored query access.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE USL retail NAMESPACE lightning.metastore.datathon AS {&quot;namespace&quot;: [&quot;metastore&quot;, &quot;datathon&quot;], &quot;name&quot;: &quot;retail&quot;, &quot;tables&quot;: […]}
+</code></pre>
+<h3 id="136-update-usl--set-description">13.6 UPDATE USL … SET DESCRIPTION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE USL &lt;namespace.usl.table[.column]&gt; SET [TABLE | COLUMN] DESCRIPTION &lt;text …&gt;
+</code></pre>
+<p>Sets the description of a USL, one of its tables, or one column.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE USL lightning.metastore.datathon.retail.customer SET TABLE DESCRIPTION One row per customer
+</code></pre>
+<h3 id="137-update-usl--set-column-order">13.7 UPDATE USL … SET COLUMN ORDER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE USL &lt;namespace.usl.table&gt; SET COLUMN ORDER &lt;col1, col2, …&gt;
+</code></pre>
+<p>Saves a table&#39;s column display order; list every column, comma-separated.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE USL lightning.metastore.datathon.retail.customer SET COLUMN ORDER id, full_name, country, email
+</code></pre>
+<h3 id="138-remove-usl">13.8 REMOVE USL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REMOVE USL &lt;usl&gt; NAMESPACE &lt;namespace&gt;
+</code></pre>
+<p>Deletes a USL.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REMOVE USL retail NAMESPACE lightning.metastore.datathon
+</code></pre>
+<h2 id="14-data-quality">14. Data Quality</h2>
+<p>Data-quality rules are boolean expressions evaluated against activated USL tables.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Rules and record inspection need an activated USL table. Registering a rule needs model-change permission. Named operations need an existing rule; check names with <code>LIST DQ USL</code>.</p>
+<h3 id="141-register-dq">14.1 REGISTER DQ</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER DQ &lt;rule&gt; TABLE &lt;namespace.usl.table&gt; AS &lt;boolean expression …&gt;
+</code></pre>
+<p>Adds a named data-quality rule, a boolean expression, to an activated USL table.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER DQ valid_email TABLE lightning.metastore.datathon.retail.customer AS
+email IS NOT NULL AND email LIKE &#39;%@%&#39;
+</code></pre>
+<h3 id="142-list-dq-usl">14.2 LIST DQ USL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST DQ USL &lt;namespace.usl&gt;
+</code></pre>
+<p>Lists the key constraints and data-quality rules for every table in a USL.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST DQ USL lightning.metastore.datathon.retail
+</code></pre>
+<h3 id="143-show-dq-valid--invalid-record">14.3 SHOW DQ VALID / INVALID RECORD</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DQ {VALID | INVALID} RECORD &lt;rule&gt; TABLE &lt;namespace.usl.table&gt;
+</code></pre>
+<p>Returns the records that pass (VALID) or fail (INVALID) one rule.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Results are streamed.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DQ INVALID RECORD valid_email TABLE lightning.metastore.datathon.retail.customer
+</code></pre>
+<h3 id="144-show-dq-all-valid--invalid">14.4 SHOW DQ ALL VALID / INVALID</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DQ ALL {VALID | INVALID} TABLE &lt;namespace.usl.table&gt;
+</code></pre>
+<p>Returns the records that pass every rule, or fail any rule.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DQ ALL INVALID TABLE lightning.metastore.datathon.retail.customer
+</code></pre>
+<h3 id="145-update-dq">14.5 UPDATE DQ</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE DQ &lt;rule&gt; TABLE &lt;namespace.usl.table&gt; SET NAME = &lt;new_rule&gt;, EXPRESSION = &lt;boolean expression …&gt;
+</code></pre>
+<p>Renames a data-quality rule and/or changes its expression.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE DQ valid_email TABLE lightning.metastore.datathon.retail.customer
+SET NAME = valid_email_v2, EXPRESSION = email LIKE &#39;%@%.%&#39;
+</code></pre>
+<h3 id="146-run-dq">14.6 RUN DQ</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">RUN DQ &lt;rule&gt; TABLE &lt;namespace&gt;.&lt;usl&gt;.&lt;table&gt;
+</code></pre>
+<p>Runs one rule, or all rules and key constraints, and returns total, valid and invalid counts.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>A rule name must be specified.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>For a composite key, enclose the column list in backquotes, for example <code>RUN DQ</code> id,name <code>TABLE …</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">RUN DQ valid_email TABLE lightning.metastore.datathon.retail.customer
+</code></pre>
+<h3 id="147-remove-dq">14.7 REMOVE DQ</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REMOVE DQ &lt;rule&gt; TABLE &lt;namespace.usl.table&gt;
+</code></pre>
+<p>Deletes a data-quality rule.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The rule is removed from every table in the USL.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REMOVE DQ valid_email_v2 TABLE lightning.metastore.datathon.retail.customer
+</code></pre>
+<h2 id="15-export-and-materialization">15. Export and Materialization</h2>
+<p>These commands write a query result or a USL table to storage.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Export needs a writable destination, storage settings/credentials and query access. USL materialisation also needs an activated table. Confirm the path and overwrite/append behaviour before writing.</p>
+<h3 id="151-run-export-to-storage">15.1 RUN EXPORT TO STORAGE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">RUN EXPORT TO STORAGE (key &#39;value&#39;, …)
+</code></pre>
+<p>Writes query results to cloud storage or an Iceberg table.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li><code>optionsBase64</code> is a base64-encoded JSON object of write and storage options; the example encodes <code>{&quot;header&quot;:&quot;true&quot;}</code>.</li>
+<li><code>format</code> is csv, json, parquet, orc or delta; <code>saveMode</code> is overwrite, append, ignore or errorifexists.</li>
+<li>The Export action in the SQL Workspace builds this command, including the storage credentials.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">RUN EXPORT TO STORAGE (
+  query = &#39;SELECT * FROM crm_pg.customers WHERE country = &#39;&#39;AU&#39;&#39;&#39;,
+  path = &#39;s3a://datathon-bucket/exports/au_customers&#39;,
+  format = &#39;csv&#39;,
+  saveMode = &#39;overwrite&#39;,
+  optionsBase64 = &#39;eyJoZWFkZXIiOiJ0cnVlIn0=&#39;
+)
+</code></pre>
+<h3 id="152-materialize-usl-table">15.2 MATERIALIZE USL TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">MATERIALIZE USL TABLE &lt;namespace.usl.table&gt; TO STORAGE (key &#39;value&#39;, …)
+</code></pre>
+<p>Runs a USL table&#39;s activation query and writes the result to storage.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li><code>recordType</code> is <code>all</code> or <code>valid</code>; <code>valid</code> writes only rows that pass the data-quality rules.</li>
+<li>The Materialize action on a USL table builds this command, including the storage setting and credentials.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">MATERIALIZE USL TABLE lightning.metastore.datathon.retail.customer TO STORAGE (
+  recordType = &#39;all&#39;,
+  path = &#39;s3a://datathon-bucket/usl/retail/customer&#39;,
+  format = &#39;parquet&#39;,
+  storageSettingId = &#39;&lt;storage setting id&gt;&#39;,
+  optionsBase64 = &#39;eyJoZWFkZXIiOiJ0cnVlIn0=&#39;
+)
+</code></pre>
+<h2 id="16-data-pipelines">16. Data Pipelines</h2>
+<p>Pipelines are built in the Data Pipeline designer and stored in pipeline containers. Several commands in this chapter take the pipeline specification in JSON form.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Saving needs your own container, write permission and a complete specification with accessible sources. Infer/verify needs a valid query or specification. Named describe/update/drop needs a saved relation.</p>
+<h3 id="161-create-pipeline-container">16.1 CREATE PIPELINE CONTAINER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE PIPELINE CONTAINER &lt;name&gt; [DESCRIPTION &#39;&lt;desc&gt;&#39;]
+</code></pre>
+<p>Creates a pipeline container.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE PIPELINE CONTAINER etl DESCRIPTION &#39;Daily ETL&#39;
+</code></pre>
+<h3 id="162-register-pipeline-relation-container">16.2 REGISTER PIPELINE RELATION CONTAINER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REGISTER PIPELINE RELATION CONTAINER &lt;container&gt; SPEC &lt;pipeline JSON …&gt;
+</code></pre>
+<p>Saves a pipeline into a container.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The specification is the JSON returned by DESCRIBE PIPELINE RELATION. Pipelines are normally built in the Data Pipeline designer.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REGISTER PIPELINE RELATION CONTAINER etl SPEC
+{&quot;name&quot;: &quot;daily_orders&quot;, &quot;nodes&quot;: [
+  {&quot;nodeType&quot;: &quot;DataSource&quot;, &quot;name&quot;: &quot;orders_source&quot;,
+   &quot;columns&quot;: [{&quot;name&quot;: &quot;customer_id&quot;, &quot;dataType&quot;: &quot;int&quot;}, {&quot;name&quot;: &quot;amount&quot;, &quot;dataType&quot;: &quot;decimal(10,2)&quot;}],
+   &quot;properties&quot;: [], &quot;sources&quot;: [&quot;crm_pg.orders&quot;]},
+  {&quot;nodeType&quot;: &quot;Projection&quot;, &quot;name&quot;: &quot;orders_projection&quot;,
+   &quot;columns&quot;: [{&quot;name&quot;: &quot;customer_id&quot;, &quot;dataType&quot;: &quot;int&quot;}, {&quot;name&quot;: &quot;amount&quot;, &quot;dataType&quot;: &quot;decimal(10,2)&quot;}],
+   &quot;properties&quot;: [], &quot;sources&quot;: [&quot;orders_source&quot;]}
+]}
+</code></pre>
+<h3 id="163-list-pipeline-container">16.3 LIST PIPELINE CONTAINER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST PIPELINE CONTAINER
+</code></pre>
+<p>Lists accessible pipeline containers.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST PIPELINE CONTAINER
+</code></pre>
+<h3 id="164-list-pipeline-relation">16.4 LIST PIPELINE RELATION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST PIPELINE RELATION &lt;container&gt;
+</code></pre>
+<p>Lists the pipelines in a container.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST PIPELINE RELATION etl
+</code></pre>
+<h3 id="165-describe-pipeline-relation">16.5 DESCRIBE PIPELINE RELATION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DESCRIBE PIPELINE RELATION &lt;container&gt;.&lt;pipeline&gt;
+</code></pre>
+<p>Returns a saved pipeline&#39;s JSON.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Read or Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>The pipeline must be qualified with its container name.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Returns the pipeline specification in JSON form.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DESCRIBE PIPELINE RELATION etl.daily_orders
+</code></pre>
+<h3 id="166-verify-pipeline">16.6 VERIFY PIPELINE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">VERIFY PIPELINE SPEC &lt;pipeline JSON …&gt;
+</code></pre>
+<p>Validates a whole pipeline spec, source access included; returns validity, schema and error.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Returns the validity, the output schema and any error.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">VERIFY PIPELINE SPEC {&quot;name&quot;: &quot;daily_orders&quot;, &quot;nodes&quot;: […]}
+</code></pre>
+<h3 id="167-infer-sqltable-sources">16.7 INFER SQLTABLE SOURCES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">INFER SQLTABLE SOURCES SPEC &lt;SQL query …&gt;
+</code></pre>
+<p>Returns the source tables and aliases that a SQL query reads.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">INFER SQLTABLE SOURCES SPEC SELECT c.id, o.amount FROM crm_pg.customers c JOIN crm_pg.orders o ON o.customer_id = c.id
+</code></pre>
+<h3 id="168-infer-sqltable-columns">16.8 INFER SQLTABLE COLUMNS</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">INFER SQLTABLE COLUMNS SPEC &lt;SQL query …&gt;
+</code></pre>
+<p>Returns a SQL query&#39;s output columns with their source table.column and type.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">INFER SQLTABLE COLUMNS SPEC SELECT c.id, o.amount FROM crm_pg.customers c JOIN crm_pg.orders o ON o.customer_id = c.id
+</code></pre>
+<h3 id="169-update-pipeline-relation">16.9 UPDATE PIPELINE RELATION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE PIPELINE RELATION &lt;container&gt;.&lt;pipeline&gt; SPEC &lt;pipeline JSON&gt;
+</code></pre>
+<p>Replaces a saved pipeline&#39;s JSON.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>The pipeline must be qualified with its container name.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>The specification is the JSON returned by DESCRIBE PIPELINE RELATION.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE PIPELINE RELATION etl.daily_orders SPEC {&quot;name&quot;: &quot;daily_orders&quot;, &quot;nodes&quot;: […]}
+</code></pre>
+<h3 id="1610-run-pipeline">16.10 RUN PIPELINE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">RUN PIPELINE ON &#39;&lt;node&gt;&#39; [LIMIT &lt;n&gt;] SPEC &lt;pipeline JSON …&gt;
+</code></pre>
+<p>Runs an unsaved pipeline up to the named node and returns its rows.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Read or Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Runs the unsaved specification up to the named node and returns its rows.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">RUN PIPELINE ON &#39;orders_projection&#39; LIMIT 100 SPEC {&quot;name&quot;: &quot;daily_orders&quot;, &quot;nodes&quot;: […]}
+</code></pre>
+<h3 id="1611-drop-pipeline-container">16.11 DROP PIPELINE CONTAINER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP PIPELINE CONTAINER &lt;name&gt;
+</code></pre>
+<p>Deletes a pipeline container with its dependent views and privileges.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP PIPELINE CONTAINER etl
+</code></pre>
+<h3 id="1612-drop-pipeline-relation">16.12 DROP PIPELINE RELATION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP PIPELINE RELATION &lt;container&gt;.&lt;pipeline&gt;
+</code></pre>
+<p>Deletes a saved pipeline.</p>
+<p><strong>Privileges:</strong> Administrators or Data Pipeline Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>The pipeline must be qualified with its container name.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP PIPELINE RELATION etl.daily_orders
+</code></pre>
+<h2 id="17-virtual-data-marts">17. Virtual Data Marts</h2>
+<p>A virtual data mart presents source tables under new table and column names without copying data.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Creation needs write permission. Adding a table needs an existing mart and source access; map every source column. Other operations need the existing mart or table.</p>
+<h3 id="171-create-datamart">17.1 CREATE DATAMART</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE DATAMART &lt;name&gt; [DESCRIBE BY &#39;&lt;description&gt;&#39;]
+</code></pre>
+<p>Creates a virtual data mart.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE DATAMART sales_mart DESCRIBE BY &#39;Sales mart&#39;
+</code></pre>
+<h3 id="172-add-datamart-table">17.2 ADD DATAMART TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ADD DATAMART TABLE &lt;table&gt; INTO &lt;datamart&gt; FROM &lt;source.path&gt; VSCHEMA (&lt;column&gt; &lt;virtual_name&gt;, …)
+</code></pre>
+<p>Adds a virtual table over a source table; every source column must be given a virtual name.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Query a data-mart table as <code>&lt;datamart&gt;.&lt;table&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ADD DATAMART TABLE customer_v INTO sales_mart FROM crm_pg.customers
+VSCHEMA (id customer_id, full_name name, email email, country country, created_at signup_date)
+</code></pre>
+<h3 id="173-show-datamarts">17.3 SHOW DATAMARTS</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATAMARTS
+</code></pre>
+<p>Lists accessible data marts.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATAMARTS
+</code></pre>
+<h3 id="174-show-datamart-tables">17.4 SHOW DATAMART TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATAMART TABLES &lt;datamart&gt;
+</code></pre>
+<p>Lists a data mart&#39;s tables with their sources.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATAMART TABLES sales_mart
+</code></pre>
+<h3 id="175-describe-datamart-table">17.5 DESCRIBE DATAMART TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DESCRIBE DATAMART TABLE &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Returns a data-mart table&#39;s real-to-virtual column mapping.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DESCRIBE DATAMART TABLE sales_mart.customer_v
+</code></pre>
+<h3 id="176-update-datamart">17.6 UPDATE DATAMART</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE DATAMART &lt;name&gt; OPTIONS (key &#39;value&#39;, …)
+</code></pre>
+<p>Renames a data mart and/or sets its description.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Change the name and the description in separate statements.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE DATAMART sales_mart OPTIONS (DESCRIPTION &quot;Sales mart for the datathon&quot;)
+</code></pre>
+<h3 id="177-update-datamart-table--set-vschema">17.7 UPDATE DATAMART TABLE … SET VSCHEMA</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE DATAMART TABLE &lt;source&gt;.&lt;table&gt; SET VSCHEMA (&lt;column&gt; &lt;virtual_name&gt;,…)
+</code></pre>
+<p>Rewrites a data-mart table&#39;s virtual column names.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE DATAMART TABLE sales_mart.customer_v SET VSCHEMA (id customer_id, full_name customer_name, email email, country country, created_at signup_date)
+</code></pre>
+<h3 id="178-update-datamart-table--set-name">17.8 UPDATE DATAMART TABLE … SET NAME</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE DATAMART TABLE &lt;source&gt;.&lt;table&gt; SET NAME &lt;new_name&gt;
+</code></pre>
+<p>Renames a data-mart table.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE DATAMART TABLE sales_mart.customer_v SET NAME customers
+</code></pre>
+<h3 id="179-drop-datamart">17.9 DROP DATAMART</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP DATAMART &lt;name&gt;
+</code></pre>
+<p>Deletes a data mart with its dependent views and privileges.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP DATAMART sales_mart
+</code></pre>
+<h3 id="1710-drop-datamart-table">17.10 DROP DATAMART TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP DATAMART TABLE &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Deletes data-mart table <code>&lt;datamart&gt;.&lt;table&gt;</code>.</p>
+<p><strong>Privileges:</strong> Administrators or Virtual Data Mart Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP DATAMART TABLE sales_mart.customers
+</code></pre>
+<h2 id="18-query-plans">18. Query Plans</h2>
+<p>This chapter describes the query-plan command.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Administrator permission and an accessible SELECT query. <code>EXPLAIN QUERY AS SELECT 1</code> needs no source table.</p>
+<h3 id="181-explain-query">18.1 EXPLAIN QUERY</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">EXPLAIN QUERY AS &lt;SELECT query&gt;
+</code></pre>
+<p>Returns the query plan for a statement.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Only SELECT statements are supported.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Use this command only with SELECT statements.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">EXPLAIN QUERY AS SELECT country, COUNT(*) FROM crm_pg.customers GROUP BY country
+</code></pre>
+<h2 id="19-caching">19. Caching</h2>
+<p>Off-site caching stores a copy of a table in memory or in file storage to accelerate queries.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Caching needs a table, source access and cache-management permission. Update/uncache needs an active cache. Policy/history lists may be empty. <code>INVALIDATE CACHE</code> affects every organisation; confirm that scope first.</p>
+<h3 id="191-show-cache-tables">19.1 SHOW CACHE TABLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW CACHE TABLES
+</code></pre>
+<p>Lists cached tables with storage, size, partitions and hit counts.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW CACHE TABLES
+</code></pre>
+<h3 id="192-show-cache-policy">19.2 SHOW CACHE POLICY</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW CACHE POLICY
+</code></pre>
+<p>Lists stored organisation cache policies.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW CACHE POLICY
+</code></pre>
+<h3 id="193-show-cache-table-policy">19.3 SHOW CACHE TABLE POLICY</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW CACHE TABLE POLICY [&lt;datasource&gt;]
+</code></pre>
+<p>Lists per-table cache policies, optionally for one datasource.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW CACHE TABLE POLICY crm_pg
+</code></pre>
+<h3 id="194-offsite-cache-table">19.4 OFFSITE CACHE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">OFFSITE CACHE TABLE &lt;source&gt;.&lt;table&gt; TO {ONSITEMEMORY | MEMORY | FILE} WITH (key &#39;value&#39;, …)
+</code></pre>
+<p>Caches a table in Spark memory or a file cache, with expiry and partition options.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li><code>expireInSec</code> is <code>-1</code> for no expiry or a number of seconds; <code>partcount</code> sets the number of partitions.</li>
+<li>Storage is <code>MEMORY</code> or <code>FILE</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">OFFSITE CACHE TABLE crm_pg.customers TO MEMORY WITH (expireInSec &quot;-1&quot;, partcount &quot;4&quot;)
+</code></pre>
+<h3 id="195-offsite-uncache-table">19.5 OFFSITE UNCACHE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">OFFSITE UNCACHE TABLE &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Drops a table&#39;s cache and its refresh schedule.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">OFFSITE UNCACHE TABLE crm_pg.customers
+</code></pre>
+<h3 id="196-update-offsite-cache-table">19.6 UPDATE OFFSITE CACHE TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">UPDATE OFFSITE CACHE TABLE &lt;source&gt;.&lt;table&gt; WITH (key &#39;value&#39;, …)
+</code></pre>
+<p>Changes a cached table&#39;s refresh schedule.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">UPDATE OFFSITE CACHE TABLE crm_pg.customers WITH (expireInSec &quot;600&quot;)
+</code></pre>
+<h3 id="197-offsite-cache-table-details">19.7 OFFSITE CACHE TABLE DETAILS</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">OFFSITE CACHE TABLE DETAILS &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Returns a table&#39;s cache settings; empty when the table isn&#39;t cached.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">OFFSITE CACHE TABLE DETAILS crm_pg.customers
+</code></pre>
+<h3 id="198-offsite-cache-history">19.8 OFFSITE CACHE HISTORY</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">OFFSITE CACHE HISTORY &lt;source&gt;.&lt;table&gt;
+</code></pre>
+<p>Lists a table&#39;s cache and uncache history.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">OFFSITE CACHE HISTORY crm_pg.customers
+</code></pre>
+<h3 id="199-invalidate-cache">19.9 INVALIDATE CACHE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">INVALIDATE CACHE
+</code></pre>
+<p>Flushes the driver&#39;s metadata caches for every organisation; table caches are kept.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">INVALIDATE CACHE
+</code></pre>
+<h2 id="20-users-and-roles">20. Users and Roles</h2>
+<p>User and role names are stored in upper case and matched case-insensitively.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Check each command&#39;s user-management privileges. Assignment/revocation needs existing users and roles. Deletion examples require a disposable test user, not a participant account.</p>
+<h3 id="201-create-role">20.1 CREATE ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE ROLE &#39;&lt;role&gt;&#39; [DESCRIBE BY &#39;&lt;desc&gt;&#39;]
+</code></pre>
+<p>Creates a role; admin, none, all and default are reserved names.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE ROLE &#39;analyst&#39; DESCRIBE BY &#39;Datathon analysts&#39;
+</code></pre>
+<h3 id="202-show-users">20.2 SHOW USERS</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW USERS
+</code></pre>
+<p>Lists your organisation&#39;s users: email, name, level, organisation, LDAP flag.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW USERS
+</code></pre>
+<h3 id="203-show-roles">20.3 SHOW ROLES</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW ROLES
+</code></pre>
+<p>Lists roles: name, creator, created time, description, LDAP flag.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW ROLES
+</code></pre>
+<h3 id="204-show-role-assigned-to-user">20.4 SHOW ROLE ASSIGNED TO USER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW ROLE ASSIGNED TO USER &#39;&lt;user&gt;&#39;
+</code></pre>
+<p>Lists a user&#39;s roles with who assigned them and when.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW ROLE ASSIGNED TO USER &#39;alice@example.com&#39;
+</code></pre>
+<h3 id="205-show-user-assigned-to-role">20.5 SHOW USER ASSIGNED TO ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW USER ASSIGNED TO ROLE &#39;&lt;role&gt;&#39;
+</code></pre>
+<p>Lists a role&#39;s users with who assigned them and when.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW USER ASSIGNED TO ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="206-describe-user">20.6 DESCRIBE USER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DESCRIBE USER &#39;&lt;user&gt;&#39;
+</code></pre>
+<p>Returns a user&#39;s name, email, level, organisation and LDAP flag.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DESCRIBE USER &#39;alice@example.com&#39;
+</code></pre>
+<h3 id="207-assign-user--to-role">20.7 ASSIGN USER … TO ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ASSIGN USER &#39;&lt;user&gt;&#39;[, …] TO ROLE &#39;&lt;role&gt;&#39;
+</code></pre>
+<p>Adds users to a role; LDAP-sourced roles are refused.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ASSIGN USER &#39;alice@example.com&#39;, &#39;bob@example.com&#39; TO ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="208-drop-user">20.8 DROP USER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP USER &#39;&lt;user&gt;&#39;
+</code></pre>
+<p>Deletes a user; you can&#39;t delete yourself.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP USER &#39;bob@example.com&#39;
+</code></pre>
+<h3 id="209-drop-role">20.9 DROP ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP ROLE &#39;&lt;role&gt;&#39;
+</code></pre>
+<p>Deletes a role and its user assignments.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">DROP ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="2010-revoke-user--from-role">20.10 REVOKE USER … FROM ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVOKE USER &#39;&lt;user&gt;&#39;[, …] FROM ROLE &#39;&lt;role&gt;&#39;
+</code></pre>
+<p>Removes users from a role; LDAP-sourced roles are refused.</p>
+<p><strong>Privileges:</strong> Administrators or User Management Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REVOKE USER &#39;bob@example.com&#39; FROM ROLE &#39;analyst&#39;
+</code></pre>
+<h2 id="21-access-control">21. Access Control</h2>
+<p>Access is controlled at two levels. An assignment attaches a user or role to an object; a grant gives a privilege (SELECT or INSERT) on a table or namespace. Schema store views are protected by grants; view assignments are made per container in the platform interface.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Assignments/grants need existing objects/principals and access-control permission. Metastore forms need a registered Hive or Glue database. Confirm the recipient, object and privilege before access changes.</p>
+<h3 id="211-show-grant--on-all">21.1 SHOW GRANT … ON ALL</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW GRANT [{ROLE &#39;&lt;role&gt;&#39; | USER &#39;&lt;user&gt;&#39;}[, …]] ON ALL
+</code></pre>
+<p>Lists the grants held by users or roles; with no principal, every grant in your organisation.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW GRANT USER &#39;alice@example.com&#39; ON ALL
+</code></pre>
+<h3 id="212-list-users--list-roles-for-object">21.2 LIST USERS / LIST ROLES FOR object</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST {USERS | ROLES} FOR {DATASOURCE | DATAMART | [LIGHTNING] DATABASE | PIPELINE | STREAMING DATASOURCE} &lt;name&gt;
+</code></pre>
+<p>Lists the users or roles assigned to an object.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Read or Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Schema store views are not supported. Access to views is controlled with GRANT … ON VIEW.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST USERS FOR DATASOURCE crm_pg
+</code></pre>
+<h3 id="213-list-users--list-roles-for-metastore-database">21.3 LIST USERS / LIST ROLES FOR metastore database</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST {USERS | ROLES} FOR {HIVE METASTORE DATABASE|AWS GLUE METASTORE DATABASE} &lt;metastore.db&gt;
+</code></pre>
+<p>Lists the users or roles assigned to a Hive or Glue metastore database.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Read or Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST ROLES FOR HIVE METASTORE DATABASE hive_prod.sales
+</code></pre>
+<h3 id="214-grant-privilege">21.4 GRANT privilege</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">GRANT {SELECT | INSERT | CACHE} ON {ALL [&lt;object_type&gt;] | USL {NAMESPACE | TABLE} &lt;name&gt; | &lt;object_type&gt; {NAMESPACE | TABLE} &lt;name&gt;} TO {ROLE &#39;&lt;role&gt;&#39; | USER &#39;&lt;user&gt;&#39;}[, …] [WITH GRANT OPTION]
+</code></pre>
+<p>Grants SELECT, INSERT or CACHE on everything, one object type, or a namespace or table.</p>
+<p><strong>Privileges:</strong> Administrators, or users granted the Access Control Write; holders of the privilege WITH GRANT OPTION can also grant it permission.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Holders of a privilege WITH GRANT OPTION can pass it on.</li>
+<li>Object types: DATASOURCE, LIGHTNING DATABASE, DATAMART, PIPELINE, VIEW, DATALAKE, STREAMING DATASOURCE, HIVE, AWS GLUE, UNITY CATALOG, USL.</li>
+<li>Grants on views take the form <code>VIEW TABLE &lt;container&gt;.&lt;view&gt;</code> or <code>VIEW NAMESPACE &lt;container&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">GRANT SELECT ON DATASOURCE TABLE crm_pg.customers TO USER &#39;alice@example.com&#39;
+</code></pre>
+<h3 id="215-assign-object-to-role">21.5 ASSIGN object TO ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ASSIGN {DATASOURCE | DATAMART | [LIGHTNING] DATABASE | PIPELINE | STREAMING DATASOURCE} &lt;object&gt;[, …] TO ROLE &#39;&lt;role&gt;&#39;[, …]
+</code></pre>
+<p>Assigns datasources, data marts, Lightning databases, pipelines or streaming sources to roles.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Schema store views cannot be assigned. Access to views is controlled with GRANT … ON VIEW.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ASSIGN DATASOURCE crm_pg TO ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="216-assign-metastore-database-to-role">21.6 ASSIGN metastore database TO ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ASSIGN {HIVE METASTORE DATABASE|AWS GLUE METASTORE DATABASE} &lt;metastore.db&gt;[, …] TO ROLE &#39;&lt;role&gt;&#39;[, …]
+</code></pre>
+<p>Assigns Hive or AWS Glue metastore databases to roles.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ASSIGN HIVE METASTORE DATABASE hive_prod.sales TO ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="217-assign-object-to-user">21.7 ASSIGN object TO USER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ASSIGN {DATASOURCE | DATAMART | [LIGHTNING] DATABASE | PIPELINE | STREAMING DATASOURCE} &lt;object&gt;[, …] TO USER &#39;&lt;user&gt;&#39;[, …]
+</code></pre>
+<p>Assigns datasources, data marts, Lightning databases, pipelines or streaming sources to users.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Schema store views cannot be assigned. Access to views is controlled with GRANT … ON VIEW.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ASSIGN DATAMART sales_mart TO USER &#39;alice@example.com&#39;
+</code></pre>
+<h3 id="218-assign-metastore-database-to-user">21.8 ASSIGN metastore database TO USER</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ASSIGN {HIVE METASTORE DATABASE|AWS GLUE METASTORE DATABASE} &lt;metastore.db&gt;[, …] TO USER &#39;&lt;user&gt;&#39;[, …]
+</code></pre>
+<p>Assigns Hive or AWS Glue metastore databases to users.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">ASSIGN AWS GLUE METASTORE DATABASE glue_prod.analytics TO USER &#39;alice@example.com&#39;
+</code></pre>
+<h3 id="219-revoke-privilege">21.9 REVOKE privilege</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVOKE {SELECT | INSERT | CACHE} ON {ALL [&lt;object_type&gt;] | USL {NAMESPACE | TABLE} &lt;name&gt; | &lt;object_type&gt; {NAMESPACE | TABLE} &lt;name&gt;} FROM {ROLE &#39;&lt;role&gt;&#39; | USER &#39;&lt;user&gt;&#39;}[, …]
+</code></pre>
+<p>Revokes a SELECT, INSERT or CACHE grant.</p>
+<p><strong>Privileges:</strong> Administrators, or users granted the Access Control Write; holders of the privilege WITH GRANT OPTION can also grant it permission.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REVOKE SELECT ON DATASOURCE TABLE crm_pg.customers FROM USER &#39;alice@example.com&#39;
+</code></pre>
+<h3 id="2110-revoke-object-from-role">21.10 REVOKE object FROM ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVOKE {DATASOURCE | DATAMART | [LIGHTNING] DATABASE | PIPELINE | STREAMING DATASOURCE} &lt;object&gt;[, …] FROM ROLE &#39;&lt;role&gt;&#39;
+</code></pre>
+<p>Removes object assignments from a role.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Schema store views are not supported.</li>
+</ul>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>There is no FROM USER form; use <code>REVOKE USERS … FROM &lt;object&gt;</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REVOKE DATASOURCE crm_pg FROM ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="2111-revoke-metastore-database-from-role">21.11 REVOKE metastore database FROM ROLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVOKE {HIVE METASTORE DATABASE|AWS GLUE METASTORE DATABASE} &lt;metastore.db&gt;[, …] FROM ROLE &#39;&lt;role&gt;&#39;
+</code></pre>
+<p>Removes metastore database assignments from a role.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REVOKE HIVE METASTORE DATABASE hive_prod.sales FROM ROLE &#39;analyst&#39;
+</code></pre>
+<h3 id="2112-revoke-users--roles-from-object">21.12 REVOKE USERS / ROLES FROM object</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVOKE {USERS &#39;&lt;user&gt;&#39;[, …] | ROLES &#39;&lt;role&gt;&#39;[, …]} FROM {DATASOURCE | DATAMART | [LIGHTNING] DATABASE | PIPELINE | STREAMING DATASOURCE} &lt;name&gt;
+</code></pre>
+<p>Removes the named users&#39; or roles&#39; assignment to an object, with their privileges on it.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Schema store views are not supported.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REVOKE USERS &#39;alice@example.com&#39; FROM DATAMART sales_mart
+</code></pre>
+<h3 id="2113-revoke-users--roles-from-metastore-database">21.13 REVOKE USERS / ROLES FROM metastore database</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVOKE {USERS &#39;&lt;user&gt;&#39;[, …] | ROLES &#39;&lt;role&gt;&#39;[, …]} FROM {HIVE METASTORE DATABASE|AWS GLUE METASTORE DATABASE} &lt;metastore.db&gt;
+</code></pre>
+<p>Removes users&#39; or roles&#39; assignment to a Hive or Glue metastore database.</p>
+<p><strong>Privileges:</strong> Administrators or Access Control Write users.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">REVOKE ROLES &#39;analyst&#39; FROM AWS GLUE METASTORE DATABASE glue_prod.analytics
+</code></pre>
+<h2 id="22-data-warehouses">22. Data Warehouses</h2>
+<p>Commands for the virtual data warehouse feature.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Administrator permission. Virtual data warehouses are unused here, so the list is normally empty.</p>
+<h3 id="221-list-datawarehouse">22.1 LIST DATAWAREHOUSE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIST DATAWAREHOUSE
+</code></pre>
+<p>Lists warehouses with their status and endpoints.</p>
+<p><strong>Privileges:</strong> Administrators only.</p>
+<p><strong>Remarks</strong></p>
+<ul>
+<li>Virtual data warehouses are not used on this platform; the list is normally empty.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">LIST DATAWAREHOUSE
+</code></pre>
+<h2 id="23-server-information">23. Server Information</h2>
+<p>Commands that report on the platform.</p>
+<p><strong>Prerequisites</strong></p>
+<p>A signed-in account. No datasource or dataset setup is needed; results reflect your access.</p>
+<h3 id="231-show-schema">23.1 SHOW SCHEMA</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW SCHEMA
+</code></pre>
+<p>Lists accessible databases, datasources, streams, pipelines and data marts.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW SCHEMA
+</code></pre>
+<h3 id="232-show-server-version">23.2 SHOW SERVER VERSION</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW SERVER VERSION
+</code></pre>
+<p>Returns the driver&#39;s version, build time, tag and commit.</p>
+<p><strong>Privileges:</strong> Signed-in users; assigned objects only.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW SERVER VERSION
+</code></pre>
+</article>
+      <footer>Built from the repository documentation. Use your own Zetaris instance, installed locally or deployed through AWS.</footer>
+    </main>
+    <aside class="outline" aria-label="On this page"><p>On this page</p><a class="depth-2" href="#start-with-the-supplied-samples">Start with the supplied samples</a><a class="depth-2" href="#contents">Contents</a><a class="depth-2" href="#1-introduction">1. Introduction</a><a class="depth-2" href="#2-conventions">2. Conventions</a><a class="depth-3" href="#21-syntax-notation">2.1 Syntax notation</a><a class="depth-3" href="#22-entry-format">2.2 Entry format</a><a class="depth-3" href="#23-example-objects">2.3 Example objects</a><a class="depth-2" href="#3-general-rules">3. General Rules</a><a class="depth-2" href="#4-data-sources">4. Data Sources</a><a class="depth-3" href="#41-create-datasource">4.1 CREATE DATASOURCE</a><a class="depth-3" href="#42-register-datasource-table">4.2 REGISTER DATASOURCE TABLE</a><a class="depth-3" href="#43-register-datasource-tables">4.3 REGISTER DATASOURCE TABLES</a><a class="depth-3" href="#44-create-datasource-view">4.4 CREATE DATASOURCE VIEW</a><a class="depth-3" href="#45-show-datasources">4.5 SHOW DATASOURCES</a><a class="depth-3" href="#46-show-datasource-tables">4.6 SHOW DATASOURCE TABLES</a><a class="depth-3" href="#47-preview-datasource-sql">4.7 PREVIEW DATASOURCE SQL</a><a class="depth-3" href="#48-list-database-tables">4.8 LIST DATABASE TABLES</a><a class="depth-3" href="#49-describe-datasource-table">4.9 DESCRIBE DATASOURCE TABLE</a><a class="depth-3" href="#410-refresh-datasource-tables">4.10 REFRESH DATASOURCE TABLES</a><a class="depth-3" href="#411-uncache-datasource">4.11 UNCACHE DATASOURCE</a><a class="depth-3" href="#412-update-datasource-schema">4.12 UPDATE DATASOURCE SCHEMA</a><a class="depth-3" href="#413-drop-datasource-view">4.13 DROP DATASOURCE VIEW</a><a class="depth-3" href="#414-drop-datasource">4.14 DROP DATASOURCE</a><a class="depth-2" href="#5-file-sources">5. File Sources</a><a class="depth-3" href="#51-create-filestore-session-table">5.1 CREATE FILESTORE SESSION TABLE</a><a class="depth-3" href="#52-create-lightning-database">5.2 CREATE LIGHTNING DATABASE</a><a class="depth-3" href="#53-create-lightning-filestore-table">5.3 CREATE LIGHTNING FILESTORE TABLE</a><a class="depth-3" href="#54-show-lightning-databases">5.4 SHOW LIGHTNING DATABASES</a><a class="depth-3" href="#55-show-lightning-tables">5.5 SHOW LIGHTNING TABLES</a><a class="depth-3" href="#56-list-hdfs-files">5.6 LIST HDFS FILES</a><a class="depth-3" href="#57-uncache-lightning-filestore-table">5.7 UNCACHE LIGHTNING FILESTORE TABLE</a><a class="depth-3" href="#58-update-lightning-filestore-table">5.8 UPDATE LIGHTNING FILESTORE TABLE</a><a class="depth-3" href="#59-drop-lightning-database-table">5.9 DROP LIGHTNING DATABASE TABLE</a><a class="depth-3" href="#510-drop-lightning-database">5.10 DROP LIGHTNING DATABASE</a><a class="depth-2" href="#6-rest-sources-and-authentication">6. REST Sources and Authentication</a><a class="depth-3" href="#61-create-rest-session-table">6.1 CREATE REST SESSION TABLE</a><a class="depth-3" href="#62-create-lightning-rest-table">6.2 CREATE LIGHTNING REST TABLE</a><a class="depth-3" href="#63-upsert-auth">6.3 UPSERT AUTH</a><a class="depth-3" href="#64-test-auth-request">6.4 TEST AUTH REQUEST</a><a class="depth-3" href="#65-test-auth">6.5 TEST AUTH</a><a class="depth-3" href="#66-test-rest-request">6.6 TEST REST REQUEST</a><a class="depth-3" href="#67-show-auth">6.7 SHOW AUTH</a><a class="depth-3" href="#68-list-auth">6.8 LIST AUTH</a><a class="depth-3" href="#69-drop-auth">6.9 DROP AUTH</a><a class="depth-2" href="#7-streaming">7. Streaming</a><a class="depth-3" href="#71-register-streaming-datasource">7.1 REGISTER STREAMING DATASOURCE</a><a class="depth-3" href="#72-register-streaming-aggregation">7.2 REGISTER STREAMING AGGREGATION</a><a class="depth-3" href="#73-show-streaming-datasource">7.3 SHOW STREAMING DATASOURCE</a><a class="depth-3" href="#74-show-streaming-aggregation-tables">7.4 SHOW STREAMING AGGREGATION TABLES</a><a class="depth-3" href="#75-drop-streaming-datasource">7.5 DROP STREAMING DATASOURCE</a><a class="depth-3" href="#76-drop-streaming-aggregation-table">7.6 DROP STREAMING AGGREGATION TABLE</a><a class="depth-2" href="#8-data-lakes">8. Data Lakes</a><a class="depth-3" href="#81-create-datalake">8.1 CREATE DATALAKE</a><a class="depth-3" href="#82-show-datalakes">8.2 SHOW DATALAKES</a><a class="depth-3" href="#83-show-datalake-tables">8.3 SHOW DATALAKE TABLES</a><a class="depth-3" href="#84-reload-datalake">8.4 RELOAD DATALAKE</a><a class="depth-2" href="#9-external-catalogs">9. External Catalogs</a><a class="depth-3" href="#91-register-unity-catalog">9.1 REGISTER UNITY CATALOG</a><a class="depth-3" href="#92-show-unity-catalog">9.2 SHOW UNITY CATALOG</a><a class="depth-3" href="#93-show-uc-namespaces">9.3 SHOW UC NAMESPACES</a><a class="depth-3" href="#94-show-uc-tables">9.4 SHOW UC TABLES</a><a class="depth-3" href="#95-uncache-unity-catalog">9.5 UNCACHE UNITY CATALOG</a><a class="depth-3" href="#96-drop-unity-catalog">9.6 DROP UNITY CATALOG</a><a class="depth-2" href="#10-hive-metastore">10. Hive Metastore</a><a class="depth-3" href="#101-register-hive-metastore">10.1 REGISTER HIVE METASTORE</a><a class="depth-3" href="#102-list-hive-metastores">10.2 LIST HIVE METASTORES</a><a class="depth-3" href="#103-list-hive-metastore-tables-remote">10.3 LIST HIVE METASTORE TABLES REMOTE</a><a class="depth-3" href="#104-list-hive-metastore-databases">10.4 LIST HIVE METASTORE DATABASES</a><a class="depth-3" href="#105-show-hive-metastore-databases">10.5 SHOW HIVE METASTORE DATABASES</a><a class="depth-3" href="#106-list-hive-metastore-tables">10.6 LIST HIVE METASTORE TABLES</a><a class="depth-3" href="#107-drop-hive-metastore">10.7 DROP HIVE METASTORE</a><a class="depth-2" href="#11-aws-glue-metastore">11. AWS Glue Metastore</a><a class="depth-3" href="#111-register-aws-glue-metastore">11.1 REGISTER AWS GLUE METASTORE</a><a class="depth-3" href="#112-list-aws-glue-metastores">11.2 LIST AWS GLUE METASTORES</a><a class="depth-3" href="#113-list-aws-glue-metastore-databases-remote">11.3 LIST AWS GLUE METASTORE DATABASES REMOTE</a><a class="depth-3" href="#114-list-aws-glue-metastore-databases">11.4 LIST AWS GLUE METASTORE DATABASES</a><a class="depth-3" href="#115-list-aws-glue-metastore-tables-remote">11.5 LIST AWS GLUE METASTORE TABLES REMOTE</a><a class="depth-3" href="#116-list-aws-glue-metastore-tables">11.6 LIST AWS GLUE METASTORE TABLES</a><a class="depth-3" href="#117-drop-aws-glue-metastore">11.7 DROP AWS GLUE METASTORE</a><a class="depth-2" href="#12-schema-store-views">12. Schema Store Views</a><a class="depth-3" href="#121-create-or-replace-schemastore-view">12.1 CREATE [OR REPLACE] SCHEMASTORE VIEW</a><a class="depth-3" href="#122-create-schemastore-container">12.2 CREATE SCHEMASTORE CONTAINER</a><a class="depth-3" href="#123-preview-schemastore-sql">12.3 PREVIEW SCHEMASTORE SQL</a><a class="depth-3" href="#124-show-datasource-views">12.4 SHOW DATASOURCE VIEWS</a><a class="depth-3" href="#125-update-schemastore-view">12.5 UPDATE SCHEMASTORE VIEW</a><a class="depth-3" href="#126-drop-schemastore-view">12.6 DROP SCHEMASTORE VIEW</a><a class="depth-2" href="#13-unified-semantic-layer">13. Unified Semantic Layer</a><a class="depth-3" href="#131-compile-usl">13.1 COMPILE USL</a><a class="depth-3" href="#132-load-usl">13.2 LOAD USL</a><a class="depth-3" href="#133-show-namespaces-or-tables">13.3 SHOW NAMESPACES OR TABLES</a><a class="depth-3" href="#134-activate-usl-table">13.4 ACTIVATE USL TABLE</a><a class="depth-3" href="#135-update-usl--as-replace-model">13.5 UPDATE USL … AS (replace model)</a><a class="depth-3" href="#136-update-usl--set-description">13.6 UPDATE USL … SET DESCRIPTION</a><a class="depth-3" href="#137-update-usl--set-column-order">13.7 UPDATE USL … SET COLUMN ORDER</a><a class="depth-3" href="#138-remove-usl">13.8 REMOVE USL</a><a class="depth-2" href="#14-data-quality">14. Data Quality</a><a class="depth-3" href="#141-register-dq">14.1 REGISTER DQ</a><a class="depth-3" href="#142-list-dq-usl">14.2 LIST DQ USL</a><a class="depth-3" href="#143-show-dq-valid--invalid-record">14.3 SHOW DQ VALID / INVALID RECORD</a><a class="depth-3" href="#144-show-dq-all-valid--invalid">14.4 SHOW DQ ALL VALID / INVALID</a><a class="depth-3" href="#145-update-dq">14.5 UPDATE DQ</a><a class="depth-3" href="#146-run-dq">14.6 RUN DQ</a><a class="depth-3" href="#147-remove-dq">14.7 REMOVE DQ</a><a class="depth-2" href="#15-export-and-materialization">15. Export and Materialization</a><a class="depth-3" href="#151-run-export-to-storage">15.1 RUN EXPORT TO STORAGE</a><a class="depth-3" href="#152-materialize-usl-table">15.2 MATERIALIZE USL TABLE</a><a class="depth-2" href="#16-data-pipelines">16. Data Pipelines</a><a class="depth-3" href="#161-create-pipeline-container">16.1 CREATE PIPELINE CONTAINER</a><a class="depth-3" href="#162-register-pipeline-relation-container">16.2 REGISTER PIPELINE RELATION CONTAINER</a><a class="depth-3" href="#163-list-pipeline-container">16.3 LIST PIPELINE CONTAINER</a><a class="depth-3" href="#164-list-pipeline-relation">16.4 LIST PIPELINE RELATION</a><a class="depth-3" href="#165-describe-pipeline-relation">16.5 DESCRIBE PIPELINE RELATION</a><a class="depth-3" href="#166-verify-pipeline">16.6 VERIFY PIPELINE</a><a class="depth-3" href="#167-infer-sqltable-sources">16.7 INFER SQLTABLE SOURCES</a><a class="depth-3" href="#168-infer-sqltable-columns">16.8 INFER SQLTABLE COLUMNS</a><a class="depth-3" href="#169-update-pipeline-relation">16.9 UPDATE PIPELINE RELATION</a><a class="depth-3" href="#1610-run-pipeline">16.10 RUN PIPELINE</a><a class="depth-3" href="#1611-drop-pipeline-container">16.11 DROP PIPELINE CONTAINER</a><a class="depth-3" href="#1612-drop-pipeline-relation">16.12 DROP PIPELINE RELATION</a><a class="depth-2" href="#17-virtual-data-marts">17. Virtual Data Marts</a><a class="depth-3" href="#171-create-datamart">17.1 CREATE DATAMART</a><a class="depth-3" href="#172-add-datamart-table">17.2 ADD DATAMART TABLE</a><a class="depth-3" href="#173-show-datamarts">17.3 SHOW DATAMARTS</a><a class="depth-3" href="#174-show-datamart-tables">17.4 SHOW DATAMART TABLES</a><a class="depth-3" href="#175-describe-datamart-table">17.5 DESCRIBE DATAMART TABLE</a><a class="depth-3" href="#176-update-datamart">17.6 UPDATE DATAMART</a><a class="depth-3" href="#177-update-datamart-table--set-vschema">17.7 UPDATE DATAMART TABLE … SET VSCHEMA</a><a class="depth-3" href="#178-update-datamart-table--set-name">17.8 UPDATE DATAMART TABLE … SET NAME</a><a class="depth-3" href="#179-drop-datamart">17.9 DROP DATAMART</a><a class="depth-3" href="#1710-drop-datamart-table">17.10 DROP DATAMART TABLE</a><a class="depth-2" href="#18-query-plans">18. Query Plans</a><a class="depth-3" href="#181-explain-query">18.1 EXPLAIN QUERY</a><a class="depth-2" href="#19-caching">19. Caching</a><a class="depth-3" href="#191-show-cache-tables">19.1 SHOW CACHE TABLES</a><a class="depth-3" href="#192-show-cache-policy">19.2 SHOW CACHE POLICY</a><a class="depth-3" href="#193-show-cache-table-policy">19.3 SHOW CACHE TABLE POLICY</a><a class="depth-3" href="#194-offsite-cache-table">19.4 OFFSITE CACHE TABLE</a><a class="depth-3" href="#195-offsite-uncache-table">19.5 OFFSITE UNCACHE TABLE</a><a class="depth-3" href="#196-update-offsite-cache-table">19.6 UPDATE OFFSITE CACHE TABLE</a><a class="depth-3" href="#197-offsite-cache-table-details">19.7 OFFSITE CACHE TABLE DETAILS</a><a class="depth-3" href="#198-offsite-cache-history">19.8 OFFSITE CACHE HISTORY</a><a class="depth-3" href="#199-invalidate-cache">19.9 INVALIDATE CACHE</a><a class="depth-2" href="#20-users-and-roles">20. Users and Roles</a><a class="depth-3" href="#201-create-role">20.1 CREATE ROLE</a><a class="depth-3" href="#202-show-users">20.2 SHOW USERS</a><a class="depth-3" href="#203-show-roles">20.3 SHOW ROLES</a><a class="depth-3" href="#204-show-role-assigned-to-user">20.4 SHOW ROLE ASSIGNED TO USER</a><a class="depth-3" href="#205-show-user-assigned-to-role">20.5 SHOW USER ASSIGNED TO ROLE</a><a class="depth-3" href="#206-describe-user">20.6 DESCRIBE USER</a><a class="depth-3" href="#207-assign-user--to-role">20.7 ASSIGN USER … TO ROLE</a><a class="depth-3" href="#208-drop-user">20.8 DROP USER</a><a class="depth-3" href="#209-drop-role">20.9 DROP ROLE</a><a class="depth-3" href="#2010-revoke-user--from-role">20.10 REVOKE USER … FROM ROLE</a><a class="depth-2" href="#21-access-control">21. Access Control</a><a class="depth-3" href="#211-show-grant--on-all">21.1 SHOW GRANT … ON ALL</a><a class="depth-3" href="#212-list-users--list-roles-for-object">21.2 LIST USERS / LIST ROLES FOR object</a><a class="depth-3" href="#213-list-users--list-roles-for-metastore-database">21.3 LIST USERS / LIST ROLES FOR metastore database</a><a class="depth-3" href="#214-grant-privilege">21.4 GRANT privilege</a><a class="depth-3" href="#215-assign-object-to-role">21.5 ASSIGN object TO ROLE</a><a class="depth-3" href="#216-assign-metastore-database-to-role">21.6 ASSIGN metastore database TO ROLE</a><a class="depth-3" href="#217-assign-object-to-user">21.7 ASSIGN object TO USER</a><a class="depth-3" href="#218-assign-metastore-database-to-user">21.8 ASSIGN metastore database TO USER</a><a class="depth-3" href="#219-revoke-privilege">21.9 REVOKE privilege</a><a class="depth-3" href="#2110-revoke-object-from-role">21.10 REVOKE object FROM ROLE</a><a class="depth-3" href="#2111-revoke-metastore-database-from-role">21.11 REVOKE metastore database FROM ROLE</a><a class="depth-3" href="#2112-revoke-users--roles-from-object">21.12 REVOKE USERS / ROLES FROM object</a><a class="depth-3" href="#2113-revoke-users--roles-from-metastore-database">21.13 REVOKE USERS / ROLES FROM metastore database</a><a class="depth-2" href="#22-data-warehouses">22. Data Warehouses</a><a class="depth-3" href="#221-list-datawarehouse">22.1 LIST DATAWAREHOUSE</a><a class="depth-2" href="#23-server-information">23. Server Information</a><a class="depth-3" href="#231-show-schema">23.1 SHOW SCHEMA</a><a class="depth-3" href="#232-show-server-version">23.2 SHOW SERVER VERSION</a></aside>
+  </div>
+</body>
+</html>

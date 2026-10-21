@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zetaris onboarding: get access, connect, verify your first dataset, build a project and prepare a reproducible demo.">
+  <title>Install locally · Zetaris getting started</title>
+  <script src="../../assets/theme.js"></script>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="../../index.html"><span class="brand-images"><img class="brand-logo logo-light" src="../../assets/brand/zetaris-indigo.svg" alt="Zetaris" width="747" height="207"><img class="brand-logo logo-dark" src="../../assets/brand/zetaris-reversed.svg" alt="Zetaris" width="747" height="207"></span><span class="brand-label">Getting started</span></a><div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.7 8.7 0 0 1 10.8 3.5 8.7 8.7 0 1 0 20.5 13.2Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="github-link" href="https://github.com/zetaris/getting-started">View repository <span aria-hidden="true">&nearr;</span></a></div></header>
+  <div class="shell">
+    <aside class="sidebar"><nav class="desktop-nav" aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="../guides/first-dataset.html">Connect PokéAPI</a><a href="../guides/project-paths.html">Choose your project</a><a href="../guides/demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="../guides/recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="../guides/create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="../guides/troubleshooting.html">Troubleshooting</a><a href="../guides/zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="../guides/zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="choose-install.html">Choose an install</a><a href="updated_zetaris_installation_guide.html" aria-current="page">Install locally</a><a href="aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav><details class="mobile-nav"><summary>Browse the guide</summary><nav aria-label="Documentation"><div class="nav-group"><p>Your first project</p><a href="../../index.html">Start here</a><a href="../connections/README.html">Connect to Zetaris</a><a href="../connections/lightning-recipe-reference.html">Run your first SQL</a><a href="../guides/first-dataset.html">Connect PokéAPI</a><a href="../guides/project-paths.html">Choose your project</a><a href="../guides/demo-template.html">Prepare your demo</a></div><div class="nav-group"><p>Cookbooks</p><a href="../guides/recipe-readiness.html">Choose a cookbook</a><a href="../../open_data/rest_apis/HOWTO.html">REST cookbook</a><a href="../../open_data/rest_apis/rest-api-sources.html">REST source catalog</a><a href="../../open_data/parquet_csv/HOWTO.html">File cookbook</a><a href="../../open_data/parquet_csv/parquet-csv-data-sources.html">File source catalog</a><a href="../../open_data/usl/HOWTO.html">USL cookbook</a><a href="../../open_data/usl/usl-sources.html">USL model catalog</a><a href="../guides/create-edgar-pudl-noaa-usl.html">EDGAR, PUDL and NOAA</a></div><div class="nav-group"><p>Agents and scripts</p><a href="../connections/client-setup.html">Client setup</a><a href="../../scripts/HOWTO.html">Client scripts</a><a href="../connections/cursor-connection.html">Cursor connection</a><a href="../connections/codex-connection.html">Codex connection</a><a href="../connections/claude-code-connection.html">Claude Code connection</a></div><div class="nav-group"><p>Help and reference</p><a href="../guides/troubleshooting.html">Troubleshooting</a><a href="../guides/zetaris-lightning-sql-commands.html">Lightning SQL commands</a><a href="../guides/zetaris-lightning-sql-companion.html">SQL gotchas and limits</a></div><div class="nav-group"><p>Installation</p><a href="choose-install.html">Choose an install</a><a href="updated_zetaris_installation_guide.html" aria-current="page">Install locally</a><a href="aws-free-tier-checklist.html">AWS Free Tier setup</a><a href="managed-aws-cluster-guide.html">Managed AWS cluster</a></div></nav></details></aside>
+    <main id="main" tabindex="-1"><div class="document-meta"><span>Getting started / Install locally</span><a href="https://github.com/zetaris/getting-started/blob/main/docs/install/updated_zetaris_installation_guide.md">Read source &nearr;</a></div>
+      
+      <article><h1 id="install-zetaris-locally">Install Zetaris locally</h1>
+<p>This guide covers a local Docker Compose installation. The local path was
+tested on a fresh install; see the <a href="https://github.com/zetaris/getting-started/blob/main/docs/install/zetaris-installation-test-record.md">test record</a>.
+For a managed compute cluster in your AWS account, use <a href="managed-aws-cluster-guide.html">Managed AWS cluster</a>. Not sure which route to take? See <a href="choose-install.html">Choose an install</a>.</p>
+<h2 id="1-obtain-the-distribution-and-access">1. Obtain the distribution and access</h2>
+<h3 id="what-is-being-installed">What is being installed</h3>
+<p>The bundle includes:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>postgres</code></td>
+<td>Metadata, audit and sample databases</td>
+</tr>
+<tr>
+<td><code>driver</code></td>
+<td>Query engine</td>
+</tr>
+<tr>
+<td><code>api</code>, <code>ui</code></td>
+<td>API and browser interface</td>
+</tr>
+<tr>
+<td><code>init</code>, <code>bootstrap</code></td>
+<td>Initialise volumes, keys, accounts and samples</td>
+</tr>
+<tr>
+<td><code>ai-datasteward</code></td>
+<td>AI data service</td>
+</tr>
+</tbody></table>
+</div><h3 id="download-and-licensing">Download and licensing</h3>
+<p>You need the platform archive, its matching <code>.env</code>, registry credentials and a Zetaris licence or evaluation entitlement covering your installation.</p>
+<ol>
+<li>Start at <a href="https://www.zetaris.com/cloud">Zetaris Cloud</a> for a local installation. Choose <strong>Start Free</strong> to open the account portal, then register or sign in with your existing account. You can also use the <a href="https://cloud.enterprise.zetaris.com/register">registration page</a> directly. Your Zetaris Cloud credentials are separate from the administrator account you will create inside your installation.</li>
+<li>Review the <a href="https://cloud.enterprise.zetaris.com/terms">Terms and Conditions</a> and <a href="https://cloud.enterprise.zetaris.com/privacy">Privacy Policy</a> before completing registration. Your use of the platform is governed by your Order with Zetaris. Without one, the agreement allows internal evaluation for up to 30 days; it does not grant an ongoing licence.</li>
+<li>Open the <a href="https://cloud.enterprise.zetaris.com/dashboard/download">Run locally page</a>, download <code>zetaris-platform.zip</code> and use the registry sign-in command supplied there. That page also has the current local startup steps and sign-in details. Move the zip out of Downloads before unpacking it. If the download is not available for your account, contact <a href="https://www.zetaris.com/support">Zetaris Support</a> to have it enabled.</li>
+</ol>
+<p>If your organisation has already arranged access, use the supplied archive and registry credentials. The Apache licence in the <code>getting-started</code> repository covers the data recipes only, not the platform images.</p>
+<p>The <code>getting-started</code> repository contains recipes and guides, not the platform
+images. Keep the supplied bundle files together and use its matching <code>.env</code>.
+Some older bundle comments refer to <code>.env.example</code> or <code>env/make-env.sh</code>; those
+files are absent from this distribution. Ask the distributor for a matching
+<code>.env</code> if it is missing, and keep the supplied image references as a set.</p>
+<h2 id="2-local-docker-compose">2. Local Docker Compose</h2>
+<h3 id="21-prepare-the-machine">2.1 Prepare the machine</h3>
+<p>Install <a href="https://docs.docker.com/desktop/">Docker Desktop</a> on macOS/Windows, or <a href="https://docs.docker.com/engine/install/">Docker Engine with the Compose plugin</a> on Linux. On Windows, run the shell commands from WSL2 with Docker Desktop integration enabled.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Guidance for this bundle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker</td>
+<td>Docker Engine 25 or later is recommended by the preflight script; daemon must be running</td>
+</tr>
+<tr>
+<td>Compose</td>
+<td>Use the <code>docker compose</code> plugin; this guide was tested with Compose 5.5.1</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>8 GB available to Docker recommended; preflight fails below 6 GB</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>4 CPUs available to Docker recommended</td>
+</tr>
+<tr>
+<td>Disk</td>
+<td>At least 15 GB free for the installation; allow additional space for datasets and logs</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>The supplied Zetaris images are amd64; Apple Silicon requires emulation</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Outbound access to the image registry and the data sources you will query</td>
+</tr>
+</tbody></table>
+</div><p>On Docker Desktop, the memory allocation to Docker matters, not just the laptop&#39;s installed RAM. Leave headroom for the operating system and other applications. On Apple Silicon, enable supported amd64 acceleration where available and allow extra startup time.</p>
+<h3 id="22-extract-the-bundle-and-authenticate">2.2 Extract the bundle and authenticate</h3>
+<p>From the directory containing the downloaded archive:</p>
+<pre><code class="language-bash">unzip zetaris-platform.zip
+cd zetaris-platform
+docker version
+docker compose version
+docker login zetarishackathon.azurecr.io
+./preflight.sh
+</code></pre>
+<p>Enter the registry credentials issued by Zetaris at the prompts. Run subsequent platform commands from this directory, which contains <code>docker-compose.yml</code>.</p>
+<p>Resolve every preflight failure before proceeding. The registry check detects a stored login configuration; <code>docker compose pull</code> is the definitive check that the credentials can access the required images. Check free space in Docker Desktop&#39;s disk image as well as on the host.</p>
+<h3 id="23-configure-before-first-startup">2.3 Configure before first startup</h3>
+<p>Edit the supplied <code>.env</code> in an editor. Keep the issued image settings and other supplied values. Set or confirm:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Local value or action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ZETARIS_ADMIN_EMAIL</code></td>
+<td>Initial administrator email</td>
+</tr>
+<tr>
+<td><code>ZETARIS_ADMIN_PASSWORD</code></td>
+<td>Your own strong password, following the policy below</td>
+</tr>
+<tr>
+<td><code>ZETARIS_ADMIN_ORG</code></td>
+<td>Initial organisation name; choose before the first startup</td>
+</tr>
+<tr>
+<td><code>ZSPARK_DRIVER_MEM</code></td>
+<td><code>2g</code></td>
+</tr>
+<tr>
+<td><code>ZSPARK_DRIVER_CORES</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>ZSPARK_MASTER_URL</code></td>
+<td><code>local[2]</code></td>
+</tr>
+<tr>
+<td><code>ZETARIS_API_MAX_HEAP</code></td>
+<td><code>1g</code></td>
+</tr>
+<tr>
+<td><code>UI_PORT</code></td>
+<td><code>3000</code></td>
+</tr>
+<tr>
+<td><code>ALLOWED_ORIGINS</code></td>
+<td><code>http://localhost:3000</code></td>
+</tr>
+<tr>
+<td><code>GUI_URL</code></td>
+<td><code>http://localhost:3000</code></td>
+</tr>
+<tr>
+<td><code>COMPOSE_PROFILES</code></td>
+<td>Empty/unset for this local path</td>
+</tr>
+<tr>
+<td><code>ZETARIS_SEED_TPCH</code></td>
+<td><code>true</code> to retain the supplied sample-data setup</td>
+</tr>
+</tbody></table>
+</div><p>The administrator password must be at least eight characters and contain lowercase, uppercase, a digit and one of <code>$ @ ! % * ? &amp;</code>. Other punctuation is rejected.</p>
+<p>Keep <code>.env</code> private and out of version control:</p>
+<pre><code class="language-bash">chmod 600 .env
+docker compose config --quiet
+</code></pre>
+<p><code>--quiet</code> validates the configuration without printing resolved secrets.</p>
+<h3 id="24-pull-and-start">2.4 Pull and start</h3>
+<pre><code class="language-bash">docker compose pull
+docker compose up -d
+docker compose ps --all
+</code></pre>
+<p>Image downloads and first startup can take time, especially on Apple Silicon.
+Use service readiness rather than elapsed time to decide when startup is complete.</p>
+<pre><code class="language-bash">docker compose logs --tail=80 driver api bootstrap
+./verify.sh
+</code></pre>
+<p>Expected results:</p>
+<ul>
+<li><code>postgres</code>, <code>driver</code>, <code>api</code>, <code>ui</code> and <code>ai-datasteward</code> are running; check their health in <code>docker compose ps --all</code>.</li>
+<li><code>init</code> and <code>bootstrap</code> show <code>Exited (0)</code>. They are successful one-time setup jobs.</li>
+<li><code>verify.sh</code> passes all nine checks, including login and a query through the UI, API and query engine.</li>
+</ul>
+<p>If bootstrap is still running, wait for it to finish and rerun the verifier. If
+<code>ui</code> checks fail immediately after bootstrap finishes, wait a minute and run
+<code>./verify.sh</code> again before troubleshooting. Continue with section 3.</p>
+<h2 id="3-first-login-and-initial-verification">3. First login and initial verification</h2>
+<ol>
+<li>Open <a href="http://localhost:3000">http://localhost:3000</a>.</li>
+<li>Sign in with the administrator email and password configured before bootstrap.</li>
+<li>Open the SQL Editor and run:</li>
+</ol>
+<pre><code class="language-sql">SELECT 1 AS one;
+</code></pre>
+<p>Expect one row with value <code>1</code>. This confirms that an authenticated query reaches the engine without depending on an external dataset.</p>
+<p>If you use a shipped default password, change it immediately.</p>
+<p>Changing <code>ZETARIS_ADMIN_PASSWORD</code> or the organisation in <code>.env</code> after bootstrap does not recreate or reset existing accounts. After a UI password change, the verifier needs a matching credential value in <code>.env</code>; otherwise its login check can fail even though the services are healthy.</p>
+<p><a id="4-verify-the-data-recipes"></a>
+<a id="parquetcsv"></a>
+<a id="rest"></a></p>
+<h2 id="4-next-steps">4. Next steps</h2>
+<p>In the SQL Editor, start with <a href="../connections/lightning-recipe-reference.html">the supplied sample SQL</a>.
+When you are ready to connect another source, choose a <a href="../guides/recipe-readiness.html">Cookbook</a>.</p>
+<h2 id="5-stop-and-tear-down">5. Stop and tear down</h2>
+<p>Run from the platform directory:</p>
+<pre><code class="language-bash">docker compose stop          # stop containers, retaining data
+docker compose start         # resume stopped containers
+docker compose down          # remove containers/network, retain named volumes
+docker compose up -d         # recreate containers using retained data
+</code></pre>
+<p><code>docker compose down -v</code> also deletes the named volumes, including the metastore and encryption keys. Use it only when discarding the installation.</p>
+<section class="assistant-launcher" aria-labelledby="assistant-heading" data-prompts="{&quot;jdbc&quot;:&quot;Use the getting-started repository at https://github.com/zetaris/getting-started as the workspace. If it is not checked out, help me clone and open it first. Read docs/connections/client-setup.md for setup. Keep credentials in .env.local, never in this prompt or a report.\n\nRead AGENTS.md and follow it. Run python3 scripts/preflight.py --jdbc and show\nme the result. Report JDBC and REST checks separately. Stop on JDBC failures and report\nwhat is missing. REST failures alone do not block JDBC. If the driver JAR path is not set, ask me\nfor it. Once readiness checks pass, connect over JDBC to the instance\nconfigured in .env.local and confirm with SELECT 1 and SHOW LIGHTNING DATABASES.\n\nIf a local port check returns `Operation not permitted`, retry the same\nread-only check with approved network access before reporting the endpoint as\nclosed. Distinguish missing Python runner dependencies (`.venv` or\n`jaydebeapi`) from direct Java JDBC readiness; do not install dependencies\nwithout asking.\n\nGoal: verify SQL execution, inspect the supplied NY_TAXI and TPCDS_DB tables, then run a sample SELECT with LIMIT 5. Do not create objects.\n\nDry-run before creating anything and wait for my go-ahead.&quot;,&quot;rest&quot;:&quot;Use the getting-started repository at https://github.com/zetaris/getting-started as the workspace. If it is not checked out, help me clone and open it first. Read docs/connections/client-setup.md for setup. Keep credentials in .env.local, never in this prompt or a report.\n\nRead AGENTS.md and follow it. Run python3 scripts/preflight.py and show me the\nresult. Then connect over REST to the instance configured in .env.local and\nconfirm with SELECT 1 and SHOW LIGHTNING DATABASES.\n\nGoal: verify SQL execution, inspect the supplied NY_TAXI and TPCDS_DB tables, then run a sample SELECT with LIMIT 5. Do not create objects.\n\nDry-run before creating anything and wait for my go-ahead.&quot;}">
+  <h2 id="assistant-heading">Start with your coding assistant</h2>
+  <p>Open this repository in your assistant, choose a connection and review the prompt before sending it.</p>
+  <div class="protocol-field"><label for="prompt-protocol">Connection</label><select id="prompt-protocol"><option value="jdbc">JDBC</option><option value="rest">REST</option></select></div>
+  <pre class="starter-prompt"><code>Use the getting-started repository at https://github.com/zetaris/getting-started as the workspace. If it is not checked out, help me clone and open it first. Read docs/connections/client-setup.md for setup. Keep credentials in .env.local, never in this prompt or a report.
+
+Read AGENTS.md and follow it. Run python3 scripts/preflight.py --jdbc and show
+me the result. Report JDBC and REST checks separately. Stop on JDBC failures and report
+what is missing. REST failures alone do not block JDBC. If the driver JAR path is not set, ask me
+for it. Once readiness checks pass, connect over JDBC to the instance
+configured in .env.local and confirm with SELECT 1 and SHOW LIGHTNING DATABASES.
+
+If a local port check returns `Operation not permitted`, retry the same
+read-only check with approved network access before reporting the endpoint as
+closed. Distinguish missing Python runner dependencies (`.venv` or
+`jaydebeapi`) from direct Java JDBC readiness; do not install dependencies
+without asking.
+
+Goal: verify SQL execution, inspect the supplied NY_TAXI and TPCDS_DB tables, then run a sample SELECT with LIMIT 5. Do not create objects.
+
+Dry-run before creating anything and wait for my go-ahead.</code></pre>
+  <div class="launcher-actions"><a data-assistant="codex" href="codex://threads/new?prompt=Use%20the%20getting-started%20repository%20at%20https%3A%2F%2Fgithub.com%2Fzetaris%2Fgetting-started%20as%20the%20workspace.%20If%20it%20is%20not%20checked%20out%2C%20help%20me%20clone%20and%20open%20it%20first.%20Read%20docs%2Fconnections%2Fclient-setup.md%20for%20setup.%20Keep%20credentials%20in%20.env.local%2C%20never%20in%20this%20prompt%20or%20a%20report.%0A%0ARead%20AGENTS.md%20and%20follow%20it.%20Run%20python3%20scripts%2Fpreflight.py%20--jdbc%20and%20show%0Ame%20the%20result.%20Report%20JDBC%20and%20REST%20checks%20separately.%20Stop%20on%20JDBC%20failures%20and%20report%0Awhat%20is%20missing.%20REST%20failures%20alone%20do%20not%20block%20JDBC.%20If%20the%20driver%20JAR%20path%20is%20not%20set%2C%20ask%20me%0Afor%20it.%20Once%20readiness%20checks%20pass%2C%20connect%20over%20JDBC%20to%20the%20instance%0Aconfigured%20in%20.env.local%20and%20confirm%20with%20SELECT%201%20and%20SHOW%20LIGHTNING%20DATABASES.%0A%0AIf%20a%20local%20port%20check%20returns%20%60Operation%20not%20permitted%60%2C%20retry%20the%20same%0Aread-only%20check%20with%20approved%20network%20access%20before%20reporting%20the%20endpoint%20as%0Aclosed.%20Distinguish%20missing%20Python%20runner%20dependencies%20(%60.venv%60%20or%0A%60jaydebeapi%60)%20from%20direct%20Java%20JDBC%20readiness%3B%20do%20not%20install%20dependencies%0Awithout%20asking.%0A%0AGoal%3A%20verify%20SQL%20execution%2C%20inspect%20the%20supplied%20NY_TAXI%20and%20TPCDS_DB%20tables%2C%20then%20run%20a%20sample%20SELECT%20with%20LIMIT%205.%20Do%20not%20create%20objects.%0A%0ADry-run%20before%20creating%20anything%20and%20wait%20for%20my%20go-ahead.">Open in Codex</a><a data-assistant="cursor" href="cursor://anysphere.cursor-deeplink/prompt?text=Use%20the%20getting-started%20repository%20at%20https%3A%2F%2Fgithub.com%2Fzetaris%2Fgetting-started%20as%20the%20workspace.%20If%20it%20is%20not%20checked%20out%2C%20help%20me%20clone%20and%20open%20it%20first.%20Read%20docs%2Fconnections%2Fclient-setup.md%20for%20setup.%20Keep%20credentials%20in%20.env.local%2C%20never%20in%20this%20prompt%20or%20a%20report.%0A%0ARead%20AGENTS.md%20and%20follow%20it.%20Run%20python3%20scripts%2Fpreflight.py%20--jdbc%20and%20show%0Ame%20the%20result.%20Report%20JDBC%20and%20REST%20checks%20separately.%20Stop%20on%20JDBC%20failures%20and%20report%0Awhat%20is%20missing.%20REST%20failures%20alone%20do%20not%20block%20JDBC.%20If%20the%20driver%20JAR%20path%20is%20not%20set%2C%20ask%20me%0Afor%20it.%20Once%20readiness%20checks%20pass%2C%20connect%20over%20JDBC%20to%20the%20instance%0Aconfigured%20in%20.env.local%20and%20confirm%20with%20SELECT%201%20and%20SHOW%20LIGHTNING%20DATABASES.%0A%0AIf%20a%20local%20port%20check%20returns%20%60Operation%20not%20permitted%60%2C%20retry%20the%20same%0Aread-only%20check%20with%20approved%20network%20access%20before%20reporting%20the%20endpoint%20as%0Aclosed.%20Distinguish%20missing%20Python%20runner%20dependencies%20(%60.venv%60%20or%0A%60jaydebeapi%60)%20from%20direct%20Java%20JDBC%20readiness%3B%20do%20not%20install%20dependencies%0Awithout%20asking.%0A%0AGoal%3A%20verify%20SQL%20execution%2C%20inspect%20the%20supplied%20NY_TAXI%20and%20TPCDS_DB%20tables%2C%20then%20run%20a%20sample%20SELECT%20with%20LIMIT%205.%20Do%20not%20create%20objects.%0A%0ADry-run%20before%20creating%20anything%20and%20wait%20for%20my%20go-ahead.">Open in Cursor</a><a data-assistant="claude" href="claude://code/new?q=Use%20the%20getting-started%20repository%20at%20https%3A%2F%2Fgithub.com%2Fzetaris%2Fgetting-started%20as%20the%20workspace.%20If%20it%20is%20not%20checked%20out%2C%20help%20me%20clone%20and%20open%20it%20first.%20Read%20docs%2Fconnections%2Fclient-setup.md%20for%20setup.%20Keep%20credentials%20in%20.env.local%2C%20never%20in%20this%20prompt%20or%20a%20report.%0A%0ARead%20AGENTS.md%20and%20follow%20it.%20Run%20python3%20scripts%2Fpreflight.py%20--jdbc%20and%20show%0Ame%20the%20result.%20Report%20JDBC%20and%20REST%20checks%20separately.%20Stop%20on%20JDBC%20failures%20and%20report%0Awhat%20is%20missing.%20REST%20failures%20alone%20do%20not%20block%20JDBC.%20If%20the%20driver%20JAR%20path%20is%20not%20set%2C%20ask%20me%0Afor%20it.%20Once%20readiness%20checks%20pass%2C%20connect%20over%20JDBC%20to%20the%20instance%0Aconfigured%20in%20.env.local%20and%20confirm%20with%20SELECT%201%20and%20SHOW%20LIGHTNING%20DATABASES.%0A%0AIf%20a%20local%20port%20check%20returns%20%60Operation%20not%20permitted%60%2C%20retry%20the%20same%0Aread-only%20check%20with%20approved%20network%20access%20before%20reporting%20the%20endpoint%20as%0Aclosed.%20Distinguish%20missing%20Python%20runner%20dependencies%20(%60.venv%60%20or%0A%60jaydebeapi%60)%20from%20direct%20Java%20JDBC%20readiness%3B%20do%20not%20install%20dependencies%0Awithout%20asking.%0A%0AGoal%3A%20verify%20SQL%20execution%2C%20inspect%20the%20supplied%20NY_TAXI%20and%20TPCDS_DB%20tables%2C%20then%20run%20a%20sample%20SELECT%20with%20LIMIT%205.%20Do%20not%20create%20objects.%0A%0ADry-run%20before%20creating%20anything%20and%20wait%20for%20my%20go-ahead.">Open in Claude Code</a></div>
+  <p class="launcher-note">Requires the desktop app. If it doesn't open, copy the prompt into your assistant. Configure .env.local first; JDBC also needs the matching driver JAR.</p>
+</section></article>
+      <footer>Built from the repository documentation. Use your own Zetaris instance, installed locally or deployed through AWS.</footer>
+    </main>
+    <aside class="outline" aria-label="On this page"><p>On this page</p><a class="depth-2" href="#1-obtain-the-distribution-and-access">1. Obtain the distribution and access</a><a class="depth-3" href="#what-is-being-installed">What is being installed</a><a class="depth-3" href="#download-and-licensing">Download and licensing</a><a class="depth-2" href="#2-local-docker-compose">2. Local Docker Compose</a><a class="depth-3" href="#21-prepare-the-machine">2.1 Prepare the machine</a><a class="depth-3" href="#22-extract-the-bundle-and-authenticate">2.2 Extract the bundle and authenticate</a><a class="depth-3" href="#23-configure-before-first-startup">2.3 Configure before first startup</a><a class="depth-3" href="#24-pull-and-start">2.4 Pull and start</a><a class="depth-2" href="#3-first-login-and-initial-verification">3. First login and initial verification</a><a class="depth-2" href="#4-next-steps">4. Next steps</a><a class="depth-2" href="#5-stop-and-tear-down">5. Stop and tear down</a><a class="depth-2" href="#assistant-heading">Start with your coding assistant</a></aside>
+  </div>
+</body>
+</html>
